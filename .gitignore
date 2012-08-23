@@ -1,0 +1,12 @@
+/.DS_Store
+/.idea/
+/*.iml
+/*.iws
+/src/.DS_Store
+/out
+/.bundle
+/db/*.sqlite3
+/log/*.log
+/tmp
+/.directory
+/*~
