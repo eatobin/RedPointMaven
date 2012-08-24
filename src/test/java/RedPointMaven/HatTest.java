@@ -49,9 +49,12 @@ public class HatTest extends TestCase
     assertTrue(myHat.discardPuck(100));
     assertEquals(2, myHat.pucks.size());
     assertEquals(1, myHat.discardsSize());
+    assertFalse(myHat.pucks.contains(new Integer(100)));
+    assertTrue(myHat.discards.contains(new Integer(100)));
 
     myHat.returnDiscards();
     assertEquals(3, myHat.pucks.size());
     assertEquals(0, myHat.discardsSize());
+    assertTrue(myHat.pucks.contains(new Integer(100)));
   }
 }

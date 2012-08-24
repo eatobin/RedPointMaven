@@ -39,7 +39,7 @@ public class Hat
       int r = generator.nextInt(pucks.size());
 
       // return the contents (playerNumber) of selected index
-      return (int)pucks.get(r);
+      return pucks.get(r);
     }
     // if hat empty
     else
@@ -70,14 +70,7 @@ public class Hat
    */
   public boolean discardPuck(int x)
   {
-    if (pucks.remove(new Integer(x)))
-    {
-      return discards.add(x);
-    }
-    else
-    {
-      return false;
-    }
+    return pucks.remove(new Integer(x)) && discards.add(x);
   }
 
   /**
