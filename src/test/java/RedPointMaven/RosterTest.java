@@ -6,16 +6,21 @@ public class RosterTest extends TestCase
 {
   public void testRosterSize() throws Exception
   {
+    Roster myRoster = new Roster();
 
+    assertEquals(18, myRoster.rosterSize());
+
+    myRoster.roster.put(199, "Eric Tobin");
+    assertEquals(19, myRoster.rosterSize());
   }
 
   public void testReturnPlayerName() throws Exception
   {
+    Roster myRoster = new Roster();
 
-  }
+    myRoster.roster.put(199, "Eric Tobin");
+    assertEquals(19, myRoster.rosterSize());
 
-  public void testPrintPairings() throws Exception
-  {
-
+    assertEquals("Eric Tobin", myRoster.returnPlayerName(199));
   }
 }
