@@ -16,16 +16,19 @@ public class GiftHistory {
      * Constructor for objects of class GiftHistory
      */
     public GiftHistory(int rosterSize) {
-        // initialize instance variables
-
-        // make year 0 ArrayList for each player (given a roster size)
+        /*
+        initialize instance variables and
+        make year 0 ArrayList for each player (given a roster size)
+        */
         for (int i = 0; i < rosterSize; i++) {
             history.add(new ArrayList<Integer>());
         }
 
-        // now, add year 0 giftees
-        // (year = 0, i = giver, history[i] = givee)
-        // auto boxing to Integer
+        /*
+        now, add year 0 giftees
+        (year = 0, i = giver, history[i] = givee)
+        auto boxing to Integer
+        */
         history.get(0).add(108);
         history.get(1).add(109);
         history.get(2).add(110);
@@ -51,8 +54,8 @@ public class GiftHistory {
      */
     public void addYear() {
         // add a givee 0 at end of each player ArrayList
-        for (int i = 0; i < history.size(); i++) {
-            history.get(i).add(new Integer(0));
+        for (ArrayList<Integer> aHistory : history) {
+            aHistory.add(0);
         }
     }
 
@@ -60,11 +63,7 @@ public class GiftHistory {
      * Test #1/3 - Check to see that giver and givee are not same player
      */
     public boolean giveeNotSelf(int giver, int givee) {
-        if (giver == givee) {
-            return false;
-        } else {
-            return true;
-        }
+        return giver != givee;
     }
 
     /**
@@ -75,11 +74,7 @@ public class GiftHistory {
         int theGivee = history.get(givee - 100).get(
                 (history.get(givee - 100).size()) - 1);
 
-        if (theGivee == giver) {
-            return false;
-        } else {
-            return true;
-        }
+        return theGivee != giver;
     }
 
     /**
@@ -87,12 +82,14 @@ public class GiftHistory {
      * years
      */
     public boolean giveeNotRepeat(int giver, int givee) {
-        // is givee(last 4 years) == givee (this year)??
-        // histSize starts @ 2 and grows to 6 over first 4 years
+        /*
+        is givee(last 4 years) == givee (this year)??
+        histSize starts @ 2 and grows to 6 over first 4 years
+        */
         int histSize = history.get(0).size();
         int start = 0;
         int end = histSize - 1;
-        int pastGivee = 0;
+        int pastGivee;
         boolean correct = true;
 
         if (histSize > 6) {
@@ -114,7 +111,7 @@ public class GiftHistory {
      * Set the givee for the giver where year = this
      */
     public int setGivee(int giver, int givee) {
-        int replaced = 0;
+        int replaced;
 
         replaced = history.get(giver - 100)
                 .set(((history.get(giver - 100).size()) - 1), givee);

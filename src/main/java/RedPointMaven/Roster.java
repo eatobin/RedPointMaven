@@ -52,9 +52,7 @@ public class Roster {
         // returns a msg if no match (playerNum = 0)
         // where last giver/givee in Hats fail a test
         Set<Integer> myKeySet = roster.keySet();
-        String correctName = "...nobody!! (last giver/givee pairing and a test failed)";
-
-        // System.out.println(playerNum);
+        String correctName = "...nobody!! (last giver/givee pairing and a test failed - a puzzle logic error)";
 
         for (Integer aKey : myKeySet) {
             String playerName = roster.get(aKey);

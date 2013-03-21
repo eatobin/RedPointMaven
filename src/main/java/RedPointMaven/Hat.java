@@ -16,8 +16,10 @@ public class Hat {
      * Constructor for objects of class Hat given a roster size
      */
     public Hat(int rosterSize) {
-        // initialize instance variables
-        // auto boxing!
+        /*
+        initialize instance variables
+        auto boxing!
+        */
         for (int i = 100; i < (rosterSize + 100); i++) {
             pucks.add(i);
         }
