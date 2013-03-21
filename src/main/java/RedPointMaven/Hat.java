@@ -9,8 +9,8 @@ import java.util.*;
 
 public class Hat {
     // instance variables
-    ArrayList<Integer> pucks = new ArrayList<Integer>();
-    ArrayList<Integer> discards = new ArrayList<Integer>();
+    ArrayList<Integer> pucks;
+    ArrayList<Integer> discards;
 
     /**
      * Constructor for objects of class Hat given a roster size
@@ -20,9 +20,11 @@ public class Hat {
         initialize instance variables
         auto boxing!
         */
+        pucks = new ArrayList<Integer>();
         for (int i = 100; i < (rosterSize + 100); i++) {
             pucks.add(i);
         }
+        discards = new ArrayList<Integer>();
     }
 
     /**
