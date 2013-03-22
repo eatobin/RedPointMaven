@@ -79,7 +79,6 @@ public class Hat {
             worked = pucks.addAll(discards);
             discards.clear();
         }
-
         return worked;
     }
 }
