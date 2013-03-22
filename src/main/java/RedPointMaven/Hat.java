@@ -13,7 +13,7 @@ public class Hat {
     ArrayList<Integer> discards;
 
     /**
-     * Constructor for objects of class Hat given a roster size
+     * Constructor for objects of class Hat given a roster size.
      */
     public Hat(int rosterSize) {
         /*
@@ -28,8 +28,8 @@ public class Hat {
     }
 
     /**
-     * Draws a puck at random (by ArrayList index number) Returns the playerNumber
-     * randomly chosen or 0 if ArrayList empty
+     * Draws a puck at random (by ArrayList index number). Returns the playerNumber
+     * randomly chosen or 0 if ArrayList empty.
      */
     public int drawPuck() {
         // construct a random number between 0 and (pucks.size() - 1)
@@ -47,7 +47,7 @@ public class Hat {
     }
 
     /**
-     * Removes a puck by given playerNumber Returns true if successful
+     * Removes a puck by given playerNumber. Returns true if successful.
      */
     public boolean removePuck(int x) {
         return pucks.remove(new Integer(x));
@@ -61,16 +61,16 @@ public class Hat {
     }
 
     /**
-     * If puck successfully removed, place the puck (x) in the discard list Return
-     * true if both remove and discard succeed
+     * If puck successfully removed, place the puck (x) in the discard list. Return
+     * true if both remove and discard succeed.
      */
     public boolean discardPuck(int x) {
         return pucks.remove(new Integer(x)) && discards.add(x);
     }
 
     /**
-     * Return the discarded pucks to the hat for other player use Return true if
-     * there are discards and they are returned
+     * Return the discarded pucks to the hat for other player use. Return true if
+     * there are discards and they are returned.
      */
     public boolean returnDiscards() {
         boolean worked = false;
@@ -79,6 +79,7 @@ public class Hat {
             worked = pucks.addAll(discards);
             discards.clear();
         }
+
         return worked;
     }
 }

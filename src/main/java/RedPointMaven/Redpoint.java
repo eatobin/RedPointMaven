@@ -1,7 +1,7 @@
 package RedPointMaven;
 
 /**
- * Main class for RedpointMaven
+ * Main class for RedpointMaven.
  */
 
 import java.util.Scanner;
@@ -46,13 +46,13 @@ public class Redpoint {
             // keep drawing givers until Hat empty
             while (giver != 0) {
                 /*
-                keep drawing a givee for giver until all 3 tests are true
-                discard givee if test fails
-                set givee for giver when full success
-                remove givee from Hat
-                remover giver from Hat
-                replace discard givees
-                draw new giver and repeat all
+                keep drawing a givee for giver until all 3 tests are true.
+                discard givee if test fails.
+                set givee for giver when full success.
+                remove givee from Hat.
+                remover giver from Hat.
+                replace discard givees.
+                draw new giver and repeat all.
                 */
                 while (givee != 0) {
                     if (giftHistory.giveeNotSelf(giver, givee)) {

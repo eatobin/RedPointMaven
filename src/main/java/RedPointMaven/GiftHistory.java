@@ -3,14 +3,14 @@ package RedPointMaven;
 /**
  * A class to track the history of gift givers and givees - by year
  * Uses an ArrayList of ArrayLists where x axis = time (year) and
- * y axis = player
+ * y axis = player.
  */
 
 import java.util.*;
 
 public class GiftHistory {
     // instance variables
-    ArrayList<ArrayList<Integer>> history = new ArrayList<ArrayList<Integer>>();
+    ArrayList<ArrayList<Integer>> history;
 
     /**
      * Constructor for objects of class GiftHistory
@@ -20,14 +20,15 @@ public class GiftHistory {
         initialize instance variables and
         make year 0 ArrayList for each player (given a roster size)
         */
+        history = new ArrayList<ArrayList<Integer>>();
         for (int i = 0; i < rosterSize; i++) {
             history.add(new ArrayList<Integer>());
         }
 
         /*
         now, add year 0 giftees
-        (year = 0, i = giver, history[i] = givee)
-        auto boxing to Integer
+        (year = 0, i = giver, history[i] = givee).
+        auto boxing to Integer.
         */
         history.get(0).add(108);
         history.get(1).add(109);
@@ -50,7 +51,7 @@ public class GiftHistory {
     }
 
     /**
-     * Add a year to new year to end of each player Initialized to 0 as givee
+     * Add a year to new year to end of each player Initialized to 0 as givee.
      */
     public void addYear() {
         // add a givee 0 at end of each player ArrayList
@@ -60,14 +61,14 @@ public class GiftHistory {
     }
 
     /**
-     * Test #1/3 - Check to see that giver and givee are not same player
+     * Test #1/3 - Check to see that giver and givee are not same player.
      */
     public boolean giveeNotSelf(int giver, int givee) {
         return giver != givee;
     }
 
     /**
-     * Test #2/3 - Check to see that givee did not give this year to giver
+     * Test #2/3 - Check to see that givee did not give this year to giver.
      */
     public boolean giveeNotRecip(int giver, int givee) {
         // is givee(this year) == giver??
@@ -79,12 +80,12 @@ public class GiftHistory {
 
     /**
      * Test #3/3 - Check to see that givee has not received from giver in last 4
-     * years
+     * years.
      */
     public boolean giveeNotRepeat(int giver, int givee) {
         /*
         is givee(last 4 years) == givee (this year)??
-        histSize starts @ 2 and grows to 6 over first 4 years
+        histSize starts @ 2 and grows to 6 over first 4 years.
         */
         int histSize = history.get(0).size();
         int start = 0;
@@ -108,7 +109,7 @@ public class GiftHistory {
     }
 
     /**
-     * Set the givee for the giver where year = this
+     * Set the givee for the giver where year = this.
      */
     public int setGivee(int giver, int givee) {
         int replaced;
@@ -120,7 +121,7 @@ public class GiftHistory {
     }
 
     /**
-     * Return this year's gift listing as an integer array
+     * Return this year's gift listing as an integer array.
      */
     public int[] giftList(int rosterSize) {
         int[] giftList = new int[rosterSize];

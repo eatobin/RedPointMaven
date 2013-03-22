@@ -1,7 +1,7 @@
 package RedPointMaven;
 
 /**
- * A class to deal with roster mechanics
+ * A class to deal with roster mechanics.
  */
 
 import java.util.*;
@@ -11,11 +11,13 @@ public class Roster {
     Map<Integer, String> roster = new HashMap<Integer, String>();
 
     /**
-     * Constructor for objects of class Roster
+     * Constructor for objects of class Roster.
      */
     public Roster() {
-        // initialize instance variables
-        // build the roster with Map index for each
+        /*
+        initialize instance variables
+        build the roster with Map index for each
+        */
         roster.put(100, "Adam Burish");
         roster.put(101, "Andrew Ladd");
         roster.put(102, "Antti Niemi");
@@ -38,19 +40,21 @@ public class Roster {
 
     /**
      * How large is the roster? Used to set parameters elsewhere - like initial
-     * Hat size
+     * Hat size.
      */
     public int rosterSize() {
         return roster.size();
     }
 
     /**
-     * Given a a player's key value, Return their name
+     * Given a a player's key value, Return their name.
      */
     public String returnPlayerName(int playerNum) {
-        // uses key:value pair functionality of keySet
-        // returns a msg if no match (playerNum = 0)
-        // where last giver/givee in Hats fail a test
+        /*
+        uses key:value pair functionality of keySet
+        returns a msg if no match (playerNum = 0)
+        where last giver/givee in Hats fail a test.
+        */
         Set<Integer> myKeySet = roster.keySet();
         String correctName = "...nobody!! (last giver/givee pairing and a test failed - a puzzle logic error)";
 
@@ -67,7 +71,7 @@ public class Roster {
 
     /**
      * giftList = this year's gift listing, where i = giver and giftList[i] =
-     * givee
+     * givee.
      */
     public void printPairings(int[] giftList) {
         for (int i = 0; i < giftList.length; i++) {
