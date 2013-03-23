@@ -8,6 +8,7 @@ public class Puck {
 
     public Puck(String playerName, Integer gifteeYearZero) {
         this.playerName = playerName;
-        pastGivees = new ArrayList<Integer>(gifteeYearZero);
+        pastGivees = new ArrayList<Integer>();
+        pastGivees.add(0, gifteeYearZero);
     }
 }
