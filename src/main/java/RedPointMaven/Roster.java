@@ -4,7 +4,9 @@ package RedPointMaven;
  * A class to deal with roster mechanics.
  */
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class Roster {
     // instance variables

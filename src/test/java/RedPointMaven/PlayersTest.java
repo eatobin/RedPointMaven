@@ -22,7 +22,7 @@ public class PlayersTest {
     }
 
     @Test
-    public void testAddPlayer(){
+    public void testAddPlayer() {
         myPlayers.players.add(myPlayer);
         Assert.assertEquals(0, myPlayers.players.indexOf(myPlayer));
         Assert.assertEquals(56, myPlayers.players.get(0).returnGiftee(0));

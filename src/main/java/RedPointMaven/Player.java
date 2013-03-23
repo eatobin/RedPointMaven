@@ -20,7 +20,7 @@ public class Player {
         return pastGivees.add(newGiftee);
     }
 
-    public int returnGiftee(int giftYear){
+    public int returnGiftee(int giftYear) {
         return pastGivees.get(giftYear);
     }
 }
