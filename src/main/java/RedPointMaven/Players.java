@@ -9,7 +9,7 @@ public class Players {
         players = new ArrayList<Player>();
     }
 
-    public boolean addPlayer(Player player) {
+    /*public boolean addPlayer(Player player) {
         return players.add(player);
-    }
+    }*/
 }
