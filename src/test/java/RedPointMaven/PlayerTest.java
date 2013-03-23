@@ -20,7 +20,17 @@ public class PlayerTest {
 
     @Test
     public void testAddNewGiftee() {
-        myPlayer.addGiftee(57);
+        Assert.assertTrue(myPlayer.addGiftee(57));
         Assert.assertEquals(57, (int) myPlayer.pastGivees.get(1));
+    }
+
+    @Test
+    public void testReturnGiftee() {
+        Assert.assertEquals(56, myPlayer.returnGiftee(0));
+    }
+
+    @Test
+    public void testGetPlayerName() {
+        Assert.assertEquals("Eric", myPlayer.getPlayerName());
     }
 }

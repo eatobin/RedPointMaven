@@ -12,7 +12,15 @@ public class Player {
         pastGivees.add(0, gifteeYearZero);
     }
 
+    public String getPlayerName() {
+        return playerName;
+    }
+
     public boolean addGiftee(int newGiftee) {
         return pastGivees.add(newGiftee);
+    }
+
+    public int returnGiftee(int giftYear){
+        return pastGivees.get(giftYear);
     }
 }
