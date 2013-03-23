@@ -10,48 +10,42 @@ import java.util.Random;
 
 public class Hat {
     // instance variables
-    ArrayList<Integer> pucks;
-    ArrayList<Integer> discards;
+    ArrayList<String> pucks;
+    ArrayList<String> discards;
 
     /**
      * Constructor for objects of class Hat given a roster size.
      */
-    public Hat(int rosterSize) {
-        /*
-        initialize instance variables
-        auto boxing!
-        */
-        pucks = new ArrayList<Integer>();
-        for (int i = 100; i < (rosterSize + 100); i++) {
-            pucks.add(i);
-        }
-        discards = new ArrayList<Integer>();
+    public Hat(ArrayList<String> pucks) {
+        //initialize instance variables
+        this.pucks = pucks;
+        discards = new ArrayList<String>();
     }
 
     /**
      * Draws a puck at random (by ArrayList index number). Returns the playerNumber
      * randomly chosen or 0 if ArrayList empty.
      */
-    public int drawPuck() {
+    public String drawPuck() {
         // construct a random number between 0 and (pucks.size() - 1)
         if (pucks.size() > 0) {
             Random generator = new Random();
             int r = generator.nextInt(pucks.size());
 
-            // return the contents (playerNumber) of selected index
+            // return the contents (playerCode) of selected index
             return pucks.get(r);
         }
         // if hat empty
         else {
-            return 0;
+            return "none";
         }
     }
 
     /**
      * Removes a puck by given playerNumber. Returns true if successful.
      */
-    public boolean removePuck(int x) {
-        return pucks.remove(new Integer(x));
+    public boolean removePuck(String playerCode) {
+        return pucks.remove(playerCode);
     }
 
     /**
@@ -62,11 +56,11 @@ public class Hat {
     }
 
     /**
-     * If puck successfully removed, place the puck (x) in the discard list. Return
+     * If puck successfully removed, place the puck (playerCode) in the discard list. Return
      * true if both remove and discard succeed.
      */
-    public boolean discardPuck(int x) {
-        return pucks.remove(new Integer(x)) && discards.add(x);
+    public boolean discardPuck(String playerCode) {
+        return pucks.remove(playerCode) && discards.add(playerCode);
     }
 
     /**

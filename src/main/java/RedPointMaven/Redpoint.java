@@ -1,12 +1,16 @@
+/*
 package RedPointMaven;
 
+*/
 /**
  * Main class for RedpointMaven.
- */
+ *//*
+
 
 import java.util.Scanner;
 
-public class Redpoint {
+*/
+/*public class Redpoint {
     // main method
     public static void main(String[] args) {
         // initialize variables
@@ -32,20 +36,22 @@ public class Redpoint {
             giftHistory.addYear();
 
             // make a giver Hat
-            Hat giverHat = new Hat(rosterSize);
+            //Hat giverHat = new Hat(rosterSize);
 
             // make a givee Hat
             Hat giveeHat = new Hat(rosterSize);
 
             // draw a giver
-            int giver = giverHat.drawPuck();
+            //int giver = giverHat.drawPuck();
 
             // draw a givee
-            int givee = giveeHat.drawPuck();
+            //int givee = giveeHat.drawPuck();
 
             // keep drawing givers until Hat empty
             while (giver != 0) {
-                /*
+                *//*
+*/
+/*
                 keep drawing a givee for giver until all 3 tests are true.
                 discard givee if test fails.
                 set givee for giver when full success.
@@ -53,7 +59,9 @@ public class Redpoint {
                 remover giver from Hat.
                 replace discard givees.
                 draw new giver and repeat all.
-                */
+                *//*
+*/
+/*
                 while (givee != 0) {
                     if (giftHistory.giveeNotSelf(giver, givee)) {
                         if (giftHistory.giveeNotRecip(giver, givee)) {
@@ -96,5 +104,6 @@ public class Redpoint {
         System.out.println("Talk about a position with Redpoint?");
         System.out.println("Please call: Eric Tobin 773-325-1516");
         System.out.println("Thanks! Bye...");
-    }
-}
+    //}
+//}
+*/
