@@ -5,7 +5,8 @@ package RedPointMaven;
  * Pucks can be drawn at random, removed and replaced after discard.
  */
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Hat {
     // instance variables
