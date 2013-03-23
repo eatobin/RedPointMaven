@@ -1,23 +1,26 @@
 package RedPointMaven;
 
-import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Test;
 
-public class RosterTest extends TestCase {
+public class RosterTest {
+    @Test
     public void testRosterSize() {
         Roster myRoster = new Roster();
 
-        assertEquals(18, myRoster.rosterSize());
+        Assert.assertEquals(18, myRoster.rosterSize());
 
         myRoster.roster.put(199, "Eric Tobin");
-        assertEquals(19, myRoster.rosterSize());
+        Assert.assertEquals(19, myRoster.rosterSize());
     }
 
+    @Test
     public void testReturnPlayerName() {
         Roster myRoster = new Roster();
 
         myRoster.roster.put(199, "Eric Tobin");
-        assertEquals(19, myRoster.rosterSize());
+        Assert.assertEquals(19, myRoster.rosterSize());
 
-        assertEquals("Eric Tobin", myRoster.returnPlayerName(199));
+        Assert.assertEquals("Eric Tobin", myRoster.returnPlayerName(199));
     }
 }

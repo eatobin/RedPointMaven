@@ -11,4 +11,8 @@ public class Player {
         pastGivees = new ArrayList<Integer>();
         pastGivees.add(0, gifteeYearZero);
     }
+
+    public boolean addGiftee(int newGiftee) {
+        return pastGivees.add(newGiftee);
+    }
 }

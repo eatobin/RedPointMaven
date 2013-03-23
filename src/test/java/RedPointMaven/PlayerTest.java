@@ -1,11 +1,26 @@
 package RedPointMaven;
 
-import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
-public class PlayerTest extends TestCase {
+public class PlayerTest {
+    Player myPlayer;
+
+    @Before
+    public void setUp() {
+        myPlayer = new Player("Eric", 56);
+    }
+
+    @Test
     public void testPlayer() {
-        Player myPlayer = new Player("Eric", 56);
-        assertEquals("Eric", myPlayer.playerName);
-        assertEquals(56, (int)myPlayer.pastGivees.get(0));
+        Assert.assertEquals("Eric", myPlayer.playerName);
+        Assert.assertEquals(56, (int) myPlayer.pastGivees.get(0));
+    }
+
+    @Test
+    public void testAddNewGiftee() {
+        myPlayer.addGiftee(57);
+        Assert.assertEquals(57, (int) myPlayer.pastGivees.get(1));
     }
 }
