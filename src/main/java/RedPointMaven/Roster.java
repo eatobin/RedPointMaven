@@ -8,7 +8,7 @@ import java.util.*;
 
 public class Roster {
     // instance variables
-    Map<Integer, String> roster = new HashMap<Integer, String>();
+    Map<Integer, String> roster;
 
     /**
      * Constructor for objects of class Roster.
@@ -18,6 +18,7 @@ public class Roster {
         initialize instance variables
         build the roster with Map index for each
         */
+        roster = new HashMap<Integer, String>();
         roster.put(100, "Adam Burish");
         roster.put(101, "Andrew Ladd");
         roster.put(102, "Antti Niemi");
