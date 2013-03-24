@@ -23,4 +23,12 @@ public class Roster {
     public String returnPlayerName(String playerCode) {
         return roster.get(playerCode).getPlayerName();
     }
+
+    public boolean addGiftee(String playerCode, String giftee) {
+        return roster.get(playerCode).addGiftee(giftee);
+    }
+
+    public String returnGiftee(String playerCode, int giftYear) {
+        return roster.get(playerCode).returnGiftee(giftYear);
+    }
 }

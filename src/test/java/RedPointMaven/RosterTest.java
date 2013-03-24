@@ -25,5 +25,18 @@ public class RosterTest {
         Assert.assertEquals("Eric Tobin", myRoster.returnPlayerName("EriTob"));
         Assert.assertEquals("Jerri Cohen", myRoster.returnPlayerName("JerCoh"));
     }
+
+    @Test
+    public void testReturnGiftee() {
+        Assert.assertEquals("SarArt", myRoster.returnGiftee("EriTob", 0));
+        Assert.assertEquals("EriTob", myRoster.returnGiftee("JerCoh", 0));
+    }
+
+    @Test
+    public void testAddGiftee() {
+        Assert.assertTrue(myRoster.addGiftee("EriTob", "JerCoh"));
+        Assert.assertEquals("SarArt", myRoster.returnGiftee("EriTob", 0));
+        Assert.assertEquals("JerCoh", myRoster.returnGiftee("EriTob", 1));
+    }
 }
 
