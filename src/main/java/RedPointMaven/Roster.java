@@ -12,8 +12,4 @@ public class Roster {
         roster.put("SarArt", new Player("Sarah Artzi", "JerCoh"));
         roster.put("JerCoh", new Player("Jerri Cohen", "EriTob"));
     }
-
-    /*public boolean addPlayer(Player player) {
-        return players.add(player);
-    }*/
 }
