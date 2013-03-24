@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Player {
     String playerName;
-    ArrayList<Integer> pastGivees;
+    ArrayList<String> pastGivees;
 
-    public Player(String playerName, Integer gifteeYearZero) {
+    public Player(String playerName, String gifteeYearZero) {
         this.playerName = playerName;
-        pastGivees = new ArrayList<Integer>();
+        pastGivees = new ArrayList<String>();
         pastGivees.add(0, gifteeYearZero);
     }
 
@@ -16,11 +16,11 @@ public class Player {
         return playerName;
     }
 
-    public boolean addGiftee(int newGiftee) {
+    public boolean addGiftee(String newGiftee) {
         return pastGivees.add(newGiftee);
     }
 
-    public int returnGiftee(int giftYear) {
+    public String returnGiftee(int giftYear) {
         return pastGivees.get(giftYear);
     }
 }

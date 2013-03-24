@@ -18,8 +18,8 @@ import java.util.Scanner;
         int year = 1;
         int doNextYear = 1;
 
-        // make a new Roster
-        Roster roster = new Roster();
+        // make a new RosterOld
+        RosterOld roster = new RosterOld();
         int rosterSize = roster.rosterSize();
 
         // make a new GiftHistory

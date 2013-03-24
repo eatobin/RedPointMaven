@@ -10,14 +10,14 @@ public class PlayersTest {
 
     @Before
     public void setUp() {
-        myPlayer = new Player("Eric", 56);
+        myPlayer = new Player("Eric Tobin", "SarArt");
         myPlayers = new Players();
     }
 
     @Test
     public void testPlayers() {
-        Assert.assertEquals("Eric", myPlayer.playerName);
-        Assert.assertEquals(56, myPlayer.returnGiftee(0));
+        Assert.assertEquals("Eric Tobin", myPlayer.playerName);
+        Assert.assertEquals("SarArt", myPlayer.returnGiftee(0));
         Assert.assertTrue(myPlayers.players.isEmpty());
     }
 
@@ -25,6 +25,6 @@ public class PlayersTest {
     public void testAddPlayer() {
         myPlayers.players.add(myPlayer);
         Assert.assertEquals(0, myPlayers.players.indexOf(myPlayer));
-        Assert.assertEquals(56, myPlayers.players.get(0).returnGiftee(0));
+        Assert.assertEquals("SarArt", myPlayers.players.get(0).returnGiftee(0));
     }
 }

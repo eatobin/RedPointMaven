@@ -9,28 +9,28 @@ public class PlayerTest {
 
     @Before
     public void setUp() {
-        myPlayer = new Player("Eric", 56);
+        myPlayer = new Player("Eric Tobin", "JerCoh");
     }
 
     @Test
     public void testPlayer() {
-        Assert.assertEquals("Eric", myPlayer.playerName);
-        Assert.assertEquals(56, (int) myPlayer.pastGivees.get(0));
+        Assert.assertEquals("Eric Tobin", myPlayer.playerName);
+        Assert.assertEquals("JerCoh", myPlayer.pastGivees.get(0));
     }
 
     @Test
     public void testAddNewGiftee() {
-        Assert.assertTrue(myPlayer.addGiftee(57));
-        Assert.assertEquals(57, (int) myPlayer.pastGivees.get(1));
+        Assert.assertTrue(myPlayer.addGiftee("SarArt"));
+        Assert.assertEquals("SarArt", myPlayer.pastGivees.get(1));
     }
 
     @Test
     public void testReturnGiftee() {
-        Assert.assertEquals(56, myPlayer.returnGiftee(0));
+        Assert.assertEquals("JerCoh", myPlayer.returnGiftee(0));
     }
 
     @Test
     public void testGetPlayerName() {
-        Assert.assertEquals("Eric", myPlayer.getPlayerName());
+        Assert.assertEquals("Eric Tobin", myPlayer.getPlayerName());
     }
 }
