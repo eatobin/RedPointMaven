@@ -2,6 +2,7 @@ package RedPointMaven;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Roster {
     Map<String, Player> roster;
@@ -30,5 +31,22 @@ public class Roster {
 
     public String returnGiftee(String playerCode, int giftYear) {
         return roster.get(playerCode).returnGiftee(giftYear);
+    }
+
+    public void printGivingRoster(int giftYear) {
+        /*
+        uses key:value pair functionality of keySet
+        returns a msg if no match (playerNum = 0)
+        where last giver/givee in Hats fail a test.
+        */
+        Set<String> myKeySet = roster.keySet();
+        //String correctName = "...nobody!! (last giver/givee pairing and a test failed - a puzzle logic error)";
+
+        for (String aKey : myKeySet) {
+            String playerName = roster.get(aKey).getPlayerName();
+            String gifteeCode = roster.get(aKey).returnGiftee(giftYear);
+            String gifteeName = roster.get(gifteeCode).getPlayerName();
+            System.out.println(playerName + " is buying for " + gifteeName);
+        }
     }
 }

@@ -38,5 +38,10 @@ public class RosterTest {
         Assert.assertEquals("SarArt", myRoster.returnGiftee("EriTob", 0));
         Assert.assertEquals("JerCoh", myRoster.returnGiftee("EriTob", 1));
     }
+
+    @Test
+    public void testPrintGivingRoster() {
+        myRoster.printGivingRoster(0);
+    }
 }
 
