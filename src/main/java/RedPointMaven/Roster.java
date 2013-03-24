@@ -2,7 +2,6 @@ package RedPointMaven;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class Roster {
     Map<String, Player> roster;
@@ -22,7 +21,6 @@ public class Roster {
     }
 
     public String returnPlayerName(String playerCode) {
-
-       return "Hi";
+        return roster.get(playerCode).getPlayerName();
     }
 }

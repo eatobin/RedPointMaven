@@ -20,13 +20,10 @@ public class RosterTest {
         Assert.assertEquals(4, myRoster.rosterSize());
     }
 
-    /*@Test
+    @Test
     public void testReturnPlayerName() {
-        RosterOld myRosterOld = new RosterOld();
-
-        myRosterOld.roster.put(199, "Eric Tobin");
-        Assert.assertEquals(19, myRosterOld.rosterSize());
-
-        Assert.assertEquals("Eric Tobin", myRosterOld.returnPlayerName(199));*/
+        Assert.assertEquals("Eric Tobin", myRoster.returnPlayerName("EriTob"));
+        Assert.assertEquals("Jerri Cohen", myRoster.returnPlayerName("JerCoh"));
+    }
 }
 
