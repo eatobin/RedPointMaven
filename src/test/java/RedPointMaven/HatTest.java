@@ -12,68 +12,51 @@ public class HatTest {
     @Before
     public void setUp() {
         ArrayList<String> myArr = new ArrayList<String>();
-        myArr.add("Italian Riviera");
-        myArr.add("Jersey Shore");
-        myArr.add("Puerto Rico");
-        myArr.add("Los Cabos Corridor");
-        myArr.add("Lubmin");
-        myArr.add("Coney Island");
-        myArr.add("Karlovy Vary");
-        myArr.add("Bourbon-l'Archambault");
-        myArr.add("Walt Disney World Resort");
-        myArr.add("Barbados");
+        myArr.add("EriTob");
+        myArr.add("NanLon");
+        myArr.add("JerCoh");
         myHat = new Hat(myArr);
     }
 
     @Test
     public void testDrawPuck() {
-        Assert.assertEquals(10, myHat.pucks.size());
-        Assert.assertEquals("Puerto Rico", myHat.pucks.get(2));
-        Assert.assertTrue(myHat.drawPuck() != "None");
-        //Assert.assertTrue("Fails - Greater than", myHat.drawPuck() <= 102);
+        Assert.assertEquals(3, myHat.pucks.size());
+        Assert.assertEquals("JerCoh", myHat.pucks.get(2));
+        Assert.assertTrue(!myHat.drawPuck().equals("none"));
 
         myHat.pucks.clear();
         Assert.assertEquals("none", myHat.drawPuck());
     }
 
-   /* @Test
-    public void testRemovePuck() {
-        Hat myHat = new Hat(3);
-
-        Assert.assertTrue(myHat.removePuck(100));
-        Assert.assertEquals(2, myHat.pucks.size());
-    }
-
     @Test
-    public void testDiscardsSize() {
-        Hat myHat = new Hat(3);
-
-        Assert.assertTrue(myHat.discardPuck(100));
-        Assert.assertEquals(1, myHat.discardsSize());
+    public void testRemovePuck() {
+        Assert.assertTrue(myHat.removePuck("NanLon"));
+        Assert.assertEquals(2, myHat.pucks.size());
+        Assert.assertFalse(myHat.removePuck("NanLon"));
+        Assert.assertTrue(myHat.removePuck("EriTob"));
+        Assert.assertTrue(myHat.removePuck("JerCoh"));
+        Assert.assertTrue(myHat.drawPuck().equals("none"));
     }
 
     @Test
     public void testDiscardPuck() {
-        Hat myHat = new Hat(3);
-
-        Assert.assertTrue(myHat.discardPuck(100));
-        Assert.assertFalse(myHat.discardPuck(109));
+        Assert.assertTrue(myHat.discardPuck("JerCoh"));
+        Assert.assertEquals(1, myHat.discardsSize());
         Assert.assertEquals(2, myHat.pucks.size());
+        Assert.assertTrue(myHat.discards.contains("JerCoh"));
     }
 
     @Test
     public void testReturnDiscards() {
-        Hat myHat = new Hat(3);
-
-        Assert.assertTrue(myHat.discardPuck(100));
+        Assert.assertTrue(myHat.discardPuck("EriTob"));
         Assert.assertEquals(2, myHat.pucks.size());
         Assert.assertEquals(1, myHat.discardsSize());
-        Assert.assertFalse(myHat.pucks.contains(new Integer(100)));
-        Assert.assertTrue(myHat.discards.contains(new Integer(100)));
+        Assert.assertFalse(myHat.pucks.contains("EriTob"));
+        Assert.assertTrue(myHat.discards.contains("EriTob"));
 
         myHat.returnDiscards();
         Assert.assertEquals(3, myHat.pucks.size());
         Assert.assertEquals(0, myHat.discardsSize());
-        Assert.assertTrue(myHat.pucks.contains(new Integer(100)));
-    }*/
+        Assert.assertTrue(myHat.pucks.contains("EriTob"));
+    }
 }
