@@ -16,11 +16,11 @@ public class Player {
         return playerName;
     }
 
-    public boolean addGiftee(String newGiftee) {
+    public boolean addGivee(String newGiftee) {
         return pastGivees.add(newGiftee);
     }
 
-    public String returnGiftee(int giftYear) {
+    public String returnGivee(int giftYear) {
         return pastGivees.get(giftYear);
     }
 }

@@ -28,15 +28,15 @@ public class RosterTest {
 
     @Test
     public void testReturnGiftee() {
-        Assert.assertEquals("SarArt", myRoster.returnGiftee("EriTob", 0));
-        Assert.assertEquals("EriTob", myRoster.returnGiftee("JerCoh", 0));
+        Assert.assertEquals("SarArt", myRoster.returnGivee("EriTob", 0));
+        Assert.assertEquals("EriTob", myRoster.returnGivee("JerCoh", 0));
     }
 
     @Test
     public void testAddGiftee() {
-        Assert.assertTrue(myRoster.addGiftee("EriTob", "JerCoh"));
-        Assert.assertEquals("SarArt", myRoster.returnGiftee("EriTob", 0));
-        Assert.assertEquals("JerCoh", myRoster.returnGiftee("EriTob", 1));
+        Assert.assertTrue(myRoster.addGivee("EriTob", "JerCoh"));
+        Assert.assertEquals("SarArt", myRoster.returnGivee("EriTob", 0));
+        Assert.assertEquals("JerCoh", myRoster.returnGivee("EriTob", 1));
     }
 
     @Test

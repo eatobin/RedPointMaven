@@ -25,12 +25,12 @@ public class Roster {
         return roster.get(playerCode).getPlayerName();
     }
 
-    public boolean addGiftee(String playerCode, String giftee) {
-        return roster.get(playerCode).addGiftee(giftee);
+    public boolean addGivee(String playerCode, String givee) {
+        return roster.get(playerCode).addGivee(givee);
     }
 
-    public String returnGiftee(String playerCode, int giftYear) {
-        return roster.get(playerCode).returnGiftee(giftYear);
+    public String returnGivee(String playerCode, int giftYear) {
+        return roster.get(playerCode).returnGivee(giftYear);
     }
 
     public void printGivingRoster(int giftYear) {
@@ -44,9 +44,9 @@ public class Roster {
 
         for (String aKey : myKeySet) {
             String playerName = roster.get(aKey).getPlayerName();
-            String gifteeCode = roster.get(aKey).returnGiftee(giftYear);
-            String gifteeName = roster.get(gifteeCode).getPlayerName();
-            System.out.println(playerName + " is buying for " + gifteeName);
+            String giveeCode = roster.get(aKey).returnGivee(giftYear);
+            String giveeName = roster.get(giveeCode).getPlayerName();
+            System.out.println(playerName + " is buying for " + giveeName);
         }
     }
 }

@@ -20,13 +20,13 @@ public class PlayerTest {
 
     @Test
     public void testAddNewGiftee() {
-        Assert.assertTrue(myPlayer.addGiftee("SarArt"));
+        Assert.assertTrue(myPlayer.addGivee("SarArt"));
         Assert.assertEquals("SarArt", myPlayer.pastGivees.get(1));
     }
 
     @Test
     public void testReturnGiftee() {
-        Assert.assertEquals("JerCoh", myPlayer.returnGiftee(0));
+        Assert.assertEquals("JerCoh", myPlayer.returnGivee(0));
     }
 
     @Test
