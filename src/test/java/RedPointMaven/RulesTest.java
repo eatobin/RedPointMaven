@@ -16,6 +16,12 @@ public class RulesTest {
     }
 
     @Test
+    public void testGiveeNotSelf() {
+        Assert.assertFalse(Rules.giveeNotSelf("EriTob", "EriTob"));
+        Assert.assertTrue(Rules.giveeNotSelf("EriTob", "JerCoh"));
+    }
+
+    @Test
     public void testGiveeNotRecip() {
         Assert.assertTrue(Rules.giveeNotRecip("EriTob", "SarArt", myRoster, 0));
         Assert.assertFalse(Rules.giveeNotRecip("JerCoh", "SarArt", myRoster, 0));
@@ -27,6 +33,11 @@ public class RulesTest {
 
     @Test
     public void testGiveeNotRepeat() {
-
+        myRoster.roster.put("ScoTob", new Player("Scott Tobin", "JerCoh"));
+        Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "JerCoh", myRoster, 1));
+        Assert.assertFalse(Rules.giveeNotRepeat("EriTob", "JerCoh", myRoster, 2));
+        Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "ScoTob", myRoster, 1));
+        Assert.assertFalse(Rules.giveeNotRepeat("EriTob", "SarArt", myRoster, 1));
+        Assert.assertFalse(Rules.giveeNotRepeat("EriTob", "SarArt", myRoster, 2));
     }
 }

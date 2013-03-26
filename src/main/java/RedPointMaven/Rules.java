@@ -15,13 +15,13 @@ public class Rules {
     public static boolean giveeNotRepeat(String giver, String givee, Roster roster, int thisYear) {
         int counter;
         String giveeInYear;
-        boolean result;
+        boolean result = true;
         for (counter = thisYear - 1; (counter >= 0) && (counter >= (thisYear - 4)); counter--) {
             giveeInYear = roster.returnGivee(giver, counter);
             if (givee.equals(giveeInYear)) {
                 result = false;
             }
         }
-        return true;
+        return result;
     }
 }
