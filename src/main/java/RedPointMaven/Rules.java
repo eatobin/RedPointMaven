@@ -1,8 +1,6 @@
 package RedPointMaven;
 
 public class Rules {
-    //Roster myRoster;
-
     public static boolean giveeNotSelf(String giver, String givee) {
         return !giver.equals(givee);
     }
