@@ -6,10 +6,10 @@ public class Player {
     String playerName;
     ArrayList<String> pastGivees;
 
-    public Player(String playerName, String gifteeYearZero) {
+    public Player(String playerName, String giveeYearZero) {
         this.playerName = playerName;
         pastGivees = new ArrayList<String>();
-        pastGivees.add(0, gifteeYearZero);
+        pastGivees.add(0, giveeYearZero);
     }
 
     public String getPlayerName() {
@@ -22,5 +22,9 @@ public class Player {
 
     public String returnGivee(int giftYear) {
         return pastGivees.get(giftYear);
+    }
+
+    public int giveeArrayLength() {
+        return pastGivees.size();
     }
 }

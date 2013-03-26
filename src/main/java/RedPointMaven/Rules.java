@@ -1,15 +1,29 @@
 package RedPointMaven;
 
 public class Rules {
-    Roster myRoster;
+    //Roster myRoster;
 
     public static boolean giveeNotSelf(String giver, String givee) {
         return !giver.equals(givee);
     }
 
-    public boolean giveeNotRecip(String giver, String givee, int thisYear) {
+    public static boolean giveeNotRecip(String giver, String givee, Roster roster, int thisYear) {
         // is givee(this year) == giver??
-        givee = myRoster.returnGivee(givee, thisYear);
-        return !giver.equals(givee);
+        String giveeGivingTo;
+        giveeGivingTo = roster.returnGivee(givee, thisYear);
+        return !giver.equals(giveeGivingTo);
+    }
+
+    public static boolean giveeNotRepeat(String giver, String givee, Roster roster, int thisYear) {
+        int counter;
+        String giveeInYear;
+        boolean result;
+        for (counter = thisYear - 1; (counter >= 0) && (counter >= (thisYear - 4)); counter--) {
+            giveeInYear = roster.returnGivee(giver, counter);
+            if (givee.equals(giveeInYear)) {
+                result = false;
+            }
+        }
+        return true;
     }
 }
