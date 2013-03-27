@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 public class RulesTest {
     Roster myRoster;
 
@@ -39,5 +41,21 @@ public class RulesTest {
         Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "ScoTob", myRoster, 1));
         Assert.assertFalse(Rules.giveeNotRepeat("EriTob", "SarArt", myRoster, 1));
         Assert.assertFalse(Rules.giveeNotRepeat("EriTob", "SarArt", myRoster, 2));
+        System.out.println(myRoster.roster.get("EriTob").pastGivees.toString());
+        myRoster.roster.get("EriTob").pastGivees.set(0, "JerCoh");
+        System.out.println(myRoster.roster.get("EriTob").pastGivees.toString());
+        ArrayList<String> newList = new ArrayList<String>();
+        newList.add("JerCoh");
+        newList.add("JerCoh");
+        newList.add("JerCoh");
+        newList.add("JerCoh");
+        myRoster.roster.get("EriTob").pastGivees.addAll(newList);
+        System.out.println(myRoster.roster.get("EriTob").pastGivees.toString());
+        Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "SarArt", myRoster, 6));
+        myRoster.roster.get("EriTob").pastGivees.set(1, "SarArt");
+        System.out.println(myRoster.roster.get("EriTob").pastGivees.toString());
+        Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "SarArt", myRoster, 6));
+        Assert.assertFalse(Rules.giveeNotRepeat("EriTob", "SarArt", myRoster, 5));
+        Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "SarArt", myRoster, 1));
     }
 }
