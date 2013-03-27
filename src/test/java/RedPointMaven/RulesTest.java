@@ -16,6 +16,7 @@ public class RulesTest {
         roster.roster.put("EriTob", new Player("Eric Tobin", "SarArt"));
         roster.roster.put("SarArt", new Player("Sarah Artzi", "JerCoh"));
         roster.roster.put("JerCoh", new Player("Jerri Cohen", "EriTob"));
+        roster.addNewYear();
         roster.setGivee("EriTob", "JerCoh", 1);
         roster.setGivee("SarArt", "EriTob", 1);
         roster.setGivee("JerCoh", "SarArt", 1);
