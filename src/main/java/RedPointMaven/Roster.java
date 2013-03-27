@@ -1,14 +1,13 @@
 package RedPointMaven;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 public class Roster {
-    Map<String, Player> roster;
+    TreeMap<String, Player> roster;
 
     public Roster() {
-        roster = new HashMap<String, Player>();
+        roster = new TreeMap<String, Player>();
         roster.put("AdaBur", new Player("Adam Burish", "DunKei"));
         roster.put("AndLad", new Player("Andrew Ladd", "JoeQue"));
         roster.put("AntNie", new Player("Antti Niemi", "JonToe"));
