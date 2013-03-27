@@ -12,6 +12,10 @@ public class RulesTest {
     @Before
     public void setUp() {
         myRoster = new Roster();
+        myRoster.roster.clear();
+        myRoster.roster.put("EriTob", new Player("Eric Tobin", "SarArt"));
+        myRoster.roster.put("SarArt", new Player("Sarah Artzi", "JerCoh"));
+        myRoster.roster.put("JerCoh", new Player("Jerri Cohen", "EriTob"));
         myRoster.addGivee("EriTob", "JerCoh");
         myRoster.addGivee("SarArt", "EriTob");
         myRoster.addGivee("JerCoh", "SarArt");
