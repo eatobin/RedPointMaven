@@ -52,11 +52,10 @@ public class RosterTest {
 
     @Test
     public void testPrintGivingRoster() {
-        roster = new Roster();
-
         roster.printGivingRoster(0);
+        roster = new Roster();
         System.out.println();
-
+        roster.printGivingRoster(0);
     }
 }
 
