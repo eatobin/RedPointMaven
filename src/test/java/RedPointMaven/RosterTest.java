@@ -5,43 +5,58 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class RosterTest {
-    Roster myRoster;
+    Roster roster;
 
     @Before
     public void setUp() {
-        myRoster = new Roster();
+        roster = new Roster();
+        roster.roster.clear();
+        roster.roster.put("EriTob", new Player("Eric Tobin", "SarArt"));
+        roster.roster.put("SarArt", new Player("Sarah Artzi", "JerCoh"));
+        roster.roster.put("JerCoh", new Player("Jerri Cohen", "EriTob"));
     }
 
     @Test
     public void testRosterSize() {
-        Assert.assertEquals(3, myRoster.rosterSize());
+        Assert.assertEquals(3, roster.rosterSize());
 
-        myRoster.roster.put("ScoTob", new Player("Scott Tobin", "JerCoh"));
-        Assert.assertEquals(4, myRoster.rosterSize());
+        roster.roster.put("ScoTob", new Player("Scott Tobin", "JerCoh"));
+        Assert.assertEquals(4, roster.rosterSize());
     }
 
     @Test
     public void testReturnPlayerName() {
-        Assert.assertEquals("Eric Tobin", myRoster.returnPlayerName("EriTob"));
-        Assert.assertEquals("Jerri Cohen", myRoster.returnPlayerName("JerCoh"));
+        Assert.assertEquals("Eric Tobin", roster.returnPlayerName("EriTob"));
+        Assert.assertEquals("Jerri Cohen", roster.returnPlayerName("JerCoh"));
     }
 
     @Test
-    public void testReturnGiftee() {
-        Assert.assertEquals("SarArt", myRoster.returnGivee("EriTob", 0));
-        Assert.assertEquals("EriTob", myRoster.returnGivee("JerCoh", 0));
+    public void testReturnGivee() {
+        Assert.assertEquals("SarArt", roster.returnGivee("EriTob", 0));
+        Assert.assertEquals("EriTob", roster.returnGivee("JerCoh", 0));
     }
 
     @Test
-    public void testAddGiftee() {
-        Assert.assertTrue(myRoster.addGivee("EriTob", "JerCoh"));
-        Assert.assertEquals("SarArt", myRoster.returnGivee("EriTob", 0));
-        Assert.assertEquals("JerCoh", myRoster.returnGivee("EriTob", 1));
+    public void testSetGivee() {
+        Assert.assertEquals("SarArt", roster.returnGivee("EriTob", 0));
+        Assert.assertEquals("SarArt", roster.setGivee("EriTob", "JerCoh", 0));
+        Assert.assertEquals("JerCoh", roster.returnGivee("EriTob", 0));
+    }
+
+    @Test
+    public void testAddNewYear() {
+        roster.addNewYear();
+        Assert.assertEquals("JerCoh", roster.returnGivee("SarArt", 0));
+        Assert.assertEquals("none", roster.returnGivee("SarArt", 1));
     }
 
     @Test
     public void testPrintGivingRoster() {
-        myRoster.printGivingRoster(0);
+        roster = new Roster();
+
+        roster.printGivingRoster(0);
+        System.out.println();
+
     }
 }
 

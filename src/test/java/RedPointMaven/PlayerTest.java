@@ -19,18 +19,25 @@ public class PlayerTest {
     }
 
     @Test
-    public void testAddNewGiftee() {
+    public void testAddGivee() {
         Assert.assertTrue(myPlayer.addGivee("SarArt"));
         Assert.assertEquals("SarArt", myPlayer.pastGivees.get(1));
     }
 
     @Test
-    public void testReturnGiftee() {
+    public void testReturnGivee() {
         Assert.assertEquals("JerCoh", myPlayer.returnGivee(0));
     }
 
     @Test
     public void testGetPlayerName() {
         Assert.assertEquals("Eric Tobin", myPlayer.getPlayerName());
+    }
+
+    @Test
+    public void testSetGivee() {
+        Assert.assertEquals("JerCoh", myPlayer.pastGivees.get(0));
+        Assert.assertEquals("JerCoh", myPlayer.setGivee("SarArt", 0));
+        Assert.assertEquals("SarArt", myPlayer.returnGivee(0));
     }
 }
