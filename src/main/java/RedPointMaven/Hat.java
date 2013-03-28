@@ -16,9 +16,9 @@ public class Hat {
     /**
      * Constructor for objects of class Hat given a roster size.
      */
-    public Hat(ArrayList<String> pucks) {
+    public Hat(Roster myRoster) {
         //initialize instance variables
-        this.pucks = pucks;
+        pucks = new ArrayList<String>(myRoster.roster.keySet());
         discards = new ArrayList<String>();
     }
 

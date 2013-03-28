@@ -4,25 +4,26 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 public class HatTest {
-    ArrayList<String> pucks;
+    Roster roster;
     Hat hat;
 
     @Before
     public void setUp() {
-        pucks = new ArrayList<String>();
-        hat = new Hat(pucks);
-        pucks.add("EriTob");
-        pucks.add("NanLon");
-        pucks.add("JerCoh");
+        roster = new Roster();
+        roster.roster.clear();
+        roster.roster.put("EriTob", new Player("Eric Tobin", "SarArt"));
+        roster.roster.put("SarArt", new Player("Sarah Artzi", "JerCoh"));
+        roster.roster.put("JerCoh", new Player("Jerri Cohen", "EriTob"));
+        hat = new Hat(roster);
+
     }
 
     @Test
     public void testDrawPuck() {
         Assert.assertEquals(3, hat.pucks.size());
-        Assert.assertEquals("JerCoh", hat.pucks.get(2));
+        System.out.println(hat.pucks.toString());
+        Assert.assertEquals("JerCoh", hat.pucks.get(1));
         Assert.assertTrue(!hat.drawPuck().equals("none"));
 
         hat.pucks.clear();
@@ -31,9 +32,9 @@ public class HatTest {
 
     @Test
     public void testRemovePuck() {
-        Assert.assertTrue(hat.removePuck("NanLon"));
+        Assert.assertTrue(hat.removePuck("SarArt"));
         Assert.assertEquals(2, hat.pucks.size());
-        Assert.assertFalse(hat.removePuck("NanLon"));
+        Assert.assertFalse(hat.removePuck("SarArt"));
         Assert.assertTrue(hat.removePuck("EriTob"));
         Assert.assertTrue(hat.removePuck("JerCoh"));
         Assert.assertTrue(hat.drawPuck().equals("none"));
