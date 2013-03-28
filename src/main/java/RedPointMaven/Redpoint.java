@@ -86,7 +86,7 @@ public class Redpoint {
             // another year?
             System.out.print("Continue? (1 = yes, 0 = no): ");
             doNextYear = scanner.nextInt();
-            year++;
+            //year++;
             System.out.println();
         }
 
