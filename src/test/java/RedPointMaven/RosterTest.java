@@ -17,14 +17,6 @@ public class RosterTest {
     }
 
     @Test
-    public void testRosterSize() {
-        Assert.assertEquals(3, roster.rosterSize());
-
-        roster.roster.put("ScoTob", new Player("Scott Tobin", "JerCoh"));
-        Assert.assertEquals(4, roster.rosterSize());
-    }
-
-    @Test
     public void testReturnPlayerName() {
         Assert.assertEquals("Eric Tobin", roster.returnPlayerName("EriTob"));
         Assert.assertEquals("Jerri Cohen", roster.returnPlayerName("JerCoh"));

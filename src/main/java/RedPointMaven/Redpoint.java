@@ -13,22 +13,22 @@ public class Redpoint {
         Scanner scanner;
         scanner = new Scanner(System.in);
         int year = 0;
-        int doNextYear = 1;
+        int doNextYear;
         Roster roster;
         roster = new Roster();
-        int rosterSize;
-        rosterSize = roster.rosterSize();
         Hat giverHat;
         Hat giveeHat;
         String giver;
         String givee;
 
-        while (doNextYear == 1) {
-            // print year x giftList
-            System.out.println("Year " + year + " Gifts:");
+        System.out.println("Year " + year + " Gifts:");
+        roster.printGivingRoster(0);
+        System.out.println();
+        System.out.print("Continue? (1 = yes, 0 = no): ");
+        doNextYear = scanner.nextInt();
 
-            // print year pairings
-            roster.printGivingRoster(year);
+        while (doNextYear == 1) {
+            year++;
 
             // add a new, empty year to history
             roster.addNewYear();
@@ -81,12 +81,13 @@ public class Redpoint {
                 giver = giverHat.drawPuck();
                 givee = giveeHat.drawPuck();
             }
+            System.out.println("Year " + year + " Gifts:");
+            roster.printGivingRoster(year);
             System.out.println();
 
             // another year?
             System.out.print("Continue? (1 = yes, 0 = no): ");
             doNextYear = scanner.nextInt();
-            //year++;
             System.out.println();
         }
 

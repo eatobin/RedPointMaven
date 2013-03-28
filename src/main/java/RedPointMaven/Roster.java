@@ -28,13 +28,6 @@ public class Roster {
         roster.put("TroBro", new Player("Troy Brouwer", "DavBol"));
     }
 
-    /**
-     * How large is the roster? Used to set parameters elsewhere.
-     */
-    public int rosterSize() {
-        return roster.size();
-    }
-
     public String returnPlayerName(String playerCode) {
         return roster.get(playerCode).getPlayerName();
     }
