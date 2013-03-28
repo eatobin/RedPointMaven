@@ -22,7 +22,7 @@ public class Redpoint {
         String givee;
 
         System.out.println("Year " + year + " Gifts:");
-        roster.printGivingRoster(0);
+        roster.printGivingRoster(year);
         System.out.println();
         System.out.print("Continue? (1 = yes, 0 = no): ");
         doNextYear = scanner.nextInt();
