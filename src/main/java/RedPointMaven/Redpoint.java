@@ -1,57 +1,53 @@
-/*
 package RedPointMaven;
 
-*/
 /**
  * Main class for RedpointMaven.
- *//*
-
+ */
 
 import java.util.Scanner;
 
-*/
-/*public class Redpoint {
+public class Redpoint {
     // main method
     public static void main(String[] args) {
         // initialize variables
-        Scanner scanner = new Scanner(System.in);
-        int year = 1;
+        Scanner scanner;
+        scanner = new Scanner(System.in);
+        int year = 0;
         int doNextYear = 1;
-
-        // make a new RosterOld
-        RosterOld roster = new RosterOld();
-        int rosterSize = roster.rosterSize();
-
-        // make a new GiftHistory
-        GiftHistory giftHistory = new GiftHistory(rosterSize);
+        Roster roster;
+        roster = new Roster();
+        int rosterSize;
+        rosterSize = roster.rosterSize();
+        Hat giverHat;
+        Hat giveeHat;
+        String giver;
+        String givee;
 
         while (doNextYear == 1) {
             // print year x giftList
             System.out.println("Year " + year + " Gifts:");
 
             // print year pairings
-            roster.printPairings(giftHistory.giftList(rosterSize));
+            roster.printGivingRoster(year);
 
             // add a new, empty year to history
-            giftHistory.addYear();
+            roster.addNewYear();
 
             // make a giver Hat
-            //Hat giverHat = new Hat(rosterSize);
+            giverHat = new Hat(roster);
 
             // make a givee Hat
-            Hat giveeHat = new Hat(rosterSize);
+            giveeHat = new Hat(roster);
 
             // draw a giver
-            //int giver = giverHat.drawPuck();
+            giver = giverHat.drawPuck();
 
             // draw a givee
-            //int givee = giveeHat.drawPuck();
+            givee = giveeHat.drawPuck();
 
             // keep drawing givers until Hat empty
-            while (giver != 0) {
-                *//*
-*/
-/*
+            while (!giver.equals("none")) {
+                /*
                 keep drawing a givee for giver until all 3 tests are true.
                 discard givee if test fails.
                 set givee for giver when full success.
@@ -59,16 +55,14 @@ import java.util.Scanner;
                 remover giver from Hat.
                 replace discard givees.
                 draw new giver and repeat all.
-                *//*
-*/
-/*
-                while (givee != 0) {
-                    if (giftHistory.giveeNotSelf(giver, givee)) {
-                        if (giftHistory.giveeNotRecip(giver, givee)) {
-                            if (giftHistory.giveeNotRepeat(giver, givee)) {
-                                giftHistory.setGivee(giver, givee);
+                */
+                while (!givee.equals("none")) {
+                    if (Rules.giveeNotSelf(giver, givee)) {
+                        if (Rules.giveeNotRecip(giver, givee, roster, year)) {
+                            if (Rules.giveeNotRepeat(giver, givee, roster, year)) {
+                                roster.setGivee(giver, givee, year);
                                 giveeHat.removePuck(givee);
-                                givee = 0;
+                                givee = "none";
                             } else {
                                 giveeHat.discardPuck(givee);
                                 givee = giveeHat.drawPuck();
@@ -82,13 +76,11 @@ import java.util.Scanner;
                         givee = giveeHat.drawPuck();
                     }
                 }
-
                 giverHat.removePuck(giver);
                 giveeHat.returnDiscards();
                 giver = giverHat.drawPuck();
                 givee = giveeHat.drawPuck();
             }
-
             System.out.println();
 
             // another year?
@@ -104,6 +96,5 @@ import java.util.Scanner;
         System.out.println("Talk about a position with Redpoint?");
         System.out.println("Please call: Eric Tobin 773-325-1516");
         System.out.println("Thanks! Bye...");
-    //}
-//}
-*/
+    }
+}
