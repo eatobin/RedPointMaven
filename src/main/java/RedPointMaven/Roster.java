@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 public class Roster {
+    //use a TreeMap to order roster alphabetically
     TreeMap<String, Player> roster;
 
     public Roster() {
@@ -40,6 +41,7 @@ public class Roster {
         return roster.get(playerCode).returnGivee(year);
     }
 
+    //add a new empty year ("none") to each Player's givee array
     public void addNewYear() {
         Set<String> myKeySet = roster.keySet();
         for (String aKey : myKeySet) {
@@ -49,8 +51,8 @@ public class Roster {
 
     public void printGivingRoster(int year) {
         /*
-        uses key:value pair functionality of keySet
-        returns a msg if no match (playerNum = 0)
+        uses key:value pair functionality of keySet.
+        returns a msg if no match (playerCode = "none")
         where last giver/givee in Hats fail a test.
         */
         String giveeName;

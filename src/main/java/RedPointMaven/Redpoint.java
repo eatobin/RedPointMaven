@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class Redpoint {
     // main method
     public static void main(String[] args) {
-        // initialize variables
         Scanner scanner;
         scanner = new Scanner(System.in);
         int year = 0;
@@ -26,6 +25,7 @@ public class Redpoint {
         System.out.println();
         System.out.print("Continue? (1 = yes, 0 = no): ");
         doNextYear = scanner.nextInt();
+        System.out.println();
 
         while (doNextYear == 1) {
             year++;
