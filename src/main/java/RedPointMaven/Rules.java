@@ -13,7 +13,7 @@ public class Rules {
         return !giver.equals(giveeGivingTo);
     }
 
-    //test 3 of 3 - has giver given to givee in past 4 years/
+    //test 3 of 3 - has giver given to givee in past 4 years?
     public static boolean giveeNotRepeat(String giver, String givee, Roster roster, int thisYear) {
         int counter;
         String giveeInYear;
