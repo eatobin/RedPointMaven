@@ -1,7 +1,7 @@
 package RedPointMaven;
 
 /**
- * Class acts as a virtual hat of pucks. Hat is initialized with roster of players.
+ * Class acts as a virtual hat of pucks. Hat is initialized with roster_list of players.
  * Pucks can be drawn at random, removed and replaced after discard.
  */
 
@@ -13,11 +13,11 @@ public class Hat {
     ArrayList<String> discards;
 
     /**
-     * Constructor for objects of class Hat given a roster.
+     * Constructor for objects of class Hat given a roster_list.
      */
     public Hat(Roster myRoster) {
         //initialize instance variables
-        pucks = new ArrayList<String>(myRoster.roster.keySet());
+        pucks = new ArrayList<String>(myRoster.roster_list.keySet());
         discards = new ArrayList<String>();
     }
 

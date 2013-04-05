@@ -11,10 +11,10 @@ public class HatTest {
     @Before
     public void setUp() {
         roster = new Roster();
-        roster.roster.clear();
-        roster.roster.put("EriTob", new Player("Eric Tobin", "SarArt"));
-        roster.roster.put("SarArt", new Player("Sarah Artzi", "JerCoh"));
-        roster.roster.put("JerCoh", new Player("Jerri Cohen", "EriTob"));
+        roster.roster_list.clear();
+        roster.roster_list.put("EriTob", new Player("Eric Tobin", "SarArt"));
+        roster.roster_list.put("SarArt", new Player("Sarah Artzi", "JerCoh"));
+        roster.roster_list.put("JerCoh", new Player("Jerri Cohen", "EriTob"));
         hat = new Hat(roster);
 
     }
