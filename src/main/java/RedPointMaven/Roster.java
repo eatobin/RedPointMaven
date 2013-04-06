@@ -6,6 +6,7 @@ import java.util.TreeMap;
 public class Roster {
     //use a TreeMap to order roster_list alphabetically
     TreeMap<String, Player> roster_list;
+    private Set<String> myKeySet;
 
     public Roster() {
         roster_list = new TreeMap<String, Player>();
@@ -43,7 +44,8 @@ public class Roster {
 
     //add a new empty year ("none") to each Player's givee array
     public void addNewYear() {
-        Set<String> myKeySet = roster_list.keySet();
+        myKeySet = roster_list.keySet();
+
         for (String aKey : myKeySet) {
             roster_list.get(aKey).addGivee("none");
         }
@@ -55,14 +57,14 @@ public class Roster {
         returns a msg if no match (playerCode = "none")
         where last giver/givee in Hats fail a test.
         */
-        String giveeName;
-        String playerName;
-        String giveeCode;
-        Set<String> myKeySet;
         myKeySet = roster_list.keySet();
+
         for (String aKey : myKeySet) {
+            String playerName;
             playerName = roster_list.get(aKey).getPlayerName();
+            String giveeCode;
             giveeCode = roster_list.get(aKey).returnGivee(year);
+            String giveeName;
             if (giveeCode.equals("none")) {
                 giveeName = "...nobody!! (last giver/givee pairing and a test failed - a puzzle logic error)";
             } else {
