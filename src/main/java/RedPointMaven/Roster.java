@@ -57,14 +57,14 @@ public class Roster {
         returns a msg if no match (playerCode = "none")
         where last giver/givee in Hats fail a test.
         */
+        String playerName;
+        String giveeCode;
+        String giveeName;
         myKeySet = roster_list.keySet();
 
         for (String aKey : myKeySet) {
-            String playerName;
             playerName = roster_list.get(aKey).getPlayerName();
-            String giveeCode;
             giveeCode = roster_list.get(aKey).returnGivee(year);
-            String giveeName;
             if (giveeCode.equals("none")) {
                 giveeName = "...nobody!! (last giver/givee pairing and a test failed - a puzzle logic error)";
             } else {
