@@ -30,7 +30,7 @@ public class Roster {
         roster_list.put("TroBro", new Player("Troy Brouwer", "DavBol"));
     }
 
-    public Player returnPlayer(String playerCode) {
+    private Player returnPlayer(String playerCode) {
         return roster_list.get(playerCode);
     }
 
