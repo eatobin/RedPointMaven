@@ -30,16 +30,16 @@ public class Roster {
         roster_list.put("TroBro", new Player("Troy Brouwer", "DavBol"));
     }
 
-    public String returnPlayerName(String playerCode) {
-        return roster_list.get(playerCode).getPlayerName();
+    public Player returnPlayer(String playerCode) {
+        return roster_list.get(playerCode);
     }
 
     public String setGivee(String playerCode, String givee, int year) {
-        return roster_list.get(playerCode).setGivee(givee, year);
+        return this.returnPlayer(playerCode).setGivee(givee, year);
     }
 
     public String returnGivee(String playerCode, int year) {
-        return roster_list.get(playerCode).returnGivee(year);
+        return this.returnPlayer(playerCode).returnGivee(year);
     }
 
     //add a new empty year ("none") to each Player's givee array
@@ -47,7 +47,7 @@ public class Roster {
         myKeySet = roster_list.keySet();
 
         for (String aKey : myKeySet) {
-            roster_list.get(aKey).addGivee("none");
+            this.returnPlayer(aKey).addGivee("none");
         }
     }
 
@@ -63,12 +63,12 @@ public class Roster {
         myKeySet = roster_list.keySet();
 
         for (String aKey : myKeySet) {
-            playerName = roster_list.get(aKey).getPlayerName();
-            giveeCode = roster_list.get(aKey).returnGivee(year);
+            playerName = this.returnPlayer(aKey).getPlayerName();
+            giveeCode = this.returnPlayer(aKey).returnGivee(year);
             if (giveeCode.equals("none")) {
                 giveeName = "...nobody!! (last giver/givee pairing and a test failed - a puzzle logic error)";
             } else {
-                giveeName = roster_list.get(giveeCode).getPlayerName();
+                giveeName = this.returnPlayer(aKey).getPlayerName();
             }
             System.out.println(playerName + " is buying for " + giveeName);
         }

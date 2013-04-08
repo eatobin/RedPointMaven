@@ -17,12 +17,6 @@ public class RosterTest {
     }
 
     @Test
-    public void testReturnPlayerName() {
-        Assert.assertEquals("Eric Tobin", roster.returnPlayerName("EriTob"));
-        Assert.assertEquals("Jerri Cohen", roster.returnPlayerName("JerCoh"));
-    }
-
-    @Test
     public void testReturnGivee() {
         Assert.assertEquals("SarArt", roster.returnGivee("EriTob", 0));
         Assert.assertEquals("EriTob", roster.returnGivee("JerCoh", 0));
