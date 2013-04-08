@@ -1,5 +1,6 @@
 package RedPointMaven;
 
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -28,6 +29,38 @@ public class Roster {
         roster_list.put("PatSha", new Player("Patrick Sharp", "BriCam"));
         roster_list.put("TomKop", new Player("Tomas Kopecky", "CriHue"));
         roster_list.put("TroBro", new Player("Troy Brouwer", "DavBol"));
+    }
+
+    //inner class
+    private class Player {
+        String playerName;
+        ArrayList<String> pastGivees;
+
+        private Player(String playerName, String giveeYearZero) {
+            this.playerName = playerName;
+            pastGivees = new ArrayList<String>();
+            pastGivees.add(0, giveeYearZero);
+        }
+
+        //return playerName
+        private String getPlayerName() {
+            return playerName;
+        }
+
+        //add a givee to array of past givees
+        private boolean addGivee(String givee) {
+            return pastGivees.add(givee);
+        }
+
+        //return a givee given a year
+        private String returnGivee(int giftYear) {
+            return pastGivees.get(giftYear);
+        }
+
+        //set a givee in a given year
+        private String setGivee(String givee, int year) {
+            return pastGivees.set(year, givee);
+        }
     }
 
     private Player returnPlayer(String playerCode) {
