@@ -9,12 +9,12 @@ public class HatTest {
 
 //    @Before
 //    public void setUp() {
-//        roster = new Roster();
-//        roster.roster_list.clear();
-//        roster.roster_list.put("EriTob", roster.new Player("Eric Tobin", "SarArt")); //TODO Use constructor values
-//        roster.roster_list.put("SarArt", roster.new Player("Sarah Artzi", "JerCoh")); //TODO Use constructor values
-//        roster.roster_list.put("JerCoh", roster.new Player("Jerri Cohen", "EriTob")); //TODO Use constructor values
-//        hat = new Hat(roster);
+//        blackhawks2010 = new Roster();
+//        blackhawks2010.roster_list.clear();
+//        blackhawks2010.roster_list.put("EriTob", blackhawks2010.new Player("Eric Tobin", "SarArt")); //TODO Use constructor values
+//        blackhawks2010.roster_list.put("SarArt", blackhawks2010.new Player("Sarah Artzi", "JerCoh")); //TODO Use constructor values
+//        blackhawks2010.roster_list.put("JerCoh", blackhawks2010.new Player("Jerri Cohen", "EriTob")); //TODO Use constructor values
+//        hat = new Hat(blackhawks2010);
 //
 //    }
 
