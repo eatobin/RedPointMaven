@@ -25,16 +25,14 @@ public class HatTest {
         hat.pucks.clear();
         Assert.assertEquals("none", hat.drawPuck());
     }
-//
-//    @Test
-//    public void testRemovePuck() {
-//        Assert.assertTrue(hat.removePuck("SarArt"));
-//        Assert.assertEquals(2, hat.pucks.size());
-//        Assert.assertFalse(hat.removePuck("SarArt"));
-//        Assert.assertTrue(hat.removePuck("EriTob"));
-//        Assert.assertTrue(hat.removePuck("JerCoh"));
-//        Assert.assertTrue(hat.drawPuck().equals("none"));
-//    }
+
+    @Test
+    public void testRemovePuck() {
+        Assert.assertTrue(hat.removePuck("AndLad"));
+        Assert.assertEquals(17, hat.pucks.size());
+        hat.pucks.clear();
+        Assert.assertTrue(hat.drawPuck().equals("none"));
+    }
 //
 //    @Test
 //    public void testDiscardPuck() {
