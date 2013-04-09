@@ -17,16 +17,12 @@ public class RulesTest {
         Assert.assertFalse(Rules.giveeNotSelf("PatSha", "PatSha"));
         Assert.assertTrue(Rules.giveeNotSelf("PatSha", "AdaBur"));
     }
-//
-//    @Test
-//    public void testGiveeNotRecip() {
-//        Assert.assertTrue(Rules.giveeNotRecip("EriTob", "SarArt", blackhawks2010, 0));
-//        Assert.assertFalse(Rules.giveeNotRecip("JerCoh", "SarArt", blackhawks2010, 0));
-//        Assert.assertTrue(Rules.giveeNotRecip("JerCoh", "SarArt", blackhawks2010, 1));
-//        Assert.assertTrue(Rules.giveeNotRecip("EriTob", "JerCoh", blackhawks2010, 1));
-//        //blackhawks2010.roster_list.get("JerCoh").pastGiveesCodes.set(1, "EriTob"); //TODO Use constructor values
-//        Assert.assertFalse(Rules.giveeNotRecip("EriTob", "JerCoh", blackhawks2010, 1));
-//    }
+
+    @Test
+    public void testGiveeNotRecip() {
+        Assert.assertTrue(Rules.giveeNotRecip("PatSha", "AdaBur", blackhawks2010, 0));
+        Assert.assertFalse(Rules.giveeNotRecip("BriCam", "PatSha", blackhawks2010, 0));
+    }
 //
 //    @Test
 //    public void testGiveeNotRepeat() {
