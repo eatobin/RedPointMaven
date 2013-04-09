@@ -23,9 +23,9 @@ public class RulesTest {
         Assert.assertTrue(Rules.giveeNotRecip("PatSha", "AdaBur", blackhawks2010, 0));
         Assert.assertFalse(Rules.giveeNotRecip("BriCam", "PatSha", blackhawks2010, 0));
     }
-//
-//    @Test
-//    public void testGiveeNotRepeat() {
+
+    @Test
+    public void testGiveeNotRepeat() {
 //        //blackhawks2010.roster_list.put("ScoTob", blackhawks2010.new Player("Scott Tobin", "JerCoh"));
 //        Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "JerCoh", blackhawks2010, 1));
 //        Assert.assertFalse(Rules.giveeNotRepeat("EriTob", "JerCoh", blackhawks2010, 2));
@@ -48,5 +48,5 @@ public class RulesTest {
 //        Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "SarArt", blackhawks2010, 6));
 //        Assert.assertFalse(Rules.giveeNotRepeat("EriTob", "SarArt", blackhawks2010, 5));
 //        Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "SarArt", blackhawks2010, 1));
-//    }
+    }
 }
