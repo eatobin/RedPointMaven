@@ -2,15 +2,15 @@ package RedPointMaven;
 
 import java.util.ArrayList;
 import java.util.Set;
-import java.util.HashMap;
+import java.util.TreeMap;
 
 public class Roster {
-    //use a HashMap to order roster_list alphabetically
-    HashMap<String, Player> roster_list;
+    //use a TreeMap to order roster_list alphabetically by key
+    TreeMap<String, Player> roster_list;
     private Set<String> myKeySet;
 
     public Roster() {
-        roster_list = new HashMap<String, Player>();
+        roster_list = new TreeMap<String, Player>();
         roster_list.put("AdaBur", new Player("Adam Burish", "DunKei"));
         roster_list.put("AndLad", new Player("Andrew Ladd", "JoeQue"));
         roster_list.put("AntNie", new Player("Antti Niemi", "JonToe"));
