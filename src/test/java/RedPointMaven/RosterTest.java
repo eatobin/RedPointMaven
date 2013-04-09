@@ -14,22 +14,22 @@ public class RosterTest {
 
     @Test
     public void testReturnGivee() {
-        Assert.assertEquals("DunKei", blackhawks2010.returnGivee("AdaBur", 0));
-        Assert.assertEquals("BriCam", blackhawks2010.returnGivee("PatSha", 0));
+        Assert.assertEquals("DunKei", blackhawks2010.returnGiveeCode("AdaBur", 0));
+        Assert.assertEquals("BriCam", blackhawks2010.returnGiveeCode("PatSha", 0));
     }
 
     @Test
     public void testSetGivee() {
-        Assert.assertEquals("DunKei", blackhawks2010.returnGivee("AdaBur", 0));
-        Assert.assertEquals("DunKei", blackhawks2010.setGivee("AdaBur", "MarHos", 0));
-        Assert.assertEquals("MarHos", blackhawks2010.returnGivee("AdaBur", 0));
+        Assert.assertEquals("DunKei", blackhawks2010.returnGiveeCode("AdaBur", 0));
+        Assert.assertEquals("DunKei", blackhawks2010.setGiveeCode("AdaBur", "MarHos", 0));
+        Assert.assertEquals("MarHos", blackhawks2010.returnGiveeCode("AdaBur", 0));
     }
 
     @Test
     public void testAddNewYear() {
         blackhawks2010.addNewYear();
-        Assert.assertEquals("DunKei", blackhawks2010.returnGivee("AdaBur", 0));
-        Assert.assertEquals("none", blackhawks2010.returnGivee("AdaBur", 1));
+        Assert.assertEquals("DunKei", blackhawks2010.returnGiveeCode("AdaBur", 0));
+        Assert.assertEquals("none", blackhawks2010.returnGiveeCode("AdaBur", 1));
     }
 
     @Test

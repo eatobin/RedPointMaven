@@ -16,9 +16,9 @@ public class RulesTest {
 //        blackhawks2010.roster_list.put("SarArt", blackhawks2010.new Player("Sarah Artzi", "JerCoh")); //TODO Use constructor values
 //        blackhawks2010.roster_list.put("JerCoh", blackhawks2010.new Player("Jerri Cohen", "EriTob")); //TODO Use constructor values
 //        blackhawks2010.addNewYear();
-//        blackhawks2010.setGivee("EriTob", "JerCoh", 1);
-//        blackhawks2010.setGivee("SarArt", "EriTob", 1);
-//        blackhawks2010.setGivee("JerCoh", "SarArt", 1);
+//        blackhawks2010.setGiveeCode("EriTob", "JerCoh", 1);
+//        blackhawks2010.setGiveeCode("SarArt", "EriTob", 1);
+//        blackhawks2010.setGiveeCode("JerCoh", "SarArt", 1);
 //    }
 
     @Test
@@ -33,7 +33,7 @@ public class RulesTest {
         Assert.assertFalse(Rules.giveeNotRecip("JerCoh", "SarArt", roster, 0));
         Assert.assertTrue(Rules.giveeNotRecip("JerCoh", "SarArt", roster, 1));
         Assert.assertTrue(Rules.giveeNotRecip("EriTob", "JerCoh", roster, 1));
-        //blackhawks2010.roster_list.get("JerCoh").pastGivees.set(1, "EriTob"); //TODO Use constructor values
+        //blackhawks2010.roster_list.get("JerCoh").pastGiveesCodes.set(1, "EriTob"); //TODO Use constructor values
         Assert.assertFalse(Rules.giveeNotRecip("EriTob", "JerCoh", roster, 1));
     }
 
@@ -45,19 +45,19 @@ public class RulesTest {
         Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "ScoTob", roster, 1));
         Assert.assertFalse(Rules.giveeNotRepeat("EriTob", "SarArt", roster, 1));
         Assert.assertFalse(Rules.giveeNotRepeat("EriTob", "SarArt", roster, 2));
-        //System.out.println(blackhawks2010.roster_list.get("EriTob").pastGivees.toString()); //TODO Use constructor values
-        //blackhawks2010.roster_list.get("EriTob").pastGivees.set(0, "JerCoh"); //TODO Use constructor values
-       // System.out.println(blackhawks2010.roster_list.get("EriTob").pastGivees.toString()); //TODO Use constructor values
+        //System.out.println(blackhawks2010.roster_list.get("EriTob").pastGiveesCodes.toString()); //TODO Use constructor values
+        //blackhawks2010.roster_list.get("EriTob").pastGiveesCodes.set(0, "JerCoh"); //TODO Use constructor values
+       // System.out.println(blackhawks2010.roster_list.get("EriTob").pastGiveesCodes.toString()); //TODO Use constructor values
         ArrayList<String> newList = new ArrayList<String>();
         newList.add("JerCoh");
         newList.add("JerCoh");
         newList.add("JerCoh");
         newList.add("JerCoh");
-        //blackhawks2010.roster_list.get("EriTob").pastGivees.addAll(newList); //TODO Use constructor values
-        //System.out.println(blackhawks2010.roster_list.get("EriTob").pastGivees.toString()); //TODO Use constructor values
+        //blackhawks2010.roster_list.get("EriTob").pastGiveesCodes.addAll(newList); //TODO Use constructor values
+        //System.out.println(blackhawks2010.roster_list.get("EriTob").pastGiveesCodes.toString()); //TODO Use constructor values
         Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "SarArt", roster, 6));
-        //blackhawks2010.roster_list.get("EriTob").pastGivees.set(1, "SarArt"); //TODO Use constructor values
-       // System.out.println(blackhawks2010.roster_list.get("EriTob").pastGivees.toString()); //TODO Use constructor values
+        //blackhawks2010.roster_list.get("EriTob").pastGiveesCodes.set(1, "SarArt"); //TODO Use constructor values
+       // System.out.println(blackhawks2010.roster_list.get("EriTob").pastGiveesCodes.toString()); //TODO Use constructor values
         Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "SarArt", roster, 6));
         Assert.assertFalse(Rules.giveeNotRepeat("EriTob", "SarArt", roster, 5));
         Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "SarArt", roster, 1));

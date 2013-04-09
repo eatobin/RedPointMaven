@@ -7,7 +7,7 @@ import java.util.TreeMap;
 public class Roster {
     //use a TreeMap to order roster_list alphabetically by key
     TreeMap<String, Player> roster_list;
-    private Set<String> myKeySet;
+    private Set<String> playerCodeKeySet;
 
     public Roster() {
         roster_list = new TreeMap<String, Player>();
@@ -34,12 +34,12 @@ public class Roster {
     //inner class
     private class Player {
         String playerName;
-        ArrayList<String> pastGivees;
+        ArrayList<String> pastGiveesCodes;
 
-        private Player(String playerName, String giveeYearZero) {
+        private Player(String playerName, String giveeCodeYearZero) {
             this.playerName = playerName;
-            pastGivees = new ArrayList<String>();
-            pastGivees.add(0, giveeYearZero);
+            pastGiveesCodes = new ArrayList<String>();
+            pastGiveesCodes.add(0, giveeCodeYearZero);
         }
 
         //return playerName
@@ -47,19 +47,19 @@ public class Roster {
             return playerName;
         }
 
-        //add a givee to array of past givees
-        private boolean addGivee(String givee) {
-            return pastGivees.add(givee);
+        //add a giveeCode to array of past givees
+        private boolean addGiveeCode(String giveeCode) {
+            return pastGiveesCodes.add(giveeCode);
         }
 
-        //return a givee given a year
-        private String returnGivee(int giftYear) {
-            return pastGivees.get(giftYear);
+        //return a giveeCode given a year
+        private String returnGiveeCode(int giftYear) {
+            return pastGiveesCodes.get(giftYear);
         }
 
-        //set a givee in a given year
-        private String setGivee(String givee, int year) {
-            return pastGivees.set(year, givee);
+        //set a giveeCode in a given year
+        private String setGiveeCode(String giveeCode, int year) {
+            return pastGiveesCodes.set(year, giveeCode);
         }
     }
 
@@ -67,20 +67,20 @@ public class Roster {
         return roster_list.get(playerCode);
     }
 
-    public String setGivee(String playerCode, String givee, int year) {
-        return this.returnPlayer(playerCode).setGivee(givee, year);
+    public String setGiveeCode(String playerCode, String giveeCode, int year) {
+        return this.returnPlayer(playerCode).setGiveeCode(giveeCode, year);
     }
 
-    public String returnGivee(String playerCode, int year) {
-        return this.returnPlayer(playerCode).returnGivee(year);
+    public String returnGiveeCode(String playerCode, int year) {
+        return this.returnPlayer(playerCode).returnGiveeCode(year);
     }
 
     //add a new empty year ("none") to each Player's givee array
     public void addNewYear() {
-        myKeySet = roster_list.keySet();
+        playerCodeKeySet = roster_list.keySet();
 
-        for (String aKey : myKeySet) {
-            this.returnPlayer(aKey).addGivee("none");
+        for (String aKey : playerCodeKeySet) {
+            this.returnPlayer(aKey).addGiveeCode("none");
         }
     }
 
@@ -93,11 +93,11 @@ public class Roster {
         String playerName;
         String giveeCode;
         String giveeName;
-        myKeySet = roster_list.keySet();
+        playerCodeKeySet = roster_list.keySet();
 
-        for (String aKey : myKeySet) {
+        for (String aKey : playerCodeKeySet) {
             playerName = this.returnPlayer(aKey).getPlayerName();
-            giveeCode = this.returnPlayer(aKey).returnGivee(year);
+            giveeCode = this.returnPlayer(aKey).returnGiveeCode(year);
             if (giveeCode.equals("none")) {
                 giveeName = "...nobody!! (last giver/givee pairing and a test failed - a puzzle logic error)";
             } else {

@@ -41,18 +41,18 @@ public class HatTest {
         Assert.assertEquals(17, hat.pucks.size());
         Assert.assertTrue(hat.discards.contains("AndLad"));
     }
-//
-//    @Test
-//    public void testReturnDiscards() {
-//        Assert.assertTrue(hat.discardPuck("EriTob"));
-//        Assert.assertEquals(2, hat.pucks.size());
-//        Assert.assertEquals(1, hat.discardsSize());
-//        Assert.assertFalse(hat.pucks.contains("EriTob"));
-//        Assert.assertTrue(hat.discards.contains("EriTob"));
-//
-//        hat.returnDiscards();
-//        Assert.assertEquals(3, hat.pucks.size());
-//        Assert.assertEquals(0, hat.discardsSize());
-//        Assert.assertTrue(hat.pucks.contains("EriTob"));
-//    }
+
+    @Test
+    public void testReturnDiscards() {
+        Assert.assertTrue(hat.discardPuck("AndLad"));
+        Assert.assertEquals(17, hat.pucks.size());
+        Assert.assertEquals(1, hat.discardsSize());
+        Assert.assertFalse(hat.pucks.contains("AndLad"));
+        Assert.assertTrue(hat.discards.contains("AndLad"));
+
+        hat.returnDiscards();
+        Assert.assertEquals(18, hat.pucks.size());
+        Assert.assertEquals(0, hat.discardsSize());
+        Assert.assertTrue(hat.pucks.contains("AndLad"));
+    }
 }

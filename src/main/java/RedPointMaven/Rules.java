@@ -9,7 +9,7 @@ public class Rules {
     //test 2 of 3 - is givee giving to giver?
     public static boolean giveeNotRecip(String giver, String givee, Roster roster, int thisYear) {
         String giveeGivingTo;
-        giveeGivingTo = roster.returnGivee(givee, thisYear);
+        giveeGivingTo = roster.returnGiveeCode(givee, thisYear);
         return !giver.equals(giveeGivingTo);
     }
 
@@ -19,7 +19,7 @@ public class Rules {
         String giveeInYear;
         boolean result = true;
         for (counter = thisYear - 1; (counter >= 0) && (counter >= (thisYear - 4)); counter--) {
-            giveeInYear = roster.returnGivee(giver, counter);
+            giveeInYear = roster.returnGiveeCode(giver, counter);
             if (givee.equals(giveeInYear)) {
                 result = false;
             }
