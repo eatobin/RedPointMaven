@@ -26,27 +26,25 @@ public class RulesTest {
 
     @Test
     public void testGiveeNotRepeat() {
-//        //blackhawks2010.roster_list.put("ScoTob", blackhawks2010.new Player("Scott Tobin", "JerCoh"));
-//        Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "JerCoh", blackhawks2010, 1));
-//        Assert.assertFalse(Rules.giveeNotRepeat("EriTob", "JerCoh", blackhawks2010, 2));
-//        Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "ScoTob", blackhawks2010, 1));
-//        Assert.assertFalse(Rules.giveeNotRepeat("EriTob", "SarArt", blackhawks2010, 1));
-//        Assert.assertFalse(Rules.giveeNotRepeat("EriTob", "SarArt", blackhawks2010, 2));
-//        //System.out.println(blackhawks2010.roster_list.get("EriTob").pastGiveesCodes.toString()); //TODO Use constructor values
-//        //blackhawks2010.roster_list.get("EriTob").pastGiveesCodes.set(0, "JerCoh"); //TODO Use constructor values
-//       // System.out.println(blackhawks2010.roster_list.get("EriTob").pastGiveesCodes.toString()); //TODO Use constructor values
-//        ArrayList<String> newList = new ArrayList<String>();
-//        newList.add("JerCoh");
-//        newList.add("JerCoh");
-//        newList.add("JerCoh");
-//        newList.add("JerCoh");
-//        //blackhawks2010.roster_list.get("EriTob").pastGiveesCodes.addAll(newList); //TODO Use constructor values
-//        //System.out.println(blackhawks2010.roster_list.get("EriTob").pastGiveesCodes.toString()); //TODO Use constructor values
-//        Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "SarArt", blackhawks2010, 6));
-//        //blackhawks2010.roster_list.get("EriTob").pastGiveesCodes.set(1, "SarArt"); //TODO Use constructor values
-//       // System.out.println(blackhawks2010.roster_list.get("EriTob").pastGiveesCodes.toString()); //TODO Use constructor values
-//        Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "SarArt", blackhawks2010, 6));
-//        Assert.assertFalse(Rules.giveeNotRepeat("EriTob", "SarArt", blackhawks2010, 5));
-//        Assert.assertTrue(Rules.giveeNotRepeat("EriTob", "SarArt", blackhawks2010, 1));
+        blackhawks2010.addNewYear();
+        blackhawks2010.setGiveeCode("PatSha", "AdaBur", 1);
+        Assert.assertTrue(Rules.giveeNotRepeat("PatSha", "AdaBur", blackhawks2010, 1));
+        Assert.assertFalse(Rules.giveeNotRepeat("PatSha", "BriCam", blackhawks2010, 1));
+        blackhawks2010.addNewYear();
+        blackhawks2010.setGiveeCode("PatSha", "AndLad", 2);
+        blackhawks2010.addNewYear();
+        blackhawks2010.setGiveeCode("PatSha", "AntNie", 3);
+        blackhawks2010.addNewYear();
+        blackhawks2010.setGiveeCode("PatSha", "BreSea", 4);
+        blackhawks2010.addNewYear();
+        blackhawks2010.setGiveeCode("PatSha", "BryBic", 5);
+        blackhawks2010.addNewYear();
+        blackhawks2010.setGiveeCode("PatSha", "BriCam", 6);
+        Assert.assertTrue(Rules.giveeNotRepeat("PatSha", "AdaBur", blackhawks2010, 6));
+        Assert.assertTrue(Rules.giveeNotRepeat("PatSha", "BriCam", blackhawks2010, 6));
+        Assert.assertFalse(Rules.giveeNotRepeat("PatSha", "AdaBur", blackhawks2010, 5));
+        Assert.assertTrue(Rules.giveeNotRepeat("PatSha", "BriCam", blackhawks2010, 5));
+        Assert.assertFalse(Rules.giveeNotRepeat("PatSha", "BriCam", blackhawks2010, 4));
+        Assert.assertFalse(Rules.giveeNotRepeat("PatSha", "BryBic", blackhawks2010, 6));
     }
 }

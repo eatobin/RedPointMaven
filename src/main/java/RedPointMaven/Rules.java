@@ -2,25 +2,25 @@ package RedPointMaven;
 
 public class Rules {
     //test 1 of 3 - is giver giving to self?
-    public static boolean giveeNotSelf(String giver, String givee) {
-        return !giver.equals(givee);
+    public static boolean giveeNotSelf(String giverCode, String giveeCode) {
+        return !giverCode.equals(giveeCode);
     }
 
     //test 2 of 3 - is givee giving to giver?
-    public static boolean giveeNotRecip(String giver, String givee, Roster roster, int thisYear) {
+    public static boolean giveeNotRecip(String giverCode, String giveeCode, Roster roster, int thisYear) {
         String giveeGivingTo;
-        giveeGivingTo = roster.returnGiveeCode(givee, thisYear);
-        return !giver.equals(giveeGivingTo);
+        giveeGivingTo = roster.returnGiveeCode(giveeCode, thisYear);
+        return !giverCode.equals(giveeGivingTo);
     }
 
     //test 3 of 3 - has giver given to givee in past 4 years?
-    public static boolean giveeNotRepeat(String giver, String givee, Roster roster, int thisYear) {
+    public static boolean giveeNotRepeat(String giverCode, String giveeCode, Roster roster, int thisYear) {
         int counter;
         String giveeInYear;
         boolean result = true;
         for (counter = thisYear - 1; (counter >= 0) && (counter >= (thisYear - 4)); counter--) {
-            giveeInYear = roster.returnGiveeCode(giver, counter);
-            if (givee.equals(giveeInYear)) {
+            giveeInYear = roster.returnGiveeCode(giverCode, counter);
+            if (giveeCode.equals(giveeInYear)) {
                 result = false;
             }
         }
