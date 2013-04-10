@@ -11,6 +11,7 @@ public class Roster {
 
     public Roster() {
         roster_list = new TreeMap<String, Player>();
+        roster_list.put("TroBro", new Player("Troy Brouwer", "DavBol"));
         roster_list.put("AdaBur", new Player("Adam Burish", "DunKei"));
         roster_list.put("AndLad", new Player("Andrew Ladd", "JoeQue"));
         roster_list.put("AntNie", new Player("Antti Niemi", "JonToe"));
@@ -28,7 +29,6 @@ public class Roster {
         roster_list.put("PatKan", new Player("Patrick Kane", "BryBic"));
         roster_list.put("PatSha", new Player("Patrick Sharp", "BriCam"));
         roster_list.put("TomKop", new Player("Tomas Kopecky", "CriHue"));
-        roster_list.put("TroBro", new Player("Troy Brouwer", "DavBol"));
     }
 
     //inner class
