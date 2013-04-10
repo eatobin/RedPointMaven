@@ -68,7 +68,7 @@ public class Roster {
             if (giveeCode.equals("none")) {
                 giveeName = "...nobody!! (last giver/givee pairing and a test failed - a puzzle logic error)";
             } else {
-                giveeName = this.returnPlayer(aKey).getPlayerName();
+                giveeName = this.returnPlayer(giveeCode).playerName;
             }
             System.out.println(playerName + " is buying for " + giveeName);
         }
