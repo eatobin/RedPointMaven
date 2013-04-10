@@ -5,43 +5,35 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class RosterTest {
-    Roster roster;
+    Roster blackhawks2010;
 
     @Before
     public void setUp() {
-        roster = new Roster();
-        roster.roster_list.clear();
-        roster.roster_list.put("EriTob", new Player("Eric Tobin", "SarArt"));
-        roster.roster_list.put("SarArt", new Player("Sarah Artzi", "JerCoh"));
-        roster.roster_list.put("JerCoh", new Player("Jerri Cohen", "EriTob"));
+        blackhawks2010 = new Roster();
     }
 
     @Test
     public void testReturnGivee() {
-        Assert.assertEquals("SarArt", roster.returnGivee("EriTob", 0));
-        Assert.assertEquals("EriTob", roster.returnGivee("JerCoh", 0));
+        Assert.assertEquals("DunKei", blackhawks2010.returnGiveeCode("AdaBur", 0));
+        Assert.assertEquals("BriCam", blackhawks2010.returnGiveeCode("PatSha", 0));
     }
 
     @Test
     public void testSetGivee() {
-        Assert.assertEquals("SarArt", roster.returnGivee("EriTob", 0));
-        Assert.assertEquals("SarArt", roster.setGivee("EriTob", "JerCoh", 0));
-        Assert.assertEquals("JerCoh", roster.returnGivee("EriTob", 0));
+        Assert.assertEquals("DunKei", blackhawks2010.returnGiveeCode("AdaBur", 0));
+        Assert.assertEquals("DunKei", blackhawks2010.setGiveeCode("AdaBur", "MarHos", 0));
+        Assert.assertEquals("MarHos", blackhawks2010.returnGiveeCode("AdaBur", 0));
     }
 
     @Test
     public void testAddNewYear() {
-        roster.addNewYear();
-        Assert.assertEquals("JerCoh", roster.returnGivee("SarArt", 0));
-        Assert.assertEquals("none", roster.returnGivee("SarArt", 1));
+        blackhawks2010.addNewYear();
+        Assert.assertEquals("DunKei", blackhawks2010.returnGiveeCode("AdaBur", 0));
+        Assert.assertEquals("none", blackhawks2010.returnGiveeCode("AdaBur", 1));
     }
 
     @Test
     public void testPrintGivingRoster() {
-        roster.printGivingRoster(0);
-        roster = new Roster();
-        System.out.println();
-        roster.printGivingRoster(0);
+        blackhawks2010.printGivingRoster(0);
     }
 }
-

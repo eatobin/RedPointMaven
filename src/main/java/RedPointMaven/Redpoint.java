@@ -60,7 +60,7 @@ public class Redpoint {
                     if (Rules.giveeNotSelf(giver, givee)) {
                         if (Rules.giveeNotRecip(giver, givee, roster, year)) {
                             if (Rules.giveeNotRepeat(giver, givee, roster, year)) {
-                                roster.setGivee(giver, givee, year);
+                                roster.setGiveeCode(giver, givee, year);
                                 giveeHat.removePuck(givee);
                                 givee = "none";
                             } else {
