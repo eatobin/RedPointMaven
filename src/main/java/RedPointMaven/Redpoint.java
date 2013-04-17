@@ -7,18 +7,30 @@ package RedPointMaven;
 import java.util.Scanner;
 
 public class Redpoint {
+    static Roster blackhawks2010;
+    static String giver;
+    static String givee;
+    static Hat giverHat;
+    static Hat giveeHat;
+
+    private static String puckPass(String giver, String givee, Roster roster, int year) {
+        roster.setGiveeCode(giver, givee, year);
+        giveeHat.removePuck(givee);
+        return "none";
+    }
+
+    private static String puckFail(String givee) {
+        giveeHat.discardPuck(givee);
+        return giveeHat.drawPuck();
+    }
+
     // main method
     public static void main(String[] args) {
         Scanner scanner;
         scanner = new Scanner(System.in);
         int year = 0;
         int doNextYear;
-        Roster blackhawks2010;
         blackhawks2010 = new Roster();
-        Hat giverHat;
-        Hat giveeHat;
-        String giver;
-        String givee;
 
         System.out.println("Year " + year + " Gifts:");
         blackhawks2010.printGivingRoster(year);
@@ -60,20 +72,15 @@ public class Redpoint {
                     if (Rules.giveeNotSelf(giver, givee)) {
                         if (Rules.giveeNotRecip(giver, givee, blackhawks2010, year)) {
                             if (Rules.giveeNotRepeat(giver, givee, blackhawks2010, year)) {
-                                blackhawks2010.setGiveeCode(giver, givee, year);
-                                giveeHat.removePuck(givee);
-                                givee = "none";
+                                givee = puckPass(giver, givee, blackhawks2010, year);
                             } else {
-                                giveeHat.discardPuck(givee);
-                                givee = giveeHat.drawPuck();
+                                givee = puckFail(givee);
                             }
                         } else {
-                            giveeHat.discardPuck(givee);
-                            givee = giveeHat.drawPuck();
+                            givee = puckFail(givee);
                         }
                     } else {
-                        giveeHat.discardPuck(givee);
-                        givee = giveeHat.drawPuck();
+                        givee = puckFail(givee);
                     }
                 }
                 giverHat.removePuck(giver);
