@@ -13,15 +13,15 @@ public class Redpoint {
         scanner = new Scanner(System.in);
         int year = 0;
         int doNextYear;
-        Roster roster;
-        roster = new Roster();
+        Roster blackhawks2010;
+        blackhawks2010 = new Roster();
         Hat giverHat;
         Hat giveeHat;
         String giver;
         String givee;
 
         System.out.println("Year " + year + " Gifts:");
-        roster.printGivingRoster(year);
+        blackhawks2010.printGivingRoster(year);
         System.out.println();
         System.out.print("Continue? (1 = yes, 0 = no): ");
         doNextYear = scanner.nextInt();
@@ -31,13 +31,13 @@ public class Redpoint {
             year++;
 
             // add a new, empty year to history
-            roster.addNewYear();
+            blackhawks2010.addNewYear();
 
             // make a giver Hat
-            giverHat = new Hat(roster);
+            giverHat = new Hat(blackhawks2010);
 
             // make a givee Hat
-            giveeHat = new Hat(roster);
+            giveeHat = new Hat(blackhawks2010);
 
             // draw a giver
             giver = giverHat.drawPuck();
@@ -58,9 +58,9 @@ public class Redpoint {
                 */
                 while (!givee.equals("none")) {
                     if (Rules.giveeNotSelf(giver, givee)) {
-                        if (Rules.giveeNotRecip(giver, givee, roster, year)) {
-                            if (Rules.giveeNotRepeat(giver, givee, roster, year)) {
-                                roster.setGiveeCode(giver, givee, year);
+                        if (Rules.giveeNotRecip(giver, givee, blackhawks2010, year)) {
+                            if (Rules.giveeNotRepeat(giver, givee, blackhawks2010, year)) {
+                                blackhawks2010.setGiveeCode(giver, givee, year);
                                 giveeHat.removePuck(givee);
                                 givee = "none";
                             } else {
@@ -82,7 +82,7 @@ public class Redpoint {
                 givee = giveeHat.drawPuck();
             }
             System.out.println("Year " + year + " Gifts:");
-            roster.printGivingRoster(year);
+            blackhawks2010.printGivingRoster(year);
             System.out.println();
 
             // another year?

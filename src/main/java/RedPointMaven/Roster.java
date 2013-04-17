@@ -11,24 +11,24 @@ public class Roster {
 
     public Roster() {
         roster_list = new TreeMap<String, Player>();
-        roster_list.put("TroBro", new Player("Troy Brouwer",        "DavBol"));
-        roster_list.put("AdaBur", new Player("Adam Burish",         "DunKei"));
-        roster_list.put("AndLad", new Player("Andrew Ladd",         "JoeQue"));
-        roster_list.put("AntNie", new Player("Antti Niemi",         "JonToe"));
-        roster_list.put("BreSea", new Player("Brent Seabrook",      "KriVer"));
-        roster_list.put("BryBic", new Player("Bryan Bickell",       "MarHos"));
-        roster_list.put("BriCam", new Player("Brian Campbell",      "NikHja"));
-        roster_list.put("CriHue", new Player("Cristobal Huet",      "PatKan"));
-        roster_list.put("DavBol", new Player("Dave Bolland",        "PatSha"));
-        roster_list.put("DunKei", new Player("Duncan Keith",        "TomKop"));
-        roster_list.put("JoeQue", new Player("Joel Quenneville",    "TroBro"));
-        roster_list.put("JonToe", new Player("Jonathan Toews",      "AdaBur"));
-        roster_list.put("KriVer", new Player("Kris Versteeg",       "AndLad"));
-        roster_list.put("MarHos", new Player("Marian Hossa",        "AntNie"));
-        roster_list.put("NikHja", new Player("Niklas Hjalmarsson",  "BreSea"));
-        roster_list.put("PatKan", new Player("Patrick Kane",        "BryBic"));
-        roster_list.put("PatSha", new Player("Patrick Sharp",       "BriCam"));
-        roster_list.put("TomKop", new Player("Tomas Kopecky",       "CriHue"));
+        roster_list.put("TroBro", new Player("Troy Brouwer", "DavBol"));
+        roster_list.put("AdaBur", new Player("Adam Burish", "DunKei"));
+        roster_list.put("AndLad", new Player("Andrew Ladd", "JoeQue"));
+        roster_list.put("AntNie", new Player("Antti Niemi", "JonToe"));
+        roster_list.put("BreSea", new Player("Brent Seabrook", "KriVer"));
+        roster_list.put("BryBic", new Player("Bryan Bickell", "MarHos"));
+        roster_list.put("BriCam", new Player("Brian Campbell", "NikHja"));
+        roster_list.put("CriHue", new Player("Cristobal Huet", "PatKan"));
+        roster_list.put("DavBol", new Player("Dave Bolland", "PatSha"));
+        roster_list.put("DunKei", new Player("Duncan Keith", "TomKop"));
+        roster_list.put("JoeQue", new Player("Joel Quenneville", "TroBro"));
+        roster_list.put("JonToe", new Player("Jonathan Toews", "AdaBur"));
+        roster_list.put("KriVer", new Player("Kris Versteeg", "AndLad"));
+        roster_list.put("MarHos", new Player("Marian Hossa", "AntNie"));
+        roster_list.put("NikHja", new Player("Niklas Hjalmarsson", "BreSea"));
+        roster_list.put("PatKan", new Player("Patrick Kane", "BryBic"));
+        roster_list.put("PatSha", new Player("Patrick Sharp", "BriCam"));
+        roster_list.put("TomKop", new Player("Tomas Kopecky", "CriHue"));
     }
 
     //inner class
