@@ -8,13 +8,10 @@ import java.util.Scanner;
 
 public class Redpoint {
     static Roster blackhawks2010;
-    static String giver;
-    static String givee;
-    static Hat giverHat;
     static Hat giveeHat;
 
-    private static String puckPass(String giver, String givee, Roster roster, int year) {
-        roster.setGiveeCode(giver, givee, year);
+    private static String puckPass(String giver, String givee, int year) {
+        blackhawks2010.setGiveeCode(giver, givee, year);
         giveeHat.removePuck(givee);
         return "none";
     }
@@ -30,7 +27,11 @@ public class Redpoint {
         scanner = new Scanner(System.in);
         int year = 0;
         int doNextYear;
+
         blackhawks2010 = new Roster();
+        String giver;
+        String givee;
+        Hat giverHat;
 
         System.out.println("Year " + year + " Gifts:");
         blackhawks2010.printGivingRoster(year);
@@ -72,7 +73,7 @@ public class Redpoint {
                     if (Rules.giveeNotSelf(giver, givee)) {
                         if (Rules.giveeNotRecip(giver, givee, blackhawks2010, year)) {
                             if (Rules.giveeNotRepeat(giver, givee, blackhawks2010, year)) {
-                                givee = puckPass(giver, givee, blackhawks2010, year);
+                                givee = puckPass(giver, givee, year);
                             } else {
                                 givee = puckFail(givee);
                             }
