@@ -39,7 +39,9 @@ public class Redpoint {
         }
     }
 
-    private static int printGifts(Scanner scanner, int year) {
+    private static int printGifts(int year) {
+        Scanner scanner;
+        scanner = new Scanner(System.in);
         int doNextYear;
         System.out.println("Year " + year + " Gifts:");
         blackhawks2010.printGivingRoster(year);
@@ -52,17 +54,14 @@ public class Redpoint {
 
     // main method
     public static void main(String[] args) {
-        Scanner scanner;
-        scanner = new Scanner(System.in);
         int year = 0;
         int doNextYear;
-
         blackhawks2010 = new Roster();
         String giver;
         String givee;
         Hat giverHat;
 
-        doNextYear = printGifts(scanner, year);
+        doNextYear = printGifts(year);
 
         while (doNextYear == 1) {
             year++;
@@ -99,7 +98,7 @@ public class Redpoint {
                 giver = giverHat.drawPuck();
                 givee = giveeHat.drawPuck();
             }
-            doNextYear = printGifts(scanner, year);
+            doNextYear = printGifts(year);
         }
 
         // hope to hear from you!!
