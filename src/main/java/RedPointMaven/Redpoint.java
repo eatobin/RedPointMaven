@@ -10,13 +10,13 @@ public class Redpoint {
     static Roster blackhawks2010;
     static Hat giveeHat;
 
-    private static String puckPass(String giver, String givee, int year) {
+    private static String giveePass(String giver, String givee, int year) {
         blackhawks2010.setGiveeCode(giver, givee, year);
         giveeHat.removePuck(givee);
         return "none";
     }
 
-    private static String puckFail(String givee) {
+    private static String giveeFail(String givee) {
         giveeHat.discardPuck(givee);
         return giveeHat.drawPuck();
     }
@@ -73,15 +73,15 @@ public class Redpoint {
                     if (Rules.giveeNotSelf(giver, givee)) {
                         if (Rules.giveeNotRecip(giver, givee, blackhawks2010, year)) {
                             if (Rules.giveeNotRepeat(giver, givee, blackhawks2010, year)) {
-                                givee = puckPass(giver, givee, year);
+                                givee = giveePass(giver, givee, year);
                             } else {
-                                givee = puckFail(givee);
+                                givee = giveeFail(givee);
                             }
                         } else {
-                            givee = puckFail(givee);
+                            givee = giveeFail(givee);
                         }
                     } else {
-                        givee = puckFail(givee);
+                        givee = giveeFail(givee);
                     }
                 }
                 giverHat.removePuck(giver);
