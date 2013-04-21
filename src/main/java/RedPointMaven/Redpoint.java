@@ -21,6 +21,35 @@ public class Redpoint {
         return giveeHat.drawPuck();
     }
 
+    private static void applyRules(int year, String giver, String givee) {
+        while (!givee.equals("none")) {
+            if (Rules.giveeNotSelf(giver, givee)) {
+                if (Rules.giveeNotRecip(giver, givee, blackhawks2010, year)) {
+                    if (Rules.giveeNotRepeat(giver, givee, blackhawks2010, year)) {
+                        givee = giveePass(giver, givee, year);
+                    } else {
+                        givee = giveeFail(givee);
+                    }
+                } else {
+                    givee = giveeFail(givee);
+                }
+            } else {
+                givee = giveeFail(givee);
+            }
+        }
+    }
+
+    private static int printGifts(Scanner scanner, int year) {
+        int doNextYear;
+        System.out.println("Year " + year + " Gifts:");
+        blackhawks2010.printGivingRoster(year);
+        System.out.println();
+        System.out.print("Continue? (1 = yes, 0 = no): ");
+        doNextYear = scanner.nextInt();
+        System.out.println();
+        return doNextYear;
+    }
+
     // main method
     public static void main(String[] args) {
         Scanner scanner;
@@ -33,12 +62,7 @@ public class Redpoint {
         String givee;
         Hat giverHat;
 
-        System.out.println("Year " + year + " Gifts:");
-        blackhawks2010.printGivingRoster(year);
-        System.out.println();
-        System.out.print("Continue? (1 = yes, 0 = no): ");
-        doNextYear = scanner.nextInt();
-        System.out.println();
+        doNextYear = printGifts(scanner, year);
 
         while (doNextYear == 1) {
             year++;
@@ -69,34 +93,13 @@ public class Redpoint {
                 replace discard givees.
                 draw new giver and repeat all.
                 */
-                while (!givee.equals("none")) {
-                    if (Rules.giveeNotSelf(giver, givee)) {
-                        if (Rules.giveeNotRecip(giver, givee, blackhawks2010, year)) {
-                            if (Rules.giveeNotRepeat(giver, givee, blackhawks2010, year)) {
-                                givee = giveePass(giver, givee, year);
-                            } else {
-                                givee = giveeFail(givee);
-                            }
-                        } else {
-                            givee = giveeFail(givee);
-                        }
-                    } else {
-                        givee = giveeFail(givee);
-                    }
-                }
+                applyRules(year, giver, givee);
                 giverHat.removePuck(giver);
                 giveeHat.returnDiscards();
                 giver = giverHat.drawPuck();
                 givee = giveeHat.drawPuck();
             }
-            System.out.println("Year " + year + " Gifts:");
-            blackhawks2010.printGivingRoster(year);
-            System.out.println();
-
-            // another year?
-            System.out.print("Continue? (1 = yes, 0 = no): ");
-            doNextYear = scanner.nextInt();
-            System.out.println();
+            doNextYear = printGifts(scanner, year);
         }
 
         // hope to hear from you!!
