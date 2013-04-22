@@ -7,6 +7,35 @@ public class Redpoint {
     static Hat giveeHat;
     static int doNextYear;
 
+    public static void main(String[] args) {
+        int year = 0;
+        blackhawks2010 = new Roster();
+        String giver;
+        String givee;
+        Hat giverHat;
+
+        while (printGiftsAndNext(year) == 1) {
+            year++;
+            blackhawks2010.addNewYear();
+            giverHat = new Hat(blackhawks2010);
+            giveeHat = new Hat(blackhawks2010);
+            giver = giverHat.drawPuck();
+            givee = giveeHat.drawPuck();
+            while (!giver.equals("none")) {
+                testGivee(year, giver, givee);
+
+                giverHat.removePuck(giver);
+                giveeHat.returnDiscards();
+                giver = giverHat.drawPuck();
+                givee = giveeHat.drawPuck();
+            }
+        }
+        System.out.println("This was fun!");
+        System.out.println("Talk about a position with Redpoint?");
+        System.out.println("Please call: Eric Tobin 773-325-1516");
+        System.out.println("Thanks! Bye...");
+    }
+
     private static String giveePass(String giver, String givee, int year) {
         blackhawks2010.setGiveeCode(giver, givee, year);
         giveeHat.removePuck(givee);
@@ -18,7 +47,7 @@ public class Redpoint {
         return giveeHat.drawPuck();
     }
 
-    private static void applyRules(int year, String giver, String givee) {
+    private static void testGivee(int year, String giver, String givee) {
         while (!givee.equals("none")) {
             if (Rules.giveeNotSelf(giver, givee)) {
                 if (Rules.giveeNotRecip(giver, givee, blackhawks2010, year)) {
@@ -47,33 +76,5 @@ public class Redpoint {
         doNextYear = scanner.nextInt();
         System.out.println();
         return doNextYear;
-    }
-
-    public static void main(String[] args) {
-        int year = 0;
-        blackhawks2010 = new Roster();
-        String giver;
-        String givee;
-        Hat giverHat;
-
-        while (printGiftsAndNext(year) == 1) {
-            year++;
-            blackhawks2010.addNewYear();
-            giverHat = new Hat(blackhawks2010);
-            giveeHat = new Hat(blackhawks2010);
-            giver = giverHat.drawPuck();
-            givee = giveeHat.drawPuck();
-            while (!giver.equals("none")) {
-                applyRules(year, giver, givee);
-                giverHat.removePuck(giver);
-                giveeHat.returnDiscards();
-                giver = giverHat.drawPuck();
-                givee = giveeHat.drawPuck();
-            }
-        }
-        System.out.println("This was fun!");
-        System.out.println("Talk about a position with Redpoint?");
-        System.out.println("Please call: Eric Tobin 773-325-1516");
-        System.out.println("Thanks! Bye...");
     }
 }
