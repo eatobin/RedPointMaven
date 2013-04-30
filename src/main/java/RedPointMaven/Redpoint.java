@@ -32,6 +32,7 @@ public class Redpoint {
                     } else {
                         giveeIsFailure();
                     }
+
                 }
 
                 selectNewGiver();
