@@ -18,6 +18,7 @@ public class Redpoint {
             while (!giver.equals("none")) {
 
                 while (!givee.equals("none")) {
+
                     if (Rules.giveeNotSelf(giver, givee)) {
                         if (Rules.giveeNotRecip(giver, givee, blackhawks2010, year)) {
                             if (Rules.giveeNotRepeat(giver, givee, blackhawks2010, year)) {
