@@ -1,24 +1,18 @@
 package RedPointMaven;
 
 public class Redpoint {
+    private static int year = 0;
+    private static Roster blackhawks2010 = new Roster();
+    private static Hat giverHat;
+    private static Hat giveeHat;
+    private static String giver;
+    private static String givee;
 
     public static void main(String[] args) {
-        int year = 0;
-        Roster blackhawks2010;
-        blackhawks2010 = new Roster();
-        Hat giverHat;
-        Hat giveeHat;
-        String giver;
-        String givee;
 
         while (blackhawks2010.printAndAsk(year) == 1) {
 
-            year++;
-            blackhawks2010.addNewYear();
-            giverHat = new Hat(blackhawks2010);
-            giveeHat = new Hat(blackhawks2010);
-            giver = giverHat.drawPuck();
-            givee = giveeHat.drawPuck();
+            startNewYear();
 
             while (!giver.equals("none")) {
 
@@ -43,10 +37,8 @@ public class Redpoint {
                     }
                 }
 
-                giverHat.removePuck(giver);
-                giveeHat.returnDiscards();
-                giver = giverHat.drawPuck();
-                givee = giveeHat.drawPuck();
+                selectNewGiver();
+
             }
 
         }
@@ -55,5 +47,25 @@ public class Redpoint {
         System.out.println("Talk about a position with Redpoint?");
         System.out.println("Please call: Eric Tobin 773-325-1516");
         System.out.println("Thanks! Bye...");
+    }
+
+    private static void startNewYear() {
+        year++;
+        blackhawks2010.addNewYear();
+        giverHat = new Hat(blackhawks2010);
+        giveeHat = new Hat(blackhawks2010);
+        giver = giverHat.drawPuck();
+        givee = giveeHat.drawPuck();
+    }
+
+    private static void selectNewGiver() {
+        giverHat.removePuck(giver);
+        giveeHat.returnDiscards();
+        giver = giverHat.drawPuck();
+        givee = giveeHat.drawPuck();
+    }
+
+    private static void giveeIsSuccess(){
+
     }
 }
