@@ -1,6 +1,7 @@
 package RedPointMaven;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -84,7 +85,7 @@ public class Roster {
         }
     }
 
-    public void printGivingRoster(int year) {
+    private void printGivingRoster(int year) {
         /*
         uses key:value pair functionality of keySet.
         returns a msg if no match (playerCode = "none")
@@ -105,5 +106,21 @@ public class Roster {
             }
             System.out.println(playerName + " is buying for " + giveeName);
         }
+    }
+
+    public int printAndAsk(int year) {
+        Scanner scanner;
+        scanner = new Scanner(System.in);
+        int doNextYear;
+
+        System.out.println("Year " + year + " Gifts:");
+        this.printGivingRoster(year);
+        System.out.println();
+
+        System.out.print("Continue? (1 = yes, 0 = no): ");
+        doNextYear = scanner.nextInt();
+        System.out.println();
+
+        return doNextYear;
     }
 }

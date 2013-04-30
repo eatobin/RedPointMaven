@@ -34,6 +34,6 @@ public class RosterTest {
 
     @Test
     public void testPrintGivingRoster() {
-        blackhawks2010.printGivingRoster(0);
+        blackhawks2010.printAndAsk(0);
     }
 }
