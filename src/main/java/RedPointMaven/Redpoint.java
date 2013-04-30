@@ -1,6 +1,7 @@
 package RedPointMaven;
 
 public class Redpoint {
+
     private static int year = 0;
     private static Roster blackhawks2010 = new Roster();
     private static Hat giverHat;
@@ -20,20 +21,15 @@ public class Redpoint {
                     if (Rules.giveeNotSelf(giver, givee)) {
                         if (Rules.giveeNotRecip(giver, givee, blackhawks2010, year)) {
                             if (Rules.giveeNotRepeat(giver, givee, blackhawks2010, year)) {
-                                blackhawks2010.setGiveeCode(giver, givee, year);
-                                giveeHat.removePuck(givee);
-                                givee = "none";
+                                giveeIsSuccess();
                             } else {
-                                giveeHat.discardPuck(givee);
-                                givee = giveeHat.drawPuck();
+                                giveeIsFailure();
                             }
                         } else {
-                            giveeHat.discardPuck(givee);
-                            givee = giveeHat.drawPuck();
+                            giveeIsFailure();
                         }
                     } else {
-                        giveeHat.discardPuck(givee);
-                        givee = giveeHat.drawPuck();
+                        giveeIsFailure();
                     }
                 }
 
@@ -65,7 +61,14 @@ public class Redpoint {
         givee = giveeHat.drawPuck();
     }
 
-    private static void giveeIsSuccess(){
+    private static void giveeIsSuccess() {
+        blackhawks2010.setGiveeCode(giver, givee, year);
+        giveeHat.removePuck(givee);
+        givee = "none";
+    }
 
+    private static void giveeIsFailure() {
+        giveeHat.discardPuck(givee);
+        givee = giveeHat.drawPuck();
     }
 }
