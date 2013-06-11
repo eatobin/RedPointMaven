@@ -11,7 +11,7 @@ public class Redpoint {
 
     public static void main(String[] args) {
 
-        while (blackhawks2010.printAndAsk(year) == 1) {
+        while (blackhawks2010.printAndAsk(year, true) == 1) {
 
             startNewYear();
 
