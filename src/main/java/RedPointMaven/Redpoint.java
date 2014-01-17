@@ -10,15 +10,10 @@ public class Redpoint {
     private static String givee;
 
     public static void main(String[] args) {
-
         while (blackhawks2010.printAndAsk(year, true) == 1) {
-
             startNewYear();
-
             while (!giver.equals("none")) {
-
                 while (!givee.equals("none")) {
-
                     if (Rules.giveeNotSelf(giver, givee)) {
                         if (Rules.giveeNotRecip(giver, givee, blackhawks2010, year)) {
                             if (Rules.giveeNotRepeat(giver, givee, blackhawks2010, year)) {
@@ -32,15 +27,10 @@ public class Redpoint {
                     } else {
                         giveeIsFailure();
                     }
-
                 }
-
                 selectNewGiver();
-
             }
-
         }
-
         System.out.println("This was fun!");
         System.out.println("Talk about a position with Redpoint?");
         System.out.println("Please call: Eric Tobin 773-325-1516");
