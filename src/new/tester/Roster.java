@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeMap;
 
+// constructor
 class Roster {
-    //use a TreeMap to order rosterList alphabetically by key
+    // use a TreeMap to order rosterList alphabetically by key
     private final TreeMap<String, Player> rosterList;
 
     Roster() {
@@ -30,18 +31,19 @@ class Roster {
         rosterList.put("TomKop", new Player("Tomas Kopecky", "CriHue"));
     }
 
-    //inner class
+    // inner class Player
     private class Player {
         final String playerName;
         final ArrayList<String> pastGiveesCodes;
 
+        // constructor
         private Player(String playerName, String giveeCodeYearZero) {
             this.playerName = playerName;
             pastGiveesCodes = new ArrayList<String>();
             pastGiveesCodes.add(giveeCodeYearZero);
         }
 
-        //return playerName
+        // return playerName
         private String getPlayerName() {
             return playerName;
         }
@@ -51,34 +53,38 @@ class Roster {
             return pastGiveesCodes.get(giftYear);
         }
 
-        //add a giveeCode "none" to array of past givees
+        // add a giveeCode "none" to array of past givees
         private void addNoneGiveeCode() {
             pastGiveesCodes.add("none");
         }
 
-        //set a giveeCode in a given year
+        // set a giveeCode in a given year
         private String setGiveeCode(String giveeCode, int year) {
             return pastGiveesCodes.set(year, giveeCode);
         }
     }
 
+    // get a Player for use with public object methods
     private Player getPlayer(String playerCode) {
         return this.rosterList.get(playerCode);
     }
 
+    // get playerName from returned Player
     String getPlayerName(String playerCode) {
         return this.getPlayer(playerCode).getPlayerName();
     }
 
+    // get giveeCode from returned Player for a given year
     String getGiveeCode(String playerCode, int year) {
         return this.getPlayer(playerCode).getGiveeCode(year);
     }
 
+    // set giveeCode for returned Player for a given year
     String setGiveeCode(String playerCode, String giveeCode, int year) {
         return this.getPlayer(playerCode).setGiveeCode(giveeCode, year);
     }
 
-    //add a new empty year ("none") to each Player's givee array
+    //add a new empty year ("none") to each Player's pastGiveeCodes ArrayList
     public void addNewYear() {
         Set<String> playerCodeKeySet = rosterList.keySet();
 
