@@ -16,6 +16,7 @@ public class RosterTest {
     public void testGetPlayerName() {
         Assert.assertEquals("Antti Niemi", blackhawks2010.getPlayerName("AntNie"));
         Assert.assertEquals("Bryan Bickell", blackhawks2010.getPlayerName("BryBic"));
+        Assert.assertNull(blackhawks2010.getPlayerName("X"));
     }
 
     @Test

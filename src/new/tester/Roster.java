@@ -71,7 +71,11 @@ class Roster {
 
     // get playerName from returned Player
     String getPlayerName(String playerCode) {
-        return this.getPlayer(playerCode).getPlayerName();
+        if (this.getPlayer(playerCode) != null) {
+            return this.getPlayer(playerCode).getPlayerName();
+        } else {
+            return null;
+        }
     }
 
     // get giveeCode from returned Player for a given year
