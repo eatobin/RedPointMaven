@@ -23,6 +23,7 @@ public class RosterTest {
     public void testGetGiveeCode() {
         Assert.assertEquals("DunKei", blackhawks2010.getGiveeCode("AdaBur", 0));
         Assert.assertEquals("BriCam", blackhawks2010.getGiveeCode("PatSha", 0));
+        Assert.assertNull(blackhawks2010.getPlayerName("X"));
     }
 
     @Test
@@ -30,6 +31,7 @@ public class RosterTest {
         Assert.assertEquals("DunKei", blackhawks2010.getGiveeCode("AdaBur", 0));
         Assert.assertEquals("DunKei", blackhawks2010.setGiveeCode("AdaBur", "MarHos", 0));
         Assert.assertEquals("MarHos", blackhawks2010.getGiveeCode("AdaBur", 0));
+        Assert.assertNull(blackhawks2010.getPlayerName("X"));
     }
 
     @Test

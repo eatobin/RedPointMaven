@@ -80,12 +80,21 @@ class Roster {
 
     // get giveeCode from returned Player for a given year
     String getGiveeCode(String playerCode, int year) {
-        return this.getPlayer(playerCode).getGiveeCode(year);
+        if (this.getPlayer(playerCode) != null) {
+            return this.getPlayer(playerCode).getGiveeCode(year);
+        } else {
+            return null;
+        }
     }
+
 
     // set giveeCode for returned Player for a given year
     String setGiveeCode(String playerCode, String giveeCode, int year) {
-        return this.getPlayer(playerCode).setGiveeCode(giveeCode, year);
+        if (this.getPlayer(playerCode) != null) {
+            return this.getPlayer(playerCode).setGiveeCode(giveeCode, year);
+        } else {
+            return null;
+        }
     }
 
     //add a new empty year ("none") to each Player's pastGiveeCodes ArrayList
