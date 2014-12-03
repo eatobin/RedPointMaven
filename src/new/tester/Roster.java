@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeMap;
 
-// constructor
 class Roster {
+    private final String teamName;
+    private final int firstYear;
     // use a TreeMap to order rosterList alphabetically by key
     private final TreeMap<String, Player> rosterList;
 
-    Roster() {
+    Roster(String teamName, int firstYear) {
+        this.teamName = teamName;
+        this.firstYear = firstYear;
+
         rosterList = new TreeMap<String, Player>();
         rosterList.put("TroBro", new Player("Troy Brouwer", "DavBol"));
         rosterList.put("AdaBur", new Player("Adam Burish", "DunKei"));
@@ -97,12 +101,22 @@ class Roster {
         }
     }
 
-    //add a new empty year ("none") to each Player's pastGiveeCodes ArrayList
-    public void addNewYear() {
+    // add a new empty year ("none") to each Player's pastGiveeCodes ArrayList
+    void addNewYear() {
         Set<String> playerCodeKeySet = rosterList.keySet();
 
         for (String aKey : playerCodeKeySet) {
             this.getPlayer(aKey).addNoneGiveeCode();
         }
+    }
+
+    // get team name
+    String getTeamName() {
+        return teamName;
+    }
+
+    // get first year
+    int getFirstYear() {
+        return firstYear;
     }
 }

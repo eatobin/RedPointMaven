@@ -9,7 +9,7 @@ public class RosterTest {
 
     @Before
     public void setUp() {
-        blackhawks2010 = new Roster();
+        blackhawks2010 = new Roster("Blackhawks", 2010);
     }
 
     @Test
@@ -39,5 +39,15 @@ public class RosterTest {
         Assert.assertEquals("DunKei", blackhawks2010.getGiveeCode("AdaBur", 0));
         blackhawks2010.addNewYear();
         Assert.assertEquals("none", blackhawks2010.getGiveeCode("AdaBur", 1));
+    }
+
+    @Test
+    public void testGetTeamName() {
+        Assert.assertEquals("Blackhawks", blackhawks2010.getTeamName());
+    }
+
+    @Test
+    public void testGetFirstYear() {
+        Assert.assertEquals(2010, blackhawks2010.getFirstYear());
     }
 }
