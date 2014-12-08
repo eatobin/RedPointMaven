@@ -5,16 +5,18 @@ import java.util.Set;
 import java.util.TreeMap;
 
 public class Roster {
+    // instance variables
     private final String teamName;
     private final int firstYear;
-    // use a TreeMap to order rosterList alphabetically by key
+    // (use a TreeMap to order rosterList alphabetically by key)
     private final TreeMap<String, Player> rosterList;
 
+    // constructor
     Roster(String teamName, int firstYear) {
         this.teamName = teamName;
         this.firstYear = firstYear;
-
         rosterList = new TreeMap<String, Player>();
+
         rosterList.put("TroBro", new Player("Troy Brouwer", "DavBol"));
         rosterList.put("AdaBur", new Player("Adam Burish", "DunKei"));
         rosterList.put("AndLad", new Player("Andrew Ladd", "JoeQue"));
@@ -110,13 +112,42 @@ public class Roster {
         }
     }
 
+    // get rosterList
+    TreeMap<String, Player> getRosterList() {
+        return this.rosterList;
+    }
+
     // get team name
     String getTeamName() {
-        return teamName;
+        return this.teamName;
     }
 
     // get first year
     int getFirstYear() {
-        return firstYear;
+        return this.firstYear;
+    }
+
+    // print the giving roster for a given year
+    void printGivingRoster(int year) {
+        /*
+        uses key:value pair functionality of keySet.
+        returns a msg if no match (playerCode = "none")
+        where last giver/givee in Hats fail a test.
+        */
+        String playerName;
+        String giveeCode;
+        String giveeName;
+        Set<String> playerCodeKeySet = rosterList.keySet();
+
+        for (String aKey : playerCodeKeySet) {
+            playerName = this.getPlayer(aKey).getPlayerName();
+            giveeCode = this.getPlayer(aKey).getGiveeCode(year);
+            if (giveeCode.equals("none")) {
+                giveeName = "...nobody!! (last giver/givee pairing and a test failed - a puzzle logic error)";
+            } else {
+                giveeName = this.getPlayer(giveeCode).playerName;
+            }
+            System.out.println(playerName + " is buying for " + giveeName);
+        }
     }
 }

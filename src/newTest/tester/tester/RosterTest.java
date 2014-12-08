@@ -50,4 +50,9 @@ public class RosterTest {
     public void testGetFirstYear() {
         Assert.assertEquals(2010, blackhawks2010.getFirstYear());
     }
+
+    @Test
+    public void testPrintGivingRoster() {
+        blackhawks2010.printGivingRoster(0);
+    }
 }

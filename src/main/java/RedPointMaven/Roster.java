@@ -85,7 +85,7 @@ public class Roster {
         }
     }
 
-    private void printGivingRoster(int year) {
+    public void printGivingRoster(int year) {
         /*
         uses key:value pair functionality of keySet.
         returns a msg if no match (playerCode = "none")
