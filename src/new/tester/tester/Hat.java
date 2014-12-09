@@ -1,7 +1,7 @@
 package tester;
 
 /**
- * Class acts as a virtual hat of pucks. Hat is initialized with roster_list of players.
+ * Class acts as a virtual hat of pucks. Hat is initialized with roster list of player codes.
  * Pucks can be drawn at random, removed and replaced after discard.
  */
 
