@@ -39,8 +39,8 @@ public class Roster {
 
     // inner class Player
     private class Player {
-        final String playerName;
-        final ArrayList<String> pastGiveesCodes;
+        private final String playerName;
+        private final ArrayList<String> pastGiveesCodes;
 
         // constructor
         private Player(String playerName, String giveeCodeYearZero) {
@@ -112,9 +112,9 @@ public class Roster {
         }
     }
 
-    // get rosterList
-    TreeMap<String, Player> getRosterList() {
-        return this.rosterList;
+    // get rosterList of player codes
+    ArrayList<String> getRosterListCodes() {
+        return new ArrayList<String>(this.rosterList.keySet());
     }
 
     // get team name
@@ -139,6 +139,7 @@ public class Roster {
         String giveeName;
         Set<String> playerCodeKeySet = rosterList.keySet();
 
+        System.out.println(getTeamName() + " - Year " + (getFirstYear() + year) + " Gifts:");
         for (String aKey : playerCodeKeySet) {
             playerName = this.getPlayer(aKey).getPlayerName();
             giveeCode = this.getPlayer(aKey).getGiveeCode(year);

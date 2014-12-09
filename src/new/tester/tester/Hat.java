@@ -13,11 +13,11 @@ public class Hat {
     ArrayList<String> discards;
 
     /**
-     * Constructor for objects of class Hat given a roster_list.
+     * Constructor for objects of class Hat given a roster list of player codes.
      */
-    public Hat(Roster roster) {
+    public Hat(ArrayList<String> rosterListCodes) {
         //initialize instance variables
-        pucks = new ArrayList<String>(roster.getRosterList().keySet());
+        pucks = new ArrayList<String>(rosterListCodes);
         discards = new ArrayList<String>();
     }
 

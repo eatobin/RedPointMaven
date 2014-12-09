@@ -1,19 +1,17 @@
 package tester;
 
-import tester.Hat;
-import tester.Roster;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class HatTest {
-    RedPointMaven.Roster blackhawks2010;
+    Roster blackhawks2010;
     Hat hat;
 
     @Before
     public void setUp() {
-        blackhawks2010 = new Roster();
-        hat = new Hat(blackhawks2010);
+        blackhawks2010 = new Roster("Blackhawks", 2010);
+        hat = new Hat(blackhawks2010.getRosterListCodes());
     }
 
     @Test
