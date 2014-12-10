@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeMap;
 
-public class Roster {
+class Roster {
     // instance variables
     private final String teamName;
     private final int firstYear;
@@ -105,10 +105,10 @@ public class Roster {
 
     // add a new empty year ("none") to each Player's pastGiveeCodes ArrayList
     void addNewYear() {
-        Set<String> playerCodeKeySet = rosterList.keySet();
+        Set<String> playerCodeKeySet = this.rosterList.keySet();
 
-        for (String aKey : playerCodeKeySet) {
-            this.getPlayer(aKey).addNoneGiveeCode();
+        for (String playerCode : playerCodeKeySet) {
+            this.getPlayer(playerCode).addNoneGiveeCode();
         }
     }
 
