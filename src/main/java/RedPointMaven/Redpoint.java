@@ -1,16 +1,18 @@
 package RedPointMaven;
 
+import java.util.Scanner;
+
 public class Redpoint {
 
     private static int year = 0;
-    private static Roster blackhawks2010 = new Roster();
+    private static Roster blackhawks2010 = new Roster("Blackhawks", 2010);
     private static Hat giverHat;
     private static Hat giveeHat;
     private static String giver;
     private static String givee;
 
     public static void main(String[] args) {
-        while (blackhawks2010.printAndAsk(year, true) == 1) {
+        while (printAndAsk(year, true) == 1) {
             startNewYear();
             while (!giver.equals("none")) {
                 while (!givee.equals("none")) {
@@ -40,8 +42,8 @@ public class Redpoint {
     private static void startNewYear() {
         year++;
         blackhawks2010.addNewYear();
-        giverHat = new Hat(blackhawks2010);
-        giveeHat = new Hat(blackhawks2010);
+        giverHat = new Hat(blackhawks2010.getRosterListCodes());
+        giveeHat = new Hat(blackhawks2010.getRosterListCodes());
         giver = giverHat.drawPuck();
         givee = giveeHat.drawPuck();
     }
@@ -62,5 +64,23 @@ public class Redpoint {
     private static void giveeIsFailure() {
         giveeHat.discardPuck(givee);
         givee = giveeHat.drawPuck();
+    }
+
+    private static int printAndAsk(int year, boolean isNotTest) {
+        Scanner scanner;
+        scanner = new Scanner(System.in);
+        int doNextYear;
+        doNextYear = 0;
+
+        blackhawks2010.printGivingRoster(year);
+        System.out.println();
+
+        if (isNotTest) {
+            System.out.print("Continue? (1 = yes, 0 = no): ");
+            doNextYear = scanner.nextInt();
+            System.out.println();
+        }
+
+        return doNextYear;
     }
 }
