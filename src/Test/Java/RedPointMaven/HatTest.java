@@ -1,4 +1,4 @@
-package tester;
+package RedPointMaven;
 
 import org.junit.Assert;
 import org.junit.Before;

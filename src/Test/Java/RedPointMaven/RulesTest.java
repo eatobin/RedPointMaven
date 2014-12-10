@@ -9,7 +9,7 @@ public class RulesTest {
 
     @Before
     public void setUp() {
-        blackhawks2010 = new Roster();
+        blackhawks2010 = new Roster("Blackhawks", 2010);
     }
 
     @Test
