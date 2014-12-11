@@ -15,7 +15,7 @@ class Rules {
 
     //test 3 of 3 - has giver given to givee in past X years?
     static boolean giveeNotRepeat(String giverCode, String giveeCode, Roster roster, int thisYear) {
-        int PAST_X_YEARS = 4;
+        final int PAST_X_YEARS = 4;
         int counter;
         String giveeInYear;
         boolean result = true;
