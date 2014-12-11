@@ -16,16 +16,10 @@ class Redpoint {
             startNewYear();
             while (!giver.equals("none")) {
                 while (!givee.equals("none")) {
-                    if (Rules.giveeNotSelf(giver, givee)) {
-                        if (Rules.giveeNotRecip(giver, givee, blackhawks2010, year)) {
-                            if (Rules.giveeNotRepeat(giver, givee, blackhawks2010, year)) {
-                                giveeIsSuccess();
-                            } else {
-                                giveeIsFailure();
-                            }
-                        } else {
-                            giveeIsFailure();
-                        }
+                    if (Rules.giveeNotSelf(giver, givee) &&
+                            Rules.giveeNotRecip(giver, givee, blackhawks2010, year) &&
+                            Rules.giveeNotRepeat(giver, givee, blackhawks2010, year)) {
+                        giveeIsSuccess();
                     } else {
                         giveeIsFailure();
                     }
