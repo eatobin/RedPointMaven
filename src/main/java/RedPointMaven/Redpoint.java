@@ -2,7 +2,7 @@ package RedPointMaven;
 
 import java.util.Scanner;
 
-public class Redpoint {
+class Redpoint {
 
     private static int year = 0;
     private static Roster blackhawks2010 = new Roster("Blackhawks", 2010);
