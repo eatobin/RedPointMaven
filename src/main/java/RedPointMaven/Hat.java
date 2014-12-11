@@ -8,7 +8,7 @@ package RedPointMaven;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Hat {
+class Hat {
     ArrayList<String> pucks;
     ArrayList<String> discards;
 
@@ -25,7 +25,7 @@ public class Hat {
      * Draws a puck at random (by ArrayList index number). Returns the playerCode
      * randomly chosen or "none" if ArrayList empty.
      */
-    public String drawPuck() {
+    String drawPuck() {
         // construct a random number between 0 and (pucks.size() - 1)
         if (pucks.size() > 0) {
             Random generator = new Random();
@@ -43,14 +43,14 @@ public class Hat {
     /**
      * Removes a puck by given playerCode. Returns true if successful.
      */
-    public boolean removePuck(String playerCode) {
+    boolean removePuck(String playerCode) {
         return pucks.remove(playerCode);
     }
 
     /**
      * Returns the number of pucks in discards
      */
-    public int discardsSize() {
+    int discardsSize() {
         return discards.size();
     }
 
@@ -58,7 +58,7 @@ public class Hat {
      * If puck successfully removed, place the puck (playerCode) in the discard list. Return
      * true if both remove and discard succeed.
      */
-    public boolean discardPuck(String playerCode) {
+    boolean discardPuck(String playerCode) {
         return pucks.remove(playerCode) && discards.add(playerCode);
     }
 
@@ -66,7 +66,7 @@ public class Hat {
      * Return the discarded pucks to the hat for other player use. Return true if
      * there are discards and they are returned.
      */
-    public boolean returnDiscards() {
+    boolean returnDiscards() {
         boolean worked = false;
 
         if (discardsSize() > 0) {
