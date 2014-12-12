@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class RosterTest {
-    Roster blackhawks2010;
+    private Roster blackhawks2010;
 
     @Before
     public void setUp() {

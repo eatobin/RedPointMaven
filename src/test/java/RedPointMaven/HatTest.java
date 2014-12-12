@@ -5,12 +5,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class HatTest {
-    Roster blackhawks2010;
-    Hat hat;
+    private Hat hat;
 
     @Before
     public void setUp() {
-        blackhawks2010 = new Roster("Blackhawks", 2010);
+        Roster blackhawks2010 = new Roster("Blackhawks", 2010);
         hat = new Hat(blackhawks2010.getRosterListCodes());
     }
 

@@ -9,9 +9,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 class Hat {
-    ArrayList<String> pucks;
-    ArrayList<String> discards;
-    ArrayList<String> flunks;
+    final ArrayList<String> pucks;
+    final ArrayList<String> discards;
 
     /**
      * Constructor for objects of class Hat given a roster list of player codes.
@@ -20,7 +19,6 @@ class Hat {
         //initialize instance variables
         pucks = new ArrayList<String>(rosterListCodes);
         discards = new ArrayList<String>();
-        flunks = new ArrayList<String>();
     }
 
     /**
@@ -56,10 +54,6 @@ class Hat {
         return discards.size();
     }
 
-    int pucksSize() {
-        return pucks.size();
-    }
-
     /**
      * If puck successfully removed, place the puck (playerCode) in the discard list. Return
      * true if both remove and discard succeed.
@@ -68,22 +62,13 @@ class Hat {
         return pucks.remove(playerCode) && discards.add(playerCode);
     }
 
-    boolean flunkPuck(String playerCode) {
-        return pucks.remove(playerCode) && flunks.add(playerCode);
-    }
-
     /**
-     * Return the discarded pucks to the hat for other player use. Return true if
-     * there are discards and they are returned.
+     * Return the discarded pucks to the hat for other player use.
      */
-    boolean returnDiscards() {
-        boolean worked = false;
-
+    void returnDiscards() {
         if (discardsSize() > 0) {
-            worked = pucks.addAll(discards);
+            pucks.addAll(discards);
             discards.clear();
         }
-
-        return worked;
     }
 }

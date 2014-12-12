@@ -5,14 +5,14 @@ import java.util.Scanner;
 class Redpoint {
 
     private static int year = 0;
-    private static Roster blackhawks2010 = new Roster("Blackhawks", 2010);
+    private static final Roster blackhawks2010 = new Roster("Blackhawks", 2010);
     private static Hat giverHat;
     private static Hat giveeHat;
     private static String giver;
     private static String givee;
 
     public static void main(String[] args) {
-        while (printAndAsk(year, true) == 1) {
+        while (printAndAsk(year) == 1) {
             startNewYear();
             while (!giver.equals("none")) {
                 while (!givee.equals("none")) {
@@ -60,20 +60,17 @@ class Redpoint {
         givee = giveeHat.drawPuck();
     }
 
-    private static int printAndAsk(int year, boolean isNotTest) {
+    private static int printAndAsk(int year) {
         Scanner scanner;
         scanner = new Scanner(System.in);
         int doNextYear;
-        doNextYear = 0;
 
         blackhawks2010.printGivingRoster(year);
         System.out.println();
 
-        if (isNotTest) {
-            System.out.print("Continue? (1 = yes, 0 = no): ");
-            doNextYear = scanner.nextInt();
-            System.out.println();
-        }
+        System.out.print("Continue? (1 = yes, 0 = no): ");
+        doNextYear = scanner.nextInt();
+        System.out.println();
 
         return doNextYear;
     }
