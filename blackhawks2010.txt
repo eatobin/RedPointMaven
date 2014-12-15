@@ -1,15 +1,14 @@
 Blackhawks, 2010
 TroBro, Troy Brouwer, DavBol
+JoeQue, Joel Quenneville, TroBro
 AdaBur, Adam Burish, DunKei
 AndLad, Andrew Ladd, JoeQue
 AntNie, Antti Niemi, JonToe
 BreSea, Brent Seabrook, KriVer
 BryBic, Bryan Bickell, MarHos
-BriCam, Brian Campbell, NikHja
 CriHue, Cristobal Huet, PatKan
 DavBol, Dave Bolland, PatSha
 DunKei, Duncan Keith, TomKop
-JoeQue, Joel Quenneville, TroBro
 JonToe, Jonathan Toews, AdaBur
 KriVer, Kris Versteeg, AndLad
 MarHos, Marian Hossa, AntNie
@@ -17,3 +16,4 @@ NikHja, Niklas Hjalmarsson, BreSea
 PatKan, Patrick Kane, BryBic
 PatSha, Patrick Sharp, BriCam
 TomKop, Tomas Kopecky, CriHue
+BriCam, Brian Campbell, NikHja

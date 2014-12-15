@@ -16,8 +16,11 @@ public class HatTest {
     @Test
     public void testDrawPuck() {
         Assert.assertEquals(18, hat.pucks.size());
+
         //alphabetical print of Array?
         System.out.println(hat.pucks.toString());
+        System.out.println();
+
         Assert.assertEquals("AndLad", hat.pucks.get(1));
         Assert.assertTrue(!hat.drawPuck().equals("none"));
 
