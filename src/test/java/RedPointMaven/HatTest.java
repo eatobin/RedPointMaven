@@ -9,7 +9,7 @@ public class HatTest {
 
     @Before
     public void setUp() {
-        Roster blackhawks2010 = new Roster("Blackhawks", 2010);
+        Roster blackhawks2010 = new Roster("blackhawks2010.txt");
         hat = new Hat(blackhawks2010.getRosterListCodes());
     }
 

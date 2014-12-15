@@ -5,7 +5,7 @@ import java.util.Scanner;
 class Redpoint {
 
     private static int year = 0;
-    private static final Roster blackhawks2010 = new Roster("Blackhawks", 2010);
+    private static final Roster blackhawks2010 = new Roster("blackhawks2010.txt");
     private static Hat giverHat;
     private static Hat giveeHat;
     private static String giver;

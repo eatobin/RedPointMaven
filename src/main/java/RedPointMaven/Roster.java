@@ -1,39 +1,43 @@
 package RedPointMaven;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 class Roster {
     // instance variables
-    private final String teamName;
-    private final int firstYear;
-    // (use a TreeMap to order rosterList alphabetically by key)
-    private final TreeMap<String, Player> rosterList;
+    private String teamName = null;
+    private int firstYear = 0;
+    private final TreeMap<String, Player> rosterList; // (use a TreeMap to order rosterList alphabetically by key)
 
     // constructor
-    Roster(String teamName, int firstYear) {
-        this.teamName = teamName;
-        this.firstYear = firstYear;
+    Roster(String fileName) {
+        BufferedReader br;
+        String s;
+        List<String> stringList;
         rosterList = new TreeMap<String, Player>();
 
-        rosterList.put("TroBro", new Player("Troy Brouwer", "DavBol"));
-        rosterList.put("AdaBur", new Player("Adam Burish", "DunKei"));
-        rosterList.put("AndLad", new Player("Andrew Ladd", "JoeQue"));
-        rosterList.put("AntNie", new Player("Antti Niemi", "JonToe"));
-        rosterList.put("BreSea", new Player("Brent Seabrook", "KriVer"));
-        rosterList.put("BryBic", new Player("Bryan Bickell", "MarHos"));
-        rosterList.put("BriCam", new Player("Brian Campbell", "NikHja"));
-        rosterList.put("CriHue", new Player("Cristobal Huet", "PatKan"));
-        rosterList.put("DavBol", new Player("Dave Bolland", "PatSha"));
-        rosterList.put("DunKei", new Player("Duncan Keith", "TomKop"));
-        rosterList.put("JoeQue", new Player("Joel Quenneville", "TroBro"));
-        rosterList.put("JonToe", new Player("Jonathan Toews", "AdaBur"));
-        rosterList.put("KriVer", new Player("Kris Versteeg", "AndLad"));
-        rosterList.put("MarHos", new Player("Marian Hossa", "AntNie"));
-        rosterList.put("NikHja", new Player("Niklas Hjalmarsson", "BreSea"));
-        rosterList.put("PatKan", new Player("Patrick Kane", "BryBic"));
-        rosterList.put("PatSha", new Player("Patrick Sharp", "BriCam"));
-        rosterList.put("TomKop", new Player("Tomas Kopecky", "CriHue"));
+        try {
+            br = new BufferedReader(
+                    new FileReader(fileName));
+
+            try {
+                while ((s = br.readLine()) != null) {
+                    stringList = Arrays.asList(s.split(", "));
+                    if (stringList.size() == 2) {
+                        this.teamName = stringList.get(0);
+                        this.firstYear = Integer.parseInt(stringList.get(1));
+                    } else {
+                        rosterList.put(stringList.get(0), new Player(stringList.get(1), stringList.get(2)));
+                    }
+                }
+            } finally {
+                br.close();
+            }
+        } catch (IOException ex) {
+            System.out.println("File Read Error");
+        }
     }
 
     // inner class Player
@@ -149,48 +153,5 @@ class Roster {
             }
             System.out.println(playerName + " is buying for " + giveeName);
         }
-    }
-
-    static boolean saveStringToFile(String fileName,
-                                    String saveString) {
-        boolean saved = false;
-        BufferedWriter bw;
-
-        try {
-            bw = new BufferedWriter(
-                    new FileWriter(fileName)
-            );
-
-            try {
-                bw.write(saveString);
-                saved = true;
-            } finally {
-                bw.close();
-            }
-        } catch (IOException ex) {
-            System.out.println("File Write Error");
-        }
-        return saved;
-    }
-
-    static List<String> getStringListFromFile(String fileName) {
-        BufferedReader br;
-        List<String> list = new ArrayList<String>();
-
-        try {
-            br = new BufferedReader(
-                    new FileReader(fileName));
-            try {
-                String s;
-                while ((s = br.readLine()) != null) {
-                    list = Arrays.asList(s.split(", "));
-                }
-            } finally {
-                br.close();
-            }
-        } catch (IOException ex) {
-            System.out.println("File Read Error");
-        }
-        return list;
     }
 }
