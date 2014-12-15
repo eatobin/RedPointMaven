@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 public class RosterTest {
     private Roster blackhawks2010;
 
@@ -54,5 +56,20 @@ public class RosterTest {
     @Test
     public void testPrintGivingRoster() {
         blackhawks2010.printGivingRoster(0);
+    }
+
+    @Test
+    public void saveStringToFile() {
+        String saveString = "Line one of, Test, me.";
+        Assert.assertTrue(Roster.saveStringToFile("testsavestring.txt",
+                        saveString)
+        );
+        List<String> newStringList = Roster.getStringListFromFile("testsavestring.txt");
+        System.out.println();
+        System.out.println(newStringList.toString());
+        System.out.println();
+        Assert.assertEquals(newStringList.get(1), "Test");
+        Assert.assertEquals(newStringList.get(2), "me.");
+        Assert.assertEquals(3, newStringList.size());
     }
 }

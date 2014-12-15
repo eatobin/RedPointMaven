@@ -1,8 +1,7 @@
 package RedPointMaven;
 
-import java.util.ArrayList;
-import java.util.Set;
-import java.util.TreeMap;
+import java.io.*;
+import java.util.*;
 
 class Roster {
     // instance variables
@@ -150,5 +149,48 @@ class Roster {
             }
             System.out.println(playerName + " is buying for " + giveeName);
         }
+    }
+
+    static boolean saveStringToFile(String fileName,
+                                    String saveString) {
+        boolean saved = false;
+        BufferedWriter bw;
+
+        try {
+            bw = new BufferedWriter(
+                    new FileWriter(fileName)
+            );
+
+            try {
+                bw.write(saveString);
+                saved = true;
+            } finally {
+                bw.close();
+            }
+        } catch (IOException ex) {
+            System.out.println("File Write Error");
+        }
+        return saved;
+    }
+
+    static List<String> getStringListFromFile(String fileName) {
+        BufferedReader br;
+        List<String> list = new ArrayList<String>();
+
+        try {
+            br = new BufferedReader(
+                    new FileReader(fileName));
+            try {
+                String s;
+                while ((s = br.readLine()) != null) {
+                    list = Arrays.asList(s.split(", "));
+                }
+            } finally {
+                br.close();
+            }
+        } catch (IOException ex) {
+            System.out.println("File Read Error");
+        }
+        return list;
     }
 }
