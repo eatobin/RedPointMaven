@@ -54,5 +54,12 @@ public class RosterTest {
     @Test
     public void testPrintGivingRoster() {
         blackhawks2010.printGivingRoster(0);
+
+        // introduce an error and see if the method chokes on it
+        blackhawks2010.setGiveeCode("AdaBur", "anAwfullyBadPlayerCode", 0);
+        System.out.println();
+        System.out.println("Check out who Adam Burish is giving to!:");
+        System.out.println();
+        blackhawks2010.printGivingRoster(0);
     }
 }

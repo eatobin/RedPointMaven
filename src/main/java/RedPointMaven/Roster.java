@@ -111,7 +111,9 @@ class Roster {
         Set<String> playerCodeKeySet = this.rosterList.keySet();
 
         for (String playerCode : playerCodeKeySet) {
-            this.getPlayer(playerCode).addNoneGiveeCode();
+            if (this.getPlayer(playerCode) != null) {
+                this.getPlayer(playerCode).addNoneGiveeCode();
+            }
         }
     }
 
@@ -149,7 +151,11 @@ class Roster {
             if (giveeCode.equals("none")) {
                 giveeName = "...nobody!! (last giver/givee pairing and a test failed - a puzzle logic error)";
             } else {
-                giveeName = this.getPlayer(giveeCode).playerName;
+                if (this.getPlayer(giveeCode) != null) {
+                    giveeName = this.getPlayer(giveeCode).playerName;
+                } else {
+                    giveeName = "WHOA - ERROR HERE!";
+                }
             }
             System.out.println(playerName + " is buying for " + giveeName);
         }
