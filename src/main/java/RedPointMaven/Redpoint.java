@@ -5,7 +5,7 @@ import java.util.Scanner;
 class Redpoint {
 
     private static int year = 0;
-    private static final Roster blackhawks2010 = new Roster("blackhawks2010.txt");
+    private static final Roster ROSTER = new Roster("blackhawks2010.txt");
     private static Hat giverHat;
     private static Hat giveeHat;
     private static String giver;
@@ -17,8 +17,8 @@ class Redpoint {
             while (!giver.equals("none")) {
                 while (!givee.equals("none")) {
                     if (Rules.giveeNotSelf(giver, givee) &&
-                            Rules.giveeNotRecip(giver, givee, blackhawks2010, year) &&
-                            Rules.giveeNotRepeat(giver, givee, blackhawks2010, year)) {
+                            Rules.giveeNotRecip(giver, givee, ROSTER, year) &&
+                            Rules.giveeNotRepeat(giver, givee, ROSTER, year)) {
                         giveeIsSuccess();
                     } else {
                         giveeIsFailure();
@@ -35,9 +35,9 @@ class Redpoint {
 
     private static void startNewYear() {
         year++;
-        blackhawks2010.addNewYear();
-        giverHat = new Hat(blackhawks2010.getRosterListCodes());
-        giveeHat = new Hat(blackhawks2010.getRosterListCodes());
+        ROSTER.addNewYear();
+        giverHat = new Hat(ROSTER.getRosterListCodes());
+        giveeHat = new Hat(ROSTER.getRosterListCodes());
         giver = giverHat.drawPuck();
         givee = giveeHat.drawPuck();
     }
@@ -50,8 +50,8 @@ class Redpoint {
     }
 
     private static void giveeIsSuccess() {
-        blackhawks2010.setGiveeCode(giver, givee, year);
-        blackhawks2010.setGiverCode(givee, giver, year);
+        ROSTER.setGiveeCode(giver, givee, year);
+        ROSTER.setGiverCode(givee, giver, year);
         giveeHat.removePuck(givee);
         givee = "none";
     }
@@ -66,7 +66,7 @@ class Redpoint {
         scanner = new Scanner(System.in);
         int doNextYear;
 
-        blackhawks2010.printGivingRoster(year);
+        ROSTER.printGivingRoster(year);
         System.out.println();
 
         System.out.print("Continue? (1 = yes, 0 = no): ");
