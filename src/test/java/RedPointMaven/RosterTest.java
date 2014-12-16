@@ -27,6 +27,13 @@ public class RosterTest {
     }
 
     @Test
+    public void testGetGiverCode() {
+        Assert.assertEquals("JonToe", blackhawks2010.getGiverCode("AdaBur", 0));
+        Assert.assertEquals("DavBol", blackhawks2010.getGiverCode("PatSha", 0));
+        Assert.assertNull(blackhawks2010.getPlayerName("X"));
+    }
+
+    @Test
     public void testSetGiveeCode() {
         Assert.assertEquals("DunKei", blackhawks2010.getGiveeCode("AdaBur", 0));
         Assert.assertEquals("DunKei", blackhawks2010.setGiveeCode("AdaBur", "MarHos", 0));
@@ -35,10 +42,19 @@ public class RosterTest {
     }
 
     @Test
+    public void testSetGiverCode() {
+        Assert.assertEquals("JonToe", blackhawks2010.getGiverCode("AdaBur", 0));
+        Assert.assertEquals("JonToe", blackhawks2010.setGiverCode("AdaBur", "MarHos", 0));
+        Assert.assertEquals("MarHos", blackhawks2010.getGiverCode("AdaBur", 0));
+        Assert.assertNull(blackhawks2010.getPlayerName("X"));
+    }
+
+    @Test
     public void testAddNewYear() {
         Assert.assertEquals("DunKei", blackhawks2010.getGiveeCode("AdaBur", 0));
         blackhawks2010.addNewYear();
         Assert.assertEquals("none", blackhawks2010.getGiveeCode("AdaBur", 1));
+        Assert.assertEquals("none", blackhawks2010.getGiverCode("AdaBur", 1));
     }
 
     @Test

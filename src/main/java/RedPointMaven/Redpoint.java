@@ -51,6 +51,7 @@ class Redpoint {
 
     private static void giveeIsSuccess() {
         blackhawks2010.setGiveeCode(giver, givee, year);
+        blackhawks2010.setGiverCode(givee, giver, year);
         giveeHat.removePuck(givee);
         givee = "none";
     }
