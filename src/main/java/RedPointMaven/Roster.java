@@ -21,7 +21,6 @@ class Roster {
         try {
             br = new BufferedReader(
                     new FileReader(fileName));
-
             try {
                 while ((s = br.readLine()) != null) {
                     stringList = Arrays.asList(s.split(", "));
@@ -29,7 +28,7 @@ class Roster {
                         this.teamName = stringList.get(0);
                         this.firstYear = Integer.parseInt(stringList.get(1));
                     } else {
-                        rosterList.put(stringList.get(0), new Player(stringList.get(1), stringList.get(2)));
+                        rosterList.put(stringList.get(0), new Player(stringList.get(1), stringList.get(2), stringList.get(3)));
                     }
                 }
             } finally {
@@ -44,22 +43,30 @@ class Roster {
     private class Player {
         private final String playerName;
         private final ArrayList<String> pastGiveesCodes;
+        private final ArrayList<String> pastGiversCodes;
 
         // constructor
-        private Player(String playerName, String giveeCodeYearZero) {
+        private Player(String playerName, String giveeCodeYearZero, String giverCodeCodeYearZero) {
             this.playerName = playerName;
             pastGiveesCodes = new ArrayList<String>();
+            pastGiversCodes = new ArrayList<String>();
             pastGiveesCodes.add(giveeCodeYearZero);
+            pastGiversCodes.add(giverCodeCodeYearZero);
         }
 
-        // return playerName
+        // get playerName
         private String getPlayerName() {
             return playerName;
         }
 
-        //return a giveeCode given a year
+        // get a giveeCode given a year
         private String getGiveeCode(int giftYear) {
             return pastGiveesCodes.get(giftYear);
+        }
+
+        // get a giverCode given a year
+        private String getGiverCode(int giftYear) {
+            return pastGiversCodes.get(giftYear);
         }
 
         // add a giveeCode "none" to array of past givees
@@ -67,9 +74,19 @@ class Roster {
             pastGiveesCodes.add("none");
         }
 
+        // add a giverCode "none" to array of past givers
+        private void addNoneGiverCode() {
+            pastGiversCodes.add("none");
+        }
+
         // set a giveeCode in a given year
         private String setGiveeCode(String giveeCode, int year) {
             return pastGiveesCodes.set(year, giveeCode);
+        }
+
+        // set a giverCode in a given year
+        private String setGiverCode(String giverCode, int year) {
+            return pastGiversCodes.set(year, giverCode);
         }
     }
 
@@ -96,6 +113,14 @@ class Roster {
         }
     }
 
+    // get giverCode from returned Player for a given year
+    String getGiverCode(String playerCode, int year) {
+        if (this.getPlayer(playerCode) != null) {
+            return this.getPlayer(playerCode).getGiverCode(year);
+        } else {
+            return null;
+        }
+    }
 
     // set giveeCode for returned Player for a given year
     String setGiveeCode(String playerCode, String giveeCode, int year) {
@@ -106,13 +131,24 @@ class Roster {
         }
     }
 
-    // add a new empty year ("none") to each Player's pastGiveeCodes ArrayList
+    // set giverCode for returned Player for a given year
+    String setGiverCode(String playerCode, String giveeCode, int year) {
+        if (this.getPlayer(playerCode) != null) {
+            return this.getPlayer(playerCode).setGiverCode(giveeCode, year);
+        } else {
+            return null;
+        }
+    }
+
+    // add a new empty year ("none") to each Player's
+    // pastGiveeCodes/pastGiverCodes ArrayLists
     void addNewYear() {
         Set<String> playerCodeKeySet = this.rosterList.keySet();
 
         for (String playerCode : playerCodeKeySet) {
             if (this.getPlayer(playerCode) != null) {
                 this.getPlayer(playerCode).addNoneGiveeCode();
+                this.getPlayer(playerCode).addNoneGiverCode();
             }
         }
     }
@@ -142,6 +178,8 @@ class Roster {
         String playerName;
         String giveeCode;
         String giveeName;
+        String giverCode;
+        String giverName;
         Set<String> playerCodeKeySet = rosterList.keySet();
 
         System.out.println(getTeamName() + " - Year " + (getFirstYear() + year) + " Gifts:");
@@ -158,6 +196,23 @@ class Roster {
                 }
             }
             System.out.println(playerName + " is buying for " + giveeName);
+        }
+
+        System.out.println();
+
+        for (String aKey : playerCodeKeySet) {
+            playerName = this.getPlayer(aKey).getPlayerName();
+            giverCode = this.getPlayer(aKey).getGiverCode(year);
+            if (giverCode.equals("none")) {
+                giverName = "...nobody!! (last giver/givee pairing and a test failed - a puzzle logic error)";
+            } else {
+                if (this.getPlayer(giverCode) != null) {
+                    giverName = this.getPlayer(giverCode).playerName;
+                } else {
+                    giverName = "WHOA - ERROR HERE!";
+                }
+            }
+            System.out.println(playerName + " is receiving from " + giverName);
         }
     }
 }
