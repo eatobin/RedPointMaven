@@ -3,9 +3,9 @@ package RedPointMaven;
 import java.util.Scanner;
 
 class Redpoint {
-    private static final String fileName = "blackhawks2010.txt";
+    private static final String FILE_NAME = "miniGolf2014.txt";
     private static int year = 0;
-    private static final Roster ROSTER = new Roster(fileName);
+    private static final Roster ROSTER = new Roster(FILE_NAME);
     private static Hat giverHat;
     private static Hat giveeHat;
     private static String giver;
