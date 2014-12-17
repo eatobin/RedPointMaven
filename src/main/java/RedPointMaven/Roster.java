@@ -183,21 +183,23 @@ class Roster {
         String giverCode;
         String giverName;
         Set<String> playerCodeKeySet = rosterList.keySet();
+        ArrayList<String> noGivee = new ArrayList<String>();
+        ArrayList<String> noGiver = new ArrayList<String>();
 
         System.out.println(getTeamName() + " - Year " + (getFirstYear() + year) + " Gifts:");
         for (String playerCode : playerCodeKeySet) {
             playerName = this.getPlayer(playerCode).getPlayerName();
             giveeCode = this.getPlayer(playerCode).getGiveeCode(year);
             if (giveeCode.equals("none")) {
-                giveeName = "...nobody!! (last giver/givee pairing and a test failed - a puzzle logic error)";
+                noGivee.add(playerCode);
             } else {
                 if (this.getPlayer(giveeCode) != null) {
                     giveeName = this.getPlayer(giveeCode).playerName;
                 } else {
                     giveeName = "WHOA - ERROR HERE!";
                 }
+                System.out.println(playerName + " is buying for " + giveeName);
             }
-            System.out.println(playerName + " is buying for " + giveeName);
         }
 
         System.out.println();
@@ -206,15 +208,31 @@ class Roster {
             playerName = this.getPlayer(playerCode).getPlayerName();
             giverCode = this.getPlayer(playerCode).getGiverCode(year);
             if (giverCode.equals("none")) {
-                giverName = "...nobody!! (last giver/givee pairing and a test failed - a puzzle logic error)";
+                noGiver.add(playerCode);
             } else {
                 if (this.getPlayer(giverCode) != null) {
                     giverName = this.getPlayer(giverCode).playerName;
                 } else {
                     giverName = "WHOA - ERROR HERE!";
                 }
+                System.out.println(playerName + " is receiving from " + giverName);
             }
-            System.out.println(playerName + " is receiving from " + giverName);
+        }
+
+        if (!(noGivee.size() == 0 && noGiver.size() == 0)) {
+            System.out.println();
+            System.out.println("Bad Givees (last giver/givee pairing and a test failed - a puzzle logic error)");
+            for (String playerCode : noGivee) {
+                playerName = this.getPlayer(playerCode).playerName;
+                System.out.println(playerName + " is giving to no one.");
+            }
+
+            System.out.println();
+            System.out.println("Bad Givers (last giver/givee pairing and a test failed - a puzzle logic error)");
+            for (String playerCode : noGiver) {
+                playerName = this.getPlayer(playerCode).playerName;
+                System.out.println(playerName + " is receiving from no one.");
+            }
         }
     }
 }

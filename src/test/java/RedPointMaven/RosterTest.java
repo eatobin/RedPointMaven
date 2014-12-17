@@ -77,5 +77,10 @@ public class RosterTest {
         System.out.println("Check out who Adam Burish is giving to!:");
         System.out.println();
         roster.printGivingRoster(0);
+
+        // go to a short roster to see logic errors
+        System.out.println();
+        roster = new Roster("empty.txt");
+        roster.printGivingRoster(0);
     }
 }
