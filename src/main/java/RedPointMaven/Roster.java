@@ -18,6 +18,8 @@ class Roster {
         List<String> stringList;
         rosterList = new TreeMap<String, Player>();
 
+        // read each line from file and depending upon length, assign values
+        // to team name, roster year or a Player
         try {
             br = new BufferedReader(
                     new FileReader(fileName));
@@ -183,9 +185,9 @@ class Roster {
         Set<String> playerCodeKeySet = rosterList.keySet();
 
         System.out.println(getTeamName() + " - Year " + (getFirstYear() + year) + " Gifts:");
-        for (String aKey : playerCodeKeySet) {
-            playerName = this.getPlayer(aKey).getPlayerName();
-            giveeCode = this.getPlayer(aKey).getGiveeCode(year);
+        for (String playerCode : playerCodeKeySet) {
+            playerName = this.getPlayer(playerCode).getPlayerName();
+            giveeCode = this.getPlayer(playerCode).getGiveeCode(year);
             if (giveeCode.equals("none")) {
                 giveeName = "...nobody!! (last giver/givee pairing and a test failed - a puzzle logic error)";
             } else {
@@ -200,9 +202,9 @@ class Roster {
 
         System.out.println();
 
-        for (String aKey : playerCodeKeySet) {
-            playerName = this.getPlayer(aKey).getPlayerName();
-            giverCode = this.getPlayer(aKey).getGiverCode(year);
+        for (String playerCode : playerCodeKeySet) {
+            playerName = this.getPlayer(playerCode).getPlayerName();
+            giverCode = this.getPlayer(playerCode).getGiverCode(year);
             if (giverCode.equals("none")) {
                 giverName = "...nobody!! (last giver/givee pairing and a test failed - a puzzle logic error)";
             } else {
