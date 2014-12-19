@@ -190,33 +190,29 @@ class Roster {
         for (String playerCode : playerCodeKeySet) {
             playerName = this.getPlayer(playerCode).getPlayerName();
             giveeCode = this.getPlayer(playerCode).getGiveeCode(year);
+            giverCode = this.getPlayer(playerCode).getGiverCode(year);
             if (giveeCode.equals("none")) {
                 noGivee.add(playerCode);
+                giveeName = "*** ERROR - SEE BELOW ***";
             } else {
                 if (this.getPlayer(giveeCode) != null) {
                     giveeName = this.getPlayer(giveeCode).playerName;
                 } else {
                     giveeName = "WHOA - ERROR HERE!";
                 }
-                System.out.println(playerName + " is buying for " + giveeName);
             }
-        }
-
-        System.out.println();
-
-        for (String playerCode : playerCodeKeySet) {
-            playerName = this.getPlayer(playerCode).getPlayerName();
-            giverCode = this.getPlayer(playerCode).getGiverCode(year);
             if (giverCode.equals("none")) {
                 noGiver.add(playerCode);
+                giverName = "*** ERROR - SEE BELOW ***";
             } else {
                 if (this.getPlayer(giverCode) != null) {
                     giverName = this.getPlayer(giverCode).playerName;
                 } else {
                     giverName = "WHOA - ERROR HERE!";
                 }
-                System.out.println(playerName + " is receiving from " + giverName);
             }
+            System.out.println(playerName + " is buying for " + giveeName +
+                    " (and is receiving from " + giverName + ")");
         }
 
         if (!(noGivee.size() == 0 && noGiver.size() == 0)) {
