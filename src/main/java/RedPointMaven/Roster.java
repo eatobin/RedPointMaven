@@ -57,7 +57,7 @@ class Roster {
         }
 
         // get playerName
-        private String getPlayerName() {
+        String getPlayerName() {
             return playerName;
         }
 
