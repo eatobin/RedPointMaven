@@ -80,7 +80,7 @@ public class RosterTest {
 
         // go to a short roster to see logic errors
         System.out.println();
-        roster = new Roster("empty.txt");
+        roster = new Roster("empty2014.txt");
         roster.printGivingRoster(0);
     }
 }
