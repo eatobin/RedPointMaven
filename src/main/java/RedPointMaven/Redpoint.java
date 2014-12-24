@@ -12,7 +12,7 @@ class Redpoint {
     private static String givee;
 
     public static void main(String[] args) {
-        while (printAndAsk(year) == 1) {
+        while (!printAndAsk(year).equalsIgnoreCase("q")) {
             startNewYear();
             while (!giver.equals("none")) {
                 while (!givee.equals("none")) {
@@ -61,16 +61,16 @@ class Redpoint {
         givee = giveeHat.drawPuck();
     }
 
-    private static int printAndAsk(int year) {
+    private static String printAndAsk(int year) {
         Scanner scanner;
         scanner = new Scanner(System.in);
-        int doNextYear;
+        String doNextYear;
 
         ROSTER.printGivingRoster(year);
         System.out.println();
 
-        System.out.print("Continue? (1 = yes, 0 = no): ");
-        doNextYear = scanner.nextInt();
+        System.out.print("Continue? ('q' to quit): ");
+        doNextYear = scanner.next();
         System.out.println();
 
         return doNextYear;
