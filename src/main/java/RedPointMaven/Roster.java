@@ -56,11 +56,6 @@ class Roster {
             pastGiversCodes.add(giverCodeCodeYearZero);
         }
 
-        // get playerName
-        String getPlayerName() {
-            return playerName;
-        }
-
         // get a giveeCode given a year
         private String getGiveeCode(int giftYear) {
             return pastGiveesCodes.get(giftYear);
@@ -100,7 +95,7 @@ class Roster {
     // get playerName from returned Player
     String getPlayerName(String playerCode) {
         if (this.getPlayer(playerCode) != null) {
-            return this.getPlayer(playerCode).getPlayerName();
+            return this.getPlayer(playerCode).playerName;
         } else {
             return null;
         }
@@ -187,7 +182,7 @@ class Roster {
 
         System.out.println(getTeamName() + " - Year " + (getFirstYear() + year) + " Gifts:");
         for (String playerCode : playerCodeKeySet) {
-            playerName = this.getPlayer(playerCode).getPlayerName();
+            playerName = this.getPlayer(playerCode).playerName;
             giveeCode = this.getPlayer(playerCode).getGiveeCode(year);
             giverCode = this.getPlayer(playerCode).getGiverCode(year);
             if (giveeCode.equals("none")) {
