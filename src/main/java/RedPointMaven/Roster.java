@@ -44,38 +44,19 @@ class Roster {
     // inner class Player
     private class Player {
         private final String playerName;
-        private final String[] roles;
         private final ArrayList<String[]> givingHistory;
-        private final int GIVEE = 0;
-        private final int GIVER = 1;
-//        private final ArrayList<String> pastGiversCodes;
 
         // constructor
         private Player(String playerName, String giveeCodeYearZero, String giverCodeCodeYearZero) {
             this.playerName = playerName;
-            roles = new String[2];
+            String[] roles = new String[2];
             givingHistory = new ArrayList<String[]>();
+            int GIVEE = 0;
+            int GIVER = 1;
             roles[GIVEE] = giveeCodeYearZero;
             roles[GIVER] = giverCodeCodeYearZero;
             givingHistory.add(roles);
         }
-
-//        // get a giftHistory given a year
-//        private String[] getHistory(int giftYear) {
-//            return givingHistory.get(giftYear);
-//        }
-//
-//        // set a gifHistory in a given year
-//        private String[] setHistory(String giveeCode, String giverCode, int giftYear) {
-//            roles[GIVEE] = giveeCode;
-//            roles[GIVER] = giverCode;
-//            return givingHistory.set(giftYear, roles);
-//        }
-//
-//        // add a giftHistory "none" to array of history
-//        private void addNoneRoleCode() {
-//            givingHistory.add(new String[]{"none", "none"});
-//        }
     }
 
     // get a Player for use with public object methods
@@ -100,57 +81,17 @@ class Roster {
         }
     }
 
-    void setRoledPlayerCode(String playerCode, String seteeCode, int giftYear, int role) {
+    String setRoledPlayerCode(String playerCode, String seteeCode, int giftYear, int role) {
         if (this.getPlayer(playerCode) != null) {
             String[] roles = getPlayer(playerCode).givingHistory.get(giftYear);
             roles[role] = seteeCode;
             getPlayer(playerCode).givingHistory.set(giftYear, roles);
-            //roles = getPlayer(playerCode).givingHistory.get(giftYear);
+            return this.getPlayer(playerCode).givingHistory.get(giftYear)[role];
+        } else {
+            return null;
         }
     }
 
-//    // add a giftHistory "none" to array of history
-//    private void addNoneRoleCode(String playerCode) {
-//        getPlayer(playerCode).givingHistory.add(new String[]{"none", "none"});
-//    }
-//
-
-    //    // get giveeCode from returned Player for a given year
-//    String getGiveeCode(String playerCode, int year) {
-//        if (this.getPlayer(playerCode) != null) {
-//            return this.getPlayer(playerCode).getGiveeCode(year);
-//        } else {
-//            return null;
-//        }
-//    }
-//
-//    // get giverCode from returned Player for a given year
-//    String getGiverCode(String playerCode, int year) {
-//        if (this.getPlayer(playerCode) != null) {
-//            return this.getPlayer(playerCode).getGiverCode(year);
-//        } else {
-//            return null;
-//        }
-//    }
-//
-//    // set giveeCode for returned Player for a given year
-//    String setGiveeCode(String playerCode, String giveeCode, int year) {
-//        if (this.getPlayer(playerCode) != null) {
-//            return this.getPlayer(playerCode).setGiveeCode(giveeCode, year);
-//        } else {
-//            return null;
-//        }
-//    }
-//
-//    // set giverCode for returned Player for a given year
-//    String setGiverCode(String playerCode, String giveeCode, int year) {
-//        if (this.getPlayer(playerCode) != null) {
-//            return this.getPlayer(playerCode).setGiverCode(giveeCode, year);
-//        } else {
-//            return null;
-//        }
-//    }
-//
     // add a new empty year ("none") to each Player's
     // pastGiveeCodes/pastGiverCodes ArrayLists
     void addNewYear() {
