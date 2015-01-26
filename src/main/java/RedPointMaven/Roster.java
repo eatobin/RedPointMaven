@@ -7,8 +7,8 @@ import java.util.*;
 
 class Roster {
     // instance variables
-    private String teamName = null;
-    private int firstYear = 0;
+    private String teamName;
+    private int firstYear;
     private final TreeMap<String, Player> rosterList; // (use a TreeMap to order rosterList alphabetically by key)
 
     // constructor
@@ -16,6 +16,8 @@ class Roster {
         BufferedReader br;
         String s;
         List<String> stringList;
+        teamName = null;
+        firstYear = 0;
         rosterList = new TreeMap<String, Player>();
 
         // read each line from file and depending upon length, assign values
