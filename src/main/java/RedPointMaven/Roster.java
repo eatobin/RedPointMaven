@@ -46,18 +46,18 @@ class Roster {
     // inner class Player
     private class Player {
         private final String playerName;
-        private final ArrayList<String[]> givingHistory;
+        private final ArrayList<String[]> giftHistory;
 
         // constructor
         private Player(String playerName, String giveeCodeYearZero, String giverCodeCodeYearZero) {
             this.playerName = playerName;
             String[] roles = new String[2];
-            givingHistory = new ArrayList<String[]>();
+            giftHistory = new ArrayList<String[]>();
             int GIVEE = 0;
             int GIVER = 1;
             roles[GIVEE] = giveeCodeYearZero;
             roles[GIVER] = giverCodeCodeYearZero;
-            givingHistory.add(roles);
+            giftHistory.add(roles);
         }
     }
 
@@ -77,7 +77,7 @@ class Roster {
 
     String getRoledPlayerCode(String playerCode, int giftYear, int role) {
         if (this.getPlayer(playerCode) != null) {
-            return this.getPlayer(playerCode).givingHistory.get(giftYear)[role];
+            return this.getPlayer(playerCode).giftHistory.get(giftYear)[role];
         } else {
             return null;
         }
@@ -85,10 +85,10 @@ class Roster {
 
     String setRoledPlayerCode(String playerCode, String seteeCode, int giftYear, int role) {
         if (this.getPlayer(playerCode) != null) {
-            String[] roles = getPlayer(playerCode).givingHistory.get(giftYear);
+            String[] roles = getPlayer(playerCode).giftHistory.get(giftYear);
             roles[role] = seteeCode;
-            getPlayer(playerCode).givingHistory.set(giftYear, roles);
-            return this.getPlayer(playerCode).givingHistory.get(giftYear)[role];
+            getPlayer(playerCode).giftHistory.set(giftYear, roles);
+            return this.getPlayer(playerCode).giftHistory.get(giftYear)[role];
         } else {
             return null;
         }
@@ -101,7 +101,7 @@ class Roster {
 
         for (String playerCode : playerCodeKeySet) {
             if (this.getPlayer(playerCode) != null) {
-                getPlayer(playerCode).givingHistory.add(new String[]{"none", "none"});
+                getPlayer(playerCode).giftHistory.add(new String[]{"none", "none"});
             }
         }
     }
