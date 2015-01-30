@@ -50,10 +50,8 @@ class Redpoint {
     }
 
     private static void giveeIsSuccess() {
-        int GIVEE = 0;
-        int GIVER = 1;
-        ROSTER.setRoledPlayerCode(giver, givee, year, GIVEE);
-        ROSTER.setRoledPlayerCode(givee, giver, year, GIVER);
+        ROSTER.setRoledPlayerCode(giver, givee, year, "GIVEE");
+        ROSTER.setRoledPlayerCode(givee, giver, year, "GIVER");
         giveeHat.removePuck(givee);
         givee = "none";
     }

@@ -1,7 +1,6 @@
 package RedPointMaven;
 
 class Rules {
-    private static final int GIVEE = 0;
 
     //test 1 of 3 - is giver giving to self?
     static boolean giveeNotSelf(String giverCode, String giveeCode) {
@@ -11,7 +10,7 @@ class Rules {
     //test 2 of 3 - is givee giving to giver?
     static boolean giveeNotRecip(String giverCode, String giveeCode, Roster roster, int thisYear) {
         String giveeGivingTo;
-        giveeGivingTo = roster.getRoledPlayerCode(giveeCode, thisYear, GIVEE);
+        giveeGivingTo = roster.getRoledPlayerCode(giveeCode, thisYear, "GIVEE");
         return !giverCode.equals(giveeGivingTo);
     }
 
@@ -22,7 +21,7 @@ class Rules {
         String giveeInYear;
         boolean result = true;
         for (counter = thisYear - 1; (counter >= 0) && (counter >= (thisYear - PAST_X_YEARS)); counter--) {
-            giveeInYear = roster.getRoledPlayerCode(giverCode, counter, GIVEE);
+            giveeInYear = roster.getRoledPlayerCode(giverCode, counter, "GIVEE");
             if (giveeCode.equals(giveeInYear)) {
                 result = false;
             }

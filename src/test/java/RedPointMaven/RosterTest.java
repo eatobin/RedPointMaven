@@ -6,8 +6,6 @@ import org.junit.Test;
 
 public class RosterTest {
     private Roster roster;
-    private final int GIVEE = 0;
-    private final int GIVER = 1;
 
     @Before
     public void setUp() {
@@ -23,40 +21,40 @@ public class RosterTest {
 
     @Test
     public void testGetGiveeCode() {
-        Assert.assertEquals("DavBol", roster.getRoledPlayerCode("TroBro", 0, GIVEE));
-        Assert.assertEquals("DunKei", roster.getRoledPlayerCode("AdaBur", 0, GIVEE));
+        Assert.assertEquals("DavBol", roster.getRoledPlayerCode("TroBro", 0, "GIVEE"));
+        Assert.assertEquals("DunKei", roster.getRoledPlayerCode("AdaBur", 0, "GIVEE"));
         Assert.assertNull(roster.getPlayerName("X"));
     }
 
     @Test
     public void testGetGiverCode() {
-        Assert.assertEquals("JonToe", roster.getRoledPlayerCode("AdaBur", 0, GIVER));
-        Assert.assertEquals("DavBol", roster.getRoledPlayerCode("PatSha", 0, GIVER));
+        Assert.assertEquals("JonToe", roster.getRoledPlayerCode("AdaBur", 0, "GIVER"));
+        Assert.assertEquals("DavBol", roster.getRoledPlayerCode("PatSha", 0, "GIVER"));
         Assert.assertNull(roster.getPlayerName("X"));
     }
 
     @Test
     public void testSetGiveeCode() {
-        Assert.assertEquals("DunKei", roster.getRoledPlayerCode("AdaBur", 0, GIVEE));
-        Assert.assertEquals("MarHos", roster.setRoledPlayerCode("AdaBur", "MarHos", 0, GIVEE));
-        Assert.assertEquals("MarHos", roster.getRoledPlayerCode("AdaBur", 0, GIVEE));
+        Assert.assertEquals("DunKei", roster.getRoledPlayerCode("AdaBur", 0, "GIVEE"));
+        Assert.assertEquals("MarHos", roster.setRoledPlayerCode("AdaBur", "MarHos", 0, "GIVEE"));
+        Assert.assertEquals("MarHos", roster.getRoledPlayerCode("AdaBur", 0, "GIVEE"));
         Assert.assertNull(roster.getPlayerName("X"));
     }
 
     @Test
     public void testSetGiverCode() {
-        Assert.assertEquals("JonToe", roster.getRoledPlayerCode("AdaBur", 0, GIVER));
-        Assert.assertEquals("MarHos", roster.setRoledPlayerCode("AdaBur", "MarHos", 0, 1));
-        Assert.assertEquals("MarHos", roster.getRoledPlayerCode("AdaBur", 0, GIVER));
+        Assert.assertEquals("JonToe", roster.getRoledPlayerCode("AdaBur", 0, "GIVER"));
+        Assert.assertEquals("MarHos", roster.setRoledPlayerCode("AdaBur", "MarHos", 0, "GIVER"));
+        Assert.assertEquals("MarHos", roster.getRoledPlayerCode("AdaBur", 0, "GIVER"));
         Assert.assertNull(roster.getPlayerName("X"));
     }
 
     @Test
     public void testAddNewYear() {
-        Assert.assertEquals("DunKei", roster.getRoledPlayerCode("AdaBur", 0, GIVEE));
+        Assert.assertEquals("DunKei", roster.getRoledPlayerCode("AdaBur", 0, "GIVEE"));
         roster.addNewYear();
-        Assert.assertEquals("none", roster.getRoledPlayerCode("AdaBur", 1, GIVEE));
-        Assert.assertEquals("none", roster.getRoledPlayerCode("AdaBur", 1, GIVER));
+        Assert.assertEquals("none", roster.getRoledPlayerCode("AdaBur", 1, "GIVEE"));
+        Assert.assertEquals("none", roster.getRoledPlayerCode("AdaBur", 1, "GIVER"));
     }
 
     @Test
@@ -74,7 +72,7 @@ public class RosterTest {
         roster.printGivingRoster(0);
 
         // introduce an error and see if the method chokes on it
-        roster.setRoledPlayerCode("AdaBur", "anAwfullyBadPlayerCode", 0, GIVEE);
+        roster.setRoledPlayerCode("AdaBur", "anAwfullyBadPlayerCode", 0, "GIVEE");
         System.out.println();
         System.out.println("Check out who Adam Burish is giving to!:");
         System.out.println();
