@@ -46,16 +46,16 @@ class Roster {
     // inner class Player
     private class Player {
         private final String playerName;
-        private final ArrayList<HashMap<String, String>> givingHistory;
+        private final ArrayList<HashMap<String, String>> giftHistory;
 
         // constructor
         private Player(String playerName, String giveeCodeYearZero, String giverCodeCodeYearZero) {
             this.playerName = playerName;
             HashMap<String, String> roles = new HashMap<String, String>();
-            givingHistory = new ArrayList<HashMap<String, String>>();
+            giftHistory = new ArrayList<HashMap<String, String>>();
             roles.put("GIVEE", giveeCodeYearZero);
             roles.put("GIVER", giverCodeCodeYearZero);
-            givingHistory.add(roles);
+            giftHistory.add(roles);
         }
     }
 
@@ -75,7 +75,7 @@ class Roster {
 
     String getRoledPlayerCode(String playerCode, int giftYear, String role) {
         if (this.getPlayer(playerCode) != null) {
-            return this.getPlayer(playerCode).givingHistory.get(giftYear).get(role);
+            return this.getPlayer(playerCode).giftHistory.get(giftYear).get(role);
         } else {
             return null;
         }
@@ -83,10 +83,10 @@ class Roster {
 
     String setRoledPlayerCode(String playerCode, String seteeCode, int giftYear, String role) {
         if (this.getPlayer(playerCode) != null) {
-            HashMap<String, String> roles = getPlayer(playerCode).givingHistory.get(giftYear);
+            HashMap<String, String> roles = getPlayer(playerCode).giftHistory.get(giftYear);
             roles.put(role, seteeCode);
-            getPlayer(playerCode).givingHistory.set(giftYear, roles);
-            return this.getPlayer(playerCode).givingHistory.get(giftYear).get(role);
+            getPlayer(playerCode).giftHistory.set(giftYear, roles);
+            return this.getPlayer(playerCode).giftHistory.get(giftYear).get(role);
         } else {
             return null;
         }
@@ -102,7 +102,7 @@ class Roster {
                 HashMap<String, String> roles = new HashMap<String, String>();
                 roles.put("GIVEE", "none");
                 roles.put("GIVER", "none");
-                getPlayer(playerCode).givingHistory.add(roles);
+                getPlayer(playerCode).giftHistory.add(roles);
             }
         }
     }
