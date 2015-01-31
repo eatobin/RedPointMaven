@@ -73,20 +73,39 @@ class Roster {
         }
     }
 
-    String getRoledPlayerCode(String playerCode, int giftYear, String role) {
+    String getGiveeCode(String playerCode, int giftYear) {
         if (this.getPlayer(playerCode) != null) {
-            return this.getPlayer(playerCode).giftHistory.get(giftYear).get(role);
+            return this.getPlayer(playerCode).giftHistory.get(giftYear).get("GIVEE");
         } else {
             return null;
         }
     }
 
-    String setRoledPlayerCode(String playerCode, String seteeCode, int giftYear, String role) {
+    String setGiveeCode(String playerCode, String seteeCode, int giftYear) {
         if (this.getPlayer(playerCode) != null) {
             HashMap<String, String> roles = getPlayer(playerCode).giftHistory.get(giftYear);
-            roles.put(role, seteeCode);
+            roles.put("GIVEE", seteeCode);
             getPlayer(playerCode).giftHistory.set(giftYear, roles);
-            return this.getPlayer(playerCode).giftHistory.get(giftYear).get(role);
+            return this.getPlayer(playerCode).giftHistory.get(giftYear).get("GIVEE");
+        } else {
+            return null;
+        }
+    }
+
+    String getGiverCode(String playerCode, int giftYear) {
+        if (this.getPlayer(playerCode) != null) {
+            return this.getPlayer(playerCode).giftHistory.get(giftYear).get("GIVER");
+        } else {
+            return null;
+        }
+    }
+
+    String setGiverCode(String playerCode, String seteeCode, int giftYear) {
+        if (this.getPlayer(playerCode) != null) {
+            HashMap<String, String> roles = getPlayer(playerCode).giftHistory.get(giftYear);
+            roles.put("GIVER", seteeCode);
+            getPlayer(playerCode).giftHistory.set(giftYear, roles);
+            return this.getPlayer(playerCode).giftHistory.get(giftYear).get("GIVER");
         } else {
             return null;
         }
@@ -140,8 +159,8 @@ class Roster {
         System.out.println(getTeamName() + " - Year " + (getFirstYear() + giftYear) + " Gifts:");
         for (String playerCode : playerCodeKeySet) {
             playerName = this.getPlayer(playerCode).playerName;
-            giveeCode = getRoledPlayerCode(playerCode, giftYear, "GIVEE");
-            giverCode = getRoledPlayerCode(playerCode, giftYear, "GIVER");
+            giveeCode = getGiveeCode(playerCode, giftYear);
+            giverCode = getGiverCode(playerCode, giftYear);
             if (giveeCode.equals("none")) {
                 noGivee.add(playerCode);
             } else {

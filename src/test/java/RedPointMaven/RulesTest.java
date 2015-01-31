@@ -27,19 +27,19 @@ public class RulesTest {
     @Test
     public void testGiveeNotRepeat() {
         blackhawks2010.addNewYear();
-        blackhawks2010.setRoledPlayerCode("PatSha", "AdaBur", 1, "GIVEE");
+        blackhawks2010.setGiveeCode("PatSha", "AdaBur", 1);
         Assert.assertTrue(Rules.giveeNotRepeat("PatSha", "AdaBur", blackhawks2010, 1));
         Assert.assertFalse(Rules.giveeNotRepeat("PatSha", "BriCam", blackhawks2010, 1));
         blackhawks2010.addNewYear();
-        blackhawks2010.setRoledPlayerCode("PatSha", "AndLad", 2, "GIVEE");
+        blackhawks2010.setGiveeCode("PatSha", "AndLad", 2);
         blackhawks2010.addNewYear();
-        blackhawks2010.setRoledPlayerCode("PatSha", "AntNie", 3, "GIVEE");
+        blackhawks2010.setGiveeCode("PatSha", "AntNie", 3);
         blackhawks2010.addNewYear();
-        blackhawks2010.setRoledPlayerCode("PatSha", "BreSea", 4, "GIVEE");
+        blackhawks2010.setGiveeCode("PatSha", "BreSea", 4);
         blackhawks2010.addNewYear();
-        blackhawks2010.setRoledPlayerCode("PatSha", "BryBic", 5, "GIVEE");
+        blackhawks2010.setGiveeCode("PatSha", "BryBic", 5);
         blackhawks2010.addNewYear();
-        blackhawks2010.setRoledPlayerCode("PatSha", "BriCam", 6, "GIVEE");
+        blackhawks2010.setGiveeCode("PatSha", "BriCam", 6);
         Assert.assertTrue(Rules.giveeNotRepeat("PatSha", "AdaBur", blackhawks2010, 6));
         Assert.assertTrue(Rules.giveeNotRepeat("PatSha", "BriCam", blackhawks2010, 6));
         Assert.assertFalse(Rules.giveeNotRepeat("PatSha", "AdaBur", blackhawks2010, 5));

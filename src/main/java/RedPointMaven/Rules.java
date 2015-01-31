@@ -10,7 +10,7 @@ class Rules {
     //test 2 of 3 - is givee giving to giver?
     static boolean giveeNotRecip(String giverCode, String giveeCode, Roster roster, int thisYear) {
         String giveeGivingTo;
-        giveeGivingTo = roster.getRoledPlayerCode(giveeCode, thisYear, "GIVEE");
+        giveeGivingTo = roster.getGiveeCode(giveeCode, thisYear);
         return !giverCode.equals(giveeGivingTo);
     }
 
@@ -21,7 +21,7 @@ class Rules {
         String giveeInYear;
         boolean result = true;
         for (counter = thisYear - 1; (counter >= 0) && (counter >= (thisYear - PAST_X_YEARS)); counter--) {
-            giveeInYear = roster.getRoledPlayerCode(giverCode, counter, "GIVEE");
+            giveeInYear = roster.getGiveeCode(giverCode, counter);
             if (giveeCode.equals(giveeInYear)) {
                 result = false;
             }
