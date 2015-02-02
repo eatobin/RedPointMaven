@@ -51,8 +51,8 @@ class Roster {
         // constructor
         private Player(String playerName, String giveeCodeYearZero, String giverCodeCodeYearZero) {
             this.playerName = playerName;
-            HashMap<String, String> roles = new HashMap<String, String>();
             giftHistory = new ArrayList<HashMap<String, String>>();
+            HashMap<String, String> roles = new HashMap<String, String>();
             roles.put("GIVEE", giveeCodeYearZero);
             roles.put("GIVER", giverCodeCodeYearZero);
             giftHistory.add(roles);
@@ -161,6 +161,7 @@ class Roster {
             playerName = this.getPlayer(playerCode).playerName;
             giveeCode = getGiveeCode(playerCode, giftYear);
             giverCode = getGiverCode(playerCode, giftYear);
+
             if (giveeCode.equals("none")) {
                 noGivee.add(playerCode);
             } else {
@@ -175,6 +176,7 @@ class Roster {
                 noGiver.add(playerCode);
             }
         }
+
         if (!(noGivee.size() == 0 && noGiver.size() == 0)) {
             System.out.println();
             System.out.println("There is a logic error in this year's pairings.");
