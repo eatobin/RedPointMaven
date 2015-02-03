@@ -38,7 +38,7 @@ public class RosterTest {
         Assert.assertEquals("DunKei", roster.getGiveeCode("AdaBur", 0));
         Assert.assertEquals("MarHos", roster.setGiveeCode("AdaBur", "MarHos", 0));
         Assert.assertEquals("MarHos", roster.getGiveeCode("AdaBur", 0));
-        Assert.assertNull(roster.getPlayerName("X"));
+        Assert.assertNull(roster.setGiveeCode("AdaBur", "X", 0));
     }
 
     @Test
@@ -46,7 +46,7 @@ public class RosterTest {
         Assert.assertEquals("JonToe", roster.getGiverCode("AdaBur", 0));
         Assert.assertEquals("MarHos", roster.setGiverCode("AdaBur", "MarHos", 0));
         Assert.assertEquals("MarHos", roster.getGiverCode("AdaBur", 0));
-        Assert.assertNull(roster.getPlayerName("X"));
+        Assert.assertNull(roster.setGiverCode("AdaBur", "X", 0));
     }
 
     @Test

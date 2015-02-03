@@ -66,64 +66,67 @@ class Roster {
 
     // get playerName from returned Player
     String getPlayerName(String playerCode) {
-        if (this.getPlayer(playerCode) != null) {
-            return this.getPlayer(playerCode).playerName;
-        } else {
+        if (this.getPlayer(playerCode) == null) {
             return null;
+        } else {
+            return this.getPlayer(playerCode).playerName;
         }
     }
 
     String getGiveeCode(String playerCode, int giftYear) {
-        if (this.getPlayer(playerCode) != null) {
-            return this.getPlayer(playerCode).giftHistory.get(giftYear).get("GIVEE");
-        } else {
+        if (this.getPlayer(playerCode) == null) {
             return null;
+        } else {
+            return this.getPlayer(playerCode).giftHistory.get(giftYear).get("GIVEE");
         }
     }
 
     String setGiveeCode(String playerCode, String seteeCode, int giftYear) {
-        if (this.getPlayer(playerCode) != null) {
+        if (this.getPlayer(playerCode) == null || this.getPlayer(seteeCode) == null) {
+            return null;
+        } else {
             HashMap<String, String> roles = getPlayer(playerCode).giftHistory.get(giftYear);
             roles.put("GIVEE", seteeCode);
             getPlayer(playerCode).giftHistory.set(giftYear, roles);
             return this.getPlayer(playerCode).giftHistory.get(giftYear).get("GIVEE");
-        } else {
-            return null;
         }
     }
 
     String getGiverCode(String playerCode, int giftYear) {
-        if (this.getPlayer(playerCode) != null) {
-            return this.getPlayer(playerCode).giftHistory.get(giftYear).get("GIVER");
-        } else {
+        if (this.getPlayer(playerCode) == null) {
             return null;
+        } else {
+            return this.getPlayer(playerCode).giftHistory.get(giftYear).get("GIVER");
         }
     }
 
     String setGiverCode(String playerCode, String seteeCode, int giftYear) {
-        if (this.getPlayer(playerCode) != null) {
+        if (this.getPlayer(playerCode) == null || this.getPlayer(seteeCode) == null) {
+            return null;
+        } else {
             HashMap<String, String> roles = getPlayer(playerCode).giftHistory.get(giftYear);
             roles.put("GIVER", seteeCode);
             getPlayer(playerCode).giftHistory.set(giftYear, roles);
             return this.getPlayer(playerCode).giftHistory.get(giftYear).get("GIVER");
-        } else {
-            return null;
         }
     }
 
     // add a new empty year ("none") to each Player's
     // pastGiveeCodes/pastGiverCodes ArrayLists
-    void addNewYear() {
+    Boolean addNewYear() {
         Set<String> playerCodeKeySet = this.rosterList.keySet();
 
         for (String playerCode : playerCodeKeySet) {
-            if (this.getPlayer(playerCode) != null) {
+            if (this.getPlayer(playerCode) == null) {
+                return false;
+            } else {
                 HashMap<String, String> roles = new HashMap<String, String>();
                 roles.put("GIVEE", "none");
                 roles.put("GIVER", "none");
                 getPlayer(playerCode).giftHistory.add(roles);
             }
         }
+        return true;
     }
 
     // get rosterList of player codes
@@ -177,7 +180,7 @@ class Roster {
             }
         }
 
-        if (!(noGivee.size() == 0 && noGiver.size() == 0)) {
+        if ((noGivee.size() + noGiver.size()) > 0) {
             System.out.println();
             System.out.println("There is a logic error in this year's pairings.");
             System.out.println("Do you see it?");
