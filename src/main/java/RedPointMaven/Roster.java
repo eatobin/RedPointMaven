@@ -113,12 +113,12 @@ class Roster {
 
     // add a new empty year ("none") to each Player's
     // pastGiveeCodes/pastGiverCodes ArrayLists
-    Boolean addNewYear() {
+    void addNewYear() {
         Set<String> playerCodeKeySet = this.rosterList.keySet();
 
         for (String playerCode : playerCodeKeySet) {
             if (this.getPlayer(playerCode) == null) {
-                return false;
+                return;
             } else {
                 HashMap<String, String> roles = new HashMap<String, String>();
                 roles.put("GIVEE", "none");
@@ -126,7 +126,6 @@ class Roster {
                 getPlayer(playerCode).giftHistory.add(roles);
             }
         }
-        return true;
     }
 
     // get rosterList of player codes
@@ -153,7 +152,6 @@ class Roster {
         */
         String playerName;
         String giveeCode;
-        String giveeName;
         String giverCode;
         Set<String> playerCodeKeySet = rosterList.keySet();
         ArrayList<String> noGivee = new ArrayList<String>();
@@ -162,18 +160,13 @@ class Roster {
         System.out.println(getTeamName() + " - Year " + (getFirstYear() + giftYear) + " Gifts:");
         for (String playerCode : playerCodeKeySet) {
             playerName = this.getPlayer(playerCode).playerName;
-            giveeCode = getGiveeCode(playerCode, giftYear);
-            giverCode = getGiverCode(playerCode, giftYear);
+            giveeCode = this.getGiveeCode(playerCode, giftYear);
+            giverCode = this.getGiverCode(playerCode, giftYear);
 
             if (giveeCode.equals("none")) {
                 noGivee.add(playerCode);
             } else {
-                if (this.getPlayer(giveeCode) != null) {
-                    giveeName = this.getPlayer(giveeCode).playerName;
-                } else {
-                    giveeName = "WHOA - ERROR HERE!";
-                }
-                System.out.println(playerName + " is buying for " + giveeName);
+                System.out.println(playerName + " is buying for " + this.getPlayer(giveeCode).playerName);
             }
             if (giverCode.equals("none")) {
                 noGiver.add(playerCode);

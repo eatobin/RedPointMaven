@@ -74,7 +74,7 @@ public class RosterTest {
         // introduce an error and see if the method chokes on it
         roster.setGiveeCode("AdaBur", "anAwfullyBadPlayerCode", 0);
         System.out.println();
-        System.out.println("Check out who Adam Burish is giving to!:");
+        System.out.println("After \'roster.setGiveeCode(\"AdaBur\", \"anAwfullyBadPlayerCode\", 0);\'\nAdam Burish givee is unchanged:");
         System.out.println();
         roster.printGivingRoster(0);
 
