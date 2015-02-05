@@ -16,21 +16,21 @@ public class RosterTest {
     public void testGetPlayerName() {
         Assert.assertEquals("Troy Brouwer", roster.getPlayerName("TroBro"));
         Assert.assertEquals("Adam Burish", roster.getPlayerName("AdaBur"));
-        Assert.assertNull(roster.getPlayerName("X"));
+        Assert.assertEquals(null, roster.getPlayerName("X"));
     }
 
     @Test
     public void testGetGiveeCode() {
         Assert.assertEquals("DavBol", roster.getGiveeCode("TroBro", 0));
         Assert.assertEquals("DunKei", roster.getGiveeCode("AdaBur", 0));
-        Assert.assertNull(roster.getPlayerName("X"));
+        Assert.assertEquals(null, roster.getPlayerName("X"));
     }
 
     @Test
     public void testGetGiverCode() {
         Assert.assertEquals("JonToe", roster.getGiverCode("AdaBur", 0));
         Assert.assertEquals("DavBol", roster.getGiverCode("PatSha", 0));
-        Assert.assertNull(roster.getPlayerName("X"));
+        Assert.assertEquals(null, roster.getPlayerName("X"));
     }
 
     @Test
@@ -38,7 +38,7 @@ public class RosterTest {
         Assert.assertEquals("DunKei", roster.getGiveeCode("AdaBur", 0));
         Assert.assertEquals("MarHos", roster.setGiveeCode("AdaBur", "MarHos", 0));
         Assert.assertEquals("MarHos", roster.getGiveeCode("AdaBur", 0));
-        Assert.assertNull(roster.setGiveeCode("AdaBur", "X", 0));
+        Assert.assertEquals(null, roster.setGiveeCode("AdaBur", "X", 0));
     }
 
     @Test
@@ -46,7 +46,7 @@ public class RosterTest {
         Assert.assertEquals("JonToe", roster.getGiverCode("AdaBur", 0));
         Assert.assertEquals("MarHos", roster.setGiverCode("AdaBur", "MarHos", 0));
         Assert.assertEquals("MarHos", roster.getGiverCode("AdaBur", 0));
-        Assert.assertNull(roster.setGiverCode("AdaBur", "X", 0));
+        Assert.assertEquals(null, roster.setGiverCode("AdaBur", "X", 0));
     }
 
     @Test
