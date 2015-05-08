@@ -64,15 +64,6 @@ class Roster {
         return this.rosterList.get(playerCode);
     }
 
-    // get playerName from returned Player
-    String getPlayerName(String playerCode) {
-        if (this.getPlayer(playerCode) == null) {
-            return null;
-        } else {
-            return this.getPlayer(playerCode).playerName;
-        }
-    }
-
     String getGiveeCode(String playerCode, int giftYear) {
         if (this.getPlayer(playerCode) == null) {
             return null;
@@ -133,16 +124,6 @@ class Roster {
         return new ArrayList<String>(this.rosterList.keySet());
     }
 
-    // get team name
-    String getTeamName() {
-        return this.teamName;
-    }
-
-    // get first year
-    int getFirstYear() {
-        return this.firstYear;
-    }
-
     // print the giving roster for a given year
     void printGivingRoster(int giftYear) {
         /*
@@ -157,7 +138,7 @@ class Roster {
         ArrayList<String> noGivee = new ArrayList<String>();
         ArrayList<String> noGiver = new ArrayList<String>();
 
-        System.out.println(getTeamName() + " - Year " + (getFirstYear() + giftYear) + " Gifts:");
+        System.out.println(this.teamName + " - Year " + (this.firstYear + giftYear) + " Gifts:");
         for (String playerCode : playerCodeKeySet) {
             playerName = this.getPlayer(playerCode).playerName;
             giveeCode = this.getGiveeCode(playerCode, giftYear);

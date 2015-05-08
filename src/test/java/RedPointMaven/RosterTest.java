@@ -13,24 +13,15 @@ public class RosterTest {
     }
 
     @Test
-    public void testGetPlayerName() {
-        Assert.assertEquals("Troy Brouwer", roster.getPlayerName("TroBro"));
-        Assert.assertEquals("Adam Burish", roster.getPlayerName("AdaBur"));
-        Assert.assertEquals(null, roster.getPlayerName("X"));
-    }
-
-    @Test
     public void testGetGiveeCode() {
         Assert.assertEquals("DavBol", roster.getGiveeCode("TroBro", 0));
         Assert.assertEquals("DunKei", roster.getGiveeCode("AdaBur", 0));
-        Assert.assertEquals(null, roster.getPlayerName("X"));
     }
 
     @Test
     public void testGetGiverCode() {
         Assert.assertEquals("JonToe", roster.getGiverCode("AdaBur", 0));
         Assert.assertEquals("DavBol", roster.getGiverCode("PatSha", 0));
-        Assert.assertEquals(null, roster.getPlayerName("X"));
     }
 
     @Test
@@ -55,16 +46,6 @@ public class RosterTest {
         roster.addNewYear();
         Assert.assertEquals("none", roster.getGiveeCode("AdaBur", 1));
         Assert.assertEquals("none", roster.getGiveeCode("AdaBur", 1));
-    }
-
-    @Test
-    public void testGetTeamName() {
-        Assert.assertEquals("Blackhawks", roster.getTeamName());
-    }
-
-    @Test
-    public void testGetFirstYear() {
-        Assert.assertEquals(2010, roster.getFirstYear());
     }
 
     @Test
