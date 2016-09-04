@@ -18,7 +18,7 @@ class Roster {
         List<String> stringList;
         teamName = null;
         firstYear = 0;
-        rosterList = new TreeMap<String, Player>();
+        rosterList = new TreeMap<>();
 
         // read each line from file and depending upon length, assign values
         // to team name, roster year or a Player
@@ -51,11 +51,11 @@ class Roster {
         // constructor
         private Player(String playerName, String giveeCodeYearZero, String giverCodeCodeYearZero) {
             this.playerName = playerName;
-            giftHistory = new ArrayList<HashMap<String, String>>();
-            HashMap<String, String> roles = new HashMap<String, String>();
-            roles.put("GIVEE", giveeCodeYearZero);
-            roles.put("GIVER", giverCodeCodeYearZero);
-            giftHistory.add(roles);
+            giftHistory = new ArrayList<>();
+            HashMap<String, String> giftPair = new HashMap<>();
+            giftPair.put("GIVEE", giveeCodeYearZero);
+            giftPair.put("GIVER", giverCodeCodeYearZero);
+            giftHistory.add(giftPair);
         }
     }
 
@@ -76,9 +76,9 @@ class Roster {
         if (this.getPlayer(playerCode) == null || this.getPlayer(seteeCode) == null) {
             return null;
         } else {
-            HashMap<String, String> roles = getPlayer(playerCode).giftHistory.get(giftYear);
-            roles.put("GIVEE", seteeCode);
-            getPlayer(playerCode).giftHistory.set(giftYear, roles);
+            HashMap<String, String> giftPair = getPlayer(playerCode).giftHistory.get(giftYear);
+            giftPair.put("GIVEE", seteeCode);
+            getPlayer(playerCode).giftHistory.set(giftYear, giftPair);
             return this.getPlayer(playerCode).giftHistory.get(giftYear).get("GIVEE");
         }
     }
@@ -95,9 +95,9 @@ class Roster {
         if (this.getPlayer(playerCode) == null || this.getPlayer(seteeCode) == null) {
             return null;
         } else {
-            HashMap<String, String> roles = getPlayer(playerCode).giftHistory.get(giftYear);
-            roles.put("GIVER", seteeCode);
-            getPlayer(playerCode).giftHistory.set(giftYear, roles);
+            HashMap<String, String> giftPair = getPlayer(playerCode).giftHistory.get(giftYear);
+            giftPair.put("GIVER", seteeCode);
+            getPlayer(playerCode).giftHistory.set(giftYear, giftPair);
             return this.getPlayer(playerCode).giftHistory.get(giftYear).get("GIVER");
         }
     }
@@ -111,17 +111,17 @@ class Roster {
             if (this.getPlayer(playerCode) == null) {
                 return;
             } else {
-                HashMap<String, String> roles = new HashMap<String, String>();
-                roles.put("GIVEE", "none");
-                roles.put("GIVER", "none");
-                getPlayer(playerCode).giftHistory.add(roles);
+                HashMap<String, String> giftPair = new HashMap<>();
+                giftPair.put("GIVEE", "none");
+                giftPair.put("GIVER", "none");
+                getPlayer(playerCode).giftHistory.add(giftPair);
             }
         }
     }
 
     // get rosterList of player codes
     ArrayList<String> getRosterListCodes() {
-        return new ArrayList<String>(this.rosterList.keySet());
+        return new ArrayList<>(this.rosterList.keySet());
     }
 
     // print the giving roster for a given year
@@ -135,8 +135,8 @@ class Roster {
         String giveeCode;
         String giverCode;
         Set<String> playerCodeKeySet = rosterList.keySet();
-        ArrayList<String> noGivee = new ArrayList<String>();
-        ArrayList<String> noGiver = new ArrayList<String>();
+        ArrayList<String> noGivee = new ArrayList<>();
+        ArrayList<String> noGiver = new ArrayList<>();
 
         System.out.println(this.teamName + " - Year " + (this.firstYear + giftYear) + " Gifts:");
         for (String playerCode : playerCodeKeySet) {

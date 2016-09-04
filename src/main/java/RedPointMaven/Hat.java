@@ -1,6 +1,6 @@
 package RedPointMaven;
 
-/**
+/*
  * Class acts as a virtual hat of pucks. Hat is initialized with roster list of player codes.
  * Pucks can be drawn at random, removed and replaced after discard.
  */
@@ -12,16 +12,16 @@ class Hat {
     final ArrayList<String> pucks;
     final ArrayList<String> discards;
 
-    /**
+    /*
      * Constructor for objects of class Hat given a roster list of player codes.
      */
     Hat(ArrayList<String> rosterListCodes) {
         //initialize instance variables
-        pucks = new ArrayList<String>(rosterListCodes);
-        discards = new ArrayList<String>();
+        pucks = new ArrayList<>(rosterListCodes);
+        discards = new ArrayList<>();
     }
 
-    /**
+    /*
      * Draws a puck at random (by ArrayList index number). Returns the playerCode
      * randomly chosen or "none" if ArrayList empty.
      */
@@ -40,21 +40,21 @@ class Hat {
         }
     }
 
-    /**
+    /*
      * Removes a puck by given playerCode. Returns true if successful.
      */
     boolean removePuck(String playerCode) {
         return pucks.remove(playerCode);
     }
 
-    /**
+    /*
      * Returns the number of pucks in discards
      */
     int discardsSize() {
         return discards.size();
     }
 
-    /**
+    /*
      * If puck successfully removed, place the puck (playerCode) in the discard list. Return
      * true if both remove and discard succeed.
      */
@@ -62,7 +62,7 @@ class Hat {
         return pucks.remove(playerCode) && discards.add(playerCode);
     }
 
-    /**
+    /*
      * Return the discarded pucks to the hat for other player use.
      */
     void returnDiscards() {
