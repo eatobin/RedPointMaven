@@ -49,12 +49,12 @@ class Roster {
         private final ArrayList<HashMap<String, String>> giftHistory;
 
         // constructor
-        private Player(String playerName, String giveeCodeYearZero, String giverCodeCodeYearZero) {
+        private Player(String playerName, String giveeCodeYearZero, String giverCodeYearZero) {
             this.playerName = playerName;
             giftHistory = new ArrayList<>();
             HashMap<String, String> giftPair = new HashMap<>();
             giftPair.put("GIVEE", giveeCodeYearZero);
-            giftPair.put("GIVER", giverCodeCodeYearZero);
+            giftPair.put("GIVER", giverCodeYearZero);
             giftHistory.add(giftPair);
         }
     }
